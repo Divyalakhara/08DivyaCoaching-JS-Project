@@ -199,7 +199,7 @@
     <button class="link-btn" onclick="showForgot()">Forgot Password?</button>
     <button class="link-btn" onclick="showRegister()">Don't have an account? Register</button>
 
-    <div id="g_id_onload" data-client_id="divyascoaching-ccabb" data-context="signin"
+    <div id="g_id_onload" data-client_id="299666286642-cq34qqr3h9gqci8ug1p7vc53fd4b0a7i.apps.googleusercontent.com" data-context="signin"
       data-callback="handleGoogleLogin" data-auto_prompt="false"></div>
     <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
       data-text="signin_with" data-size="large"></div>
@@ -316,7 +316,7 @@
       const credential = firebase.auth.GoogleAuthProvider.credential(response.credential);
       auth.signInWithCredential(credential)
         .then(() => {
-          alert("Google Login Success");
+        //   alert("Google Login Success");
           window.location.href = "dashboard.html";
         })
         .catch(error => alert("Google Login Error: " + error.message));
