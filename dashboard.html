@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard - Divya's Coaching</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                url('https://images.unsplash.com/photo-1584697964154-1b2d08d1ec2f') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        #logoutBtn {
+            padding: 10px 18px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #logoutBtn:hover {
+            background-color: #c0392b;
+        }
+
+        .controls {
+            max-width: 960px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .controls input,
+        .controls select {
+            padding: 10px 14px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            min-width: 180px;
+        }
+
+        .action-btn {
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+        }
+
+        .print {
+            background: linear-gradient(to right, #3498db, #2980b9);
+        }
+
+        .print:hover {
+            background: linear-gradient(to right, #2980b9, #2471a3);
+        }
+
+        .download {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+        }
+
+        .download:hover {
+            background: linear-gradient(to right, #27ae60, #229954);
+        }
+
+        .student-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .student-card {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            border: 3px solid #3498db;
+        }
+
+        .student-card h3 {
+            font-size: 20px;
+            margin: 8px 0 4px;
+            color: #2c3e50;
+        }
+
+        .student-card p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(90deg, #2c3e50, #2980b9);
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-bottom: 2px solid #21618c;
+            /* border-bottom: 2px solid #21618c; */
+            flex-wrap: wrap;
+            /* Wrap content if screen is small */
+        }
+
+
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            flex-grow: 1;
+            text-align: center;
+
+
+        }
+
+        #logoutBtn {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #logoutBtn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <h1>Divya's Coaching Dashboard</h1>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="🔍 Search by name">
+        <select id="classFilter">
+            <option value="">All Classes</option>
+            <option value="2">Class 2</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+            <option value="6">Class 6</option>
+        </select>
+        <select id="sortBy">
+            <option value="name">Sort by Name</option>
+            <option value="class">Sort by Class</option>
+        </select>
+        <button class="action-btn print" onclick="printReport()">🖨️ Print</button>
+        <button class="action-btn download" onclick="downloadCSV()">⬇️ CSV</button>
+    </div>
+
+    <div class="student-container" id="studentList"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyATepFOalx-20QzYAMVBAtmYHq0IcFzlc4",
+            authDomain: "divyascoaching-ccabb.firebaseapp.com",
+            projectId: "divyascoaching-ccabb",
+            storageBucket: "divyascoaching-ccabb.appspot.com",
+            messagingSenderId: "299666286642",
+            appId: "1:299666286642:web:aa4fe270b604311965b42b",
+            measurementId: "G-5949BP594K"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const students = [
+            { name: "Navya", class: "4", img: "WhatsApp Image 2025-07-25 at 12.42.18.jpeg", joined: "2023-06-01" },
+            { name: "Piyush", class: "4", img: "WhatsApp Image 2025-07-25 at 12.38.59 (1).jpeg", joined: "2023-08-15" },
+            { name: "Ishita", class: "6", img: "WhatsApp Image 2025-07-25 at 12.38.59.jpeg", joined: "2024-01-10" },
+            { name: "Aryan", class: "5", img: "WhatsApp Image 2025-07-25 at 12.36.25.jpeg", joined: "2023-11-25" },
+            { name: "Ayush", class: "2", img: "WhatsApp Image 2025-07-25 at 12.27.13.jpeg", joined: "2023-04-05" }
+        ];
+
+        function loadStudents() {
+            const container = document.getElementById("studentList");
+            container.innerHTML = "";
+
+            const search = document.getElementById("searchInput").value.toLowerCase();
+            const selectedClass = document.getElementById("classFilter").value;
+            const sortBy = document.getElementById("sortBy").value;
+
+            let filtered = students.filter(s =>
+                s.name.toLowerCase().includes(search) &&
+                (selectedClass === "" || s.class === selectedClass)
+            );
+
+            if (sortBy === "name") {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === "class") {
+                filtered.sort((a, b) => a.class.localeCompare(b.class));
+            }
+
+            filtered.forEach(std => {
+                const card = document.createElement("div");
+                card.className = "student-card";
+                const fallbackImg = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+                card.innerHTML = `
+                    <img src="${std.img}" alt="${std.name}" onerror="this.src='${fallbackImg}'">
+                    <h3>${std.name}</h3>
+                    <p>Class: ${std.class}</p>
+                    <p>Joined: ${std.joined}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function logout() {
+            signOut(auth).then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Error signing out:", error);
+                alert("Logout failed. Please try again.");
+            });
+        }
+
+        function printReport() {
+            window.print();
+        }
+
+        function downloadCSV() {
+            const csv = ["Name,Class,Joined Date"];
+            students.forEach(s => {
+                csv.push(`${s.name},${s.class},${s.joined}`);
+            });
+            const blob = new Blob([csv.join("\n")], { type: 'text/csv' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "students_report.csv";
+            link.click();
+        }
+
+        window.logout = logout;
+
+        document.getElementById("searchInput").addEventListener("input", loadStudents);
+        document.getElementById("classFilter").addEventListener("change", loadStudents);
+        document.getElementById("sortBy").addEventListener("change", loadStudents);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loadStudents();
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+
+</html>
