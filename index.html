@@ -203,6 +203,25 @@
         .hidden {
             display: none;
         }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .clear-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #999;
+            display: none;
+        }
+
+        .input-wrapper input:not(:placeholder-shown)+.clear-icon {
+            display: block;
+        }
     </style>
 </head>
 
@@ -213,8 +232,12 @@
 
     <div class="container" id="loginBox">
         <h2>Login</h2>
-        <input type="text" id="loginUserId" placeholder="Email ID" />
+        <div class="input-wrapper">
+            <input type="text" id="loginUserId" placeholder="Email ID" />
+            <span class="clear-icon" onclick="clearInput('loginUserId')">&times;</span>
+        </div>
         <input type="password" id="loginPassword" placeholder="Password" />
+
         <button onclick="login()">Login</button>
         <button class="link-btn" onclick="showForgot()">Forgot Password?</button>
         <button class="link-btn" onclick="showRegister()">Don't have an account? Register</button>
@@ -364,6 +387,19 @@
         const script = document.createElement("script");
         script.src = "https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js";
         document.head.appendChild(script);
+        function clearInput(id) {
+            const input = document.getElementById(id);
+            input.value = "";
+            input.focus();
+            input.dispatchEvent(new Event('input')); // to re-trigger the visibility of clear icon
+        }
+
+        document.querySelectorAll('.input-wrapper input').forEach(input => {
+            input.addEventListener('input', function () {
+                const icon = this.nextElementSibling;
+                icon.style.display = this.value ? 'block' : 'none';
+            });
+        });
     </script>
 </body>
 
