@@ -183,6 +183,26 @@
         transform: scale(1);
       }
     }
+    #messageBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffdddd;
+  color: #a94442;
+  padding: 20px 30px;
+  border: 1px solid #a94442;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
   </style>
 </head>
 
@@ -229,6 +249,7 @@
       <button onclick="closeModal()">OK</button>
     </div>
   </div>
+  <div id="messageBox" class="hidden">Please enter a valid email address.</div>
 
   <script>
     const firebaseConfig = {
@@ -261,24 +282,64 @@
       document.getElementById("registerBox").style.display = "none";
       document.getElementById("forgotBox").style.display = "block";
     }
+    function showMessage(msg) {
+  const box = document.getElementById("messageBox");
+  box.textContent = msg;
+  box.classList.remove("hidden");
 
-    function register() {
-      const name = document.getElementById("regName").value;
-      const email = document.getElementById("regEmail").value;
-      const password = document.getElementById("regPassword").value;
+  setTimeout(() => {
+    box.classList.add("hidden");
+  }, 3000); // Hide after 3 seconds
+}
 
-      if (!name || !email || !password) {
-        alert("Please fill all fields.");
-        return;
-      }
+function register() {
+  const name = document.getElementById("regName").value;
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
 
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          alert("Registration successful!");
-          showLogin();
-        })
-        .catch(error => alert("Error: " + error.message));
-    }
+const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+  if (!name || !email || !password) {
+    showMessage("Please fill all the fields.");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    showMessage("Invalid email format. Please enter a valid email like 'example@.com'.");
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      showMessage("Registration successful!");
+      showLogin();
+    })
+    .catch(error => showMessage("Error: " + error.message));
+}
+
+
+//     function register() {
+//       const name = document.getElementById("regName").value;
+//       const email = document.getElementById("regEmail").value;
+//       const password = document.getElementById("regPassword").value;
+
+//   if (!name || !email || !password) {
+//     showMessage("Please fill all the fields.");
+//     return;
+//   }
+
+//   if (!emailRegex.test(email)) {
+//     showMessage("Invalid email format. Please enter a valid email.");
+//     return;
+//   }
+
+//       auth.createUserWithEmailAndPassword(email, password)
+//         .then(() => {
+//           alert("Registration successful!");
+//           showLogin();
+//         })
+//         .catch(error => alert("Error: " + error.message));
+//     }
 
     function login() {
       const email = document.getElementById("loginUserId").value;
