@@ -429,6 +429,14 @@
                 icon.style.display = this.value ? 'block' : 'none';
             });
         });
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("login") === "true") {
+                document.getElementById("loginBox").style.display = "block";
+                document.getElementById("registerBox").style.display = "none";
+                document.getElementById("forgotBox").style.display = "none";
+            }
+        };
     </script>
 </body>
 

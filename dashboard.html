@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Dashboard - Divya's Coaching</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -222,14 +225,10 @@
             apiKey: "AIzaSyATepFOalx-20QzYAMVBAtmYHq0IcFzlc4",
             authDomain: "divyascoaching-ccabb.firebaseapp.com",
             projectId: "divyascoaching-ccabb",
-            storageBucket: "divyascoaching-ccabb.appspot.com",
-            messagingSenderId: "299666286642",
-            appId: "1:299666286642:web:aa4fe270b604311965b42b",
-            measurementId: "G-5949BP594K"
+            appId: "1:299666286642:web:aa4fe270b604311965b42b"
         };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
         const students = [
             { name: "Navya", class: "4", img: "WhatsApp Image 2025-07-25 at 12.42.18.jpeg", joined: "2023-06-01" },
@@ -272,14 +271,6 @@
             });
         }
 
-        function logout() {
-            signOut(auth).then(() => {
-                window.location.href = "index.html";
-            }).catch((error) => {
-                console.error("Error signing out:", error);
-                alert("Logout failed. Please try again.");
-            });
-        }
 
         function printReport() {
             window.print();
@@ -310,6 +301,14 @@
                 window.location.href = "index.html";
             }
         });
+
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "MainPage.html?login=true";
+            });
+        }
+
+
     </script>
 </body>
 

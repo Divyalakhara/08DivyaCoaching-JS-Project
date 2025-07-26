@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya's Coaching</title>
+
+    <!-- ✅ Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ✅ Blur main content when modal is open */
+        #mainContent.blur {
+            filter: blur(6px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Header */
+        .site-header {
+            background: linear-gradient(90deg, #1b2838, #2980b9);
+            padding: 15px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #ffffffd9;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        /* Active Home */
+        .navbar a.active {
+            background-color: #2c7be5;
+            color: #fff;
+        }
+
+        /* Regular hover for menu */
+        .navbar .menu a:hover {
+            background-color: #2c7be5;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Auth buttons */
+        .navbar .auth a.join-btn {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+        .navbar .auth a.login-btn {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        .navbar .auth a:hover {
+            opacity: 0.85;
+            transform: scale(1.05);
+        }
+
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .alert-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 3000;
+            text-align: center;
+            width: 300px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .alert-box p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .alert-box button {
+            background: #2c7be5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+
+        /* Container */
+        .container {
+            position: relative;
+            width: 380px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .container input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+            background: #fff;
+            transition: border-color 0.3s;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 16px;
+            background: #2c7be5;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .link-btn {
+            background: none;
+            color: #2c7be5;
+            border: none;
+            margin-top: 10px;
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Google Sign-In */
+        #g_id_onload,
+        .g_id_signin {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding: 12px;
+            padding-right: 40px;
+            /* space for eye */
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mainContent">
+        <header class="site-header">
+            <h2>Divya's Coaching</h2>
+            <nav class="navbar">
+                <ul class="menu">
+                    <li><a href="#Home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+                <ul class="auth">
+                    <li><a href="#login" class="login-btn" onclick="openLogin()">Log in</a></li>
+                    <li><a href="#join" class="join-btn" onclick="openRegister()">Join for Free</a></li>
+                </ul>
+
+            </nav>
+        </header>
+    </div>
+
+    <!-- ✅ Modal -->
+    <div id="loginModal" class="modal">
+        <!-- Login Box -->
+        <div class="container" id="loginBox">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h2>Login</h2>
+            <input type="text" id="loginEmail" placeholder="Email ID">
+            <div class="password-container">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <span class="toggle-password" onclick="togglePassword('loginPassword', this)">👁️</span>
+            </div>
+
+            <!-- <input type="password" id="loginPassword" placeholder="Password"> -->
+            <button onclick="login()">Login</button>
+            <button class="link-btn" onclick="showForgot()">Forgot Password?</button>
+            <button class="link-btn" onclick="showRegister()">Register</button>
+
+            <!-- Google Sign-In -->
+            <div id="g_id_onload"
+                data-client_id="299666286642-cq34qqr3h9gqci8ug1p7vc53fd4b0a7i.apps.googleusercontent.com"
+                data-context="signin" data-callback="handleGoogleLogin" data-auto_prompt="false"></div>
+            <div class="g_id_signin" data-type="standard" data-size="large"></div>
+        </div>
+
+
+        <!-- Register Box -->
+        <div class="container" id="registerBox" style="display:none;">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h2>Register</h2>
+            <input type="text" id="regName" placeholder="Name">
+            <input type="email" id="regEmail" placeholder="Email">
+            <div class="password-container">
+                <input type="password" id="regPassword" placeholder="Password">
+                <span class="toggle-password" onclick="togglePassword('regPassword', this)">👁️</span>
+            </div> <button onclick="register()">Register</button>
+            <button class="link-btn" onclick="showLogin()">Back to Login</button>
+        </div>
+
+        <div id="customAlert" class="alert-box">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+
+        <!-- Forgot Box -->
+        <div class="container" id="forgotBox" style="display:none;">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+            <h2>Forgot Password</h2>
+            <input type="email" id="forgotEmail" placeholder="Enter Email">
+            <button onclick="forgotPassword()">Send Link</button>
+            <button class="link-btn" onclick="showLogin()">Back to Login</button>
+        </div>
+    </div>
+
+    <script>
+        /* ✅ Firebase Config */
+        const firebaseConfig = {
+            apiKey: "AIzaSyATepFOalx-20QzYAMVBAtmYHq0IcFzlc4",
+            authDomain: "divyascoaching-ccabb.firebaseapp.com",
+            projectId: "divyascoaching-ccabb",
+            appId: "1:299666286642:web:aa4fe270b604311965b42b"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        function showAlert(message) {
+            document.getElementById('alertMessage').innerText = message;
+            document.getElementById('customAlert').style.display = 'block';
+        }
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+        /* ✅ Modal Functions */
+        function openLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+            document.getElementById('mainContent').classList.add('blur');
+            showLogin();
+        }
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('mainContent').classList.remove('blur');
+        }
+
+        function showLogin() {
+            document.getElementById('loginBox').style.display = 'block';
+            document.getElementById('registerBox').style.display = 'none';
+            document.getElementById('forgotBox').style.display = 'none';
+        }
+        function showRegister() {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('registerBox').style.display = 'block';
+            document.getElementById('forgotBox').style.display = 'none';
+        }
+        function showForgot() {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('registerBox').style.display = 'none';
+            document.getElementById('forgotBox').style.display = 'block';
+        }
+
+        /* ✅ Firebase Functions */
+        function login() {
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("loginPassword").value.trim();
+
+            if (!email && !password) {
+                showAlert("Please enter your email and password.");
+                return;
+            }
+            if (!email) {
+                showAlert("Email address is required.");
+                return;
+            }
+            if (!password) {
+                showAlert("Password is required.");
+                return;
+            }
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    window.location.href = "dashboard.html";
+                })
+                .catch(err => {
+                    if (
+                        err.code === "auth/user-not-found" ||
+                        err.code === "auth/wrong-password" ||
+                        err.code === "auth/invalid-credential"
+                    ) {
+                        showAlert("❌ Sorry, we don't recognize that username or password. You can try again or reset your password.");
+                    } else if (err.code === "auth/invalid-email") {
+                        showAlert("⚠️ Please enter a valid email address.");
+                    } else {
+                        showAlert("Login failed: " + err.message);
+                    }
+                });
+        }
+
+
+
+
+        function openRegister() {
+            document.getElementById('loginModal').style.display = 'flex';
+            document.getElementById('mainContent').classList.add('blur');
+            showRegister(); // directly open Register Box
+        }
+
+        function register() {
+            const email = document.getElementById("regEmail").value.trim();
+            const password = document.getElementById("regPassword").value.trim();
+
+            if (!email && !password) {
+                showAlert("Please fill in all registration details.");
+                return;
+            }
+            if (!email) {
+                showAlert("Email is required to register.");
+                return;
+            }
+            if (!password) {
+                showAlert("Password is required to register.");
+                return;
+            }
+            if (password.length < 6) {
+                showAlert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    showAlert("✅ Registration successful! You can now log in.");
+                    showLogin();
+                })
+                .catch(err => {
+                    // 🔹 Handle specific Firebase error codes
+                    if (err.code === "auth/email-already-in-use") {
+                        showAlert("⚠️ This email is already registered. Please log in instead.");
+                    } else if (err.code === "auth/invalid-email") {
+                        showAlert("⚠️ Please enter a valid email address.");
+                    } else if (err.code === "auth/weak-password") {
+                        showAlert("⚠️ Password is too weak. Use at least 6 characters.");
+                    } else {
+                        showAlert("❌ Registration failed: " + err.message);
+                    }
+                });
+        }
+
+
+        function forgotPassword() {
+            const email = document.getElementById("forgotEmail").value.trim();
+
+            if (!email) {
+                showAlert("Please enter your email address to reset password.");
+                return;
+            }
+
+            auth.sendPasswordResetEmail(email)
+                .then(() => showAlert("Password reset link has been sent to your email."))
+                .catch(err => showAlert("Error: " + err.message));
+        }
+        /* ✅ Google Login */
+        function handleGoogleLogin(response) {
+            const credential = firebase.auth.GoogleAuthProvider.credential(response.credential);
+            auth.signInWithCredential(credential)
+                .then(() => window.location.href = "dashboard.html")
+                .catch(err => alert(err.message));
+        }
+
+        /* ✅ Show login modal if redirected after logout */
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("login") === "true") {
+                openLogin();
+            }
+        };
+
+        /* ✅ Close modal when clicking outside */
+        document.getElementById('loginModal').addEventListener('click', function (e) {
+            if (e.target === this) closeLogin();
+        });
+
+
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("login") === "true") {
+                openLogin();  // only open after logout
+            } else {
+                closeLogin(); // keep closed by default
+            }
+        };
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('mainContent').classList.remove('blur');
+
+            // 🔹 Clear all inputs when closing modal
+            document.querySelectorAll('#loginModal input').forEach(input => input.value = "");
+        }
+
+        document.querySelectorAll('.navbar .menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                // remove active from all
+                document.querySelectorAll('.navbar .menu a').forEach(a => a.classList.remove('active'));
+                // add active to clicked one
+                this.classList.add('active');
+            });
+        });
+
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "🙈"; // Change icon when visible
+            } else {
+                input.type = "password";
+                icon.textContent = "👁️"; // Back to hidden
+            }
+        }
+    </script>
+
+</body>
+
+</html>
