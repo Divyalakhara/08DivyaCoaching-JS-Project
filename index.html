@@ -91,8 +91,8 @@
             background-color: lightgreen;
             /* Darker green */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-            
-            color:darkcyan;
+
+            color: darkcyan;
         }
 
         .navbar .auth a.login-btn {
@@ -113,6 +113,29 @@
             opacity: 0.85;
             transform: scale(1.05);
         }
+
+        /* ✅ Fix for mobile "fat" buttons and text */
+        .navbar .auth a,
+        .navbar .menu a {
+            font-weight: 500;
+            /* Prevents extra bold effect */
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* ✅ Adjust for smaller screens */
+        @media (max-width: 600px) {
+
+            .navbar .auth a,
+            .navbar .menu a {
+                padding: 8px 12px;
+                /* Reduce padding */
+                font-size: 15px;
+                /* Keep consistent font */
+                font-weight: 500;
+            }
+        }
+
 
         .modal {
             display: none;
@@ -296,11 +319,10 @@
             transform: translateY(-2px);
             border-radius: 120px;
         }
-  
+
         .join-us-button:active {
             transform: translateY(1px);
         }
-        
     </style>
 </head>
 
@@ -321,7 +343,7 @@
                     <li><a href="#courses">Courses</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contactUs" class="join-us-button" onclick="openContact()">Contact Us</a></li>
+                    <li><a href="#contactUs" onclick="openContact()">Contact Us</a></li>
                 </ul>
                 <!-- Auth Buttons -->
                 <ul class="auth">
@@ -547,15 +569,15 @@
         function openJoinUs() {
             window.location.href = "JoinUs.html";
         }
-          function openContact(){
+        function openContact() {
             window.location.href = "contact.html";
-          }
+        }
 
         // ✅ Ensure Home page loads first without modal
         window.onload = function () {
             closeLogin();
         };
-      
+
 
     </script>
 </body>
