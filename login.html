@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Divya's Coaching</title>
+    <link rel="stylesheet" href="auth.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div class="container" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="loginEmail" placeholder="Email ID">
+        <div class="password-container">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <span class="toggle-password" onclick="togglePassword('loginPassword', this)">👁️</span>
+        </div>
+        <button onclick="login()">Login</button>
+        <button class="link-btn" onclick="window.location.href='forgot.html'">Forgot Password?</button>
+        <button class="link-btn" onclick="window.location.href='register.html'">Register</button>
+
+        <div id="g_id_onload" data-client_id="299666286642-cq34qqr3h9gqci8ug1p7vc53fd4b0a7i.apps.googleusercontent.com"
+            data-context="signin" data-callback="handleGoogleLogin" data-auto_prompt="false"></div>
+        <div class="g_id_signin" data-type="standard" data-size="large"></div>
+    </div>
+
+    <div id="alert-container"></div>
+
+    <!-- Firebase + Auth JS -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script> <!-- ✅ Add this -->
+    <script src="auth.js"></script>
+    <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-container').innerHTML = html)
+            .catch(err => console.error("Error loading navbar:", err));
+
+
+
+    </script>
+</body>
+
+</html>

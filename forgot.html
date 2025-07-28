@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - Divya's Coaching</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+    <div class="container" id="forgotBox">
+        <h2>Forgot Password</h2>
+        <input type="email" id="forgotEmail" placeholder="Enter Email">
+        <button onclick="forgotPassword()">Send Link</button>
+        <button class="link-btn" onclick="window.location.href='login.html'">Back to Login</button>
+    </div>
+
+    <!-- Firebase + Auth JS -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

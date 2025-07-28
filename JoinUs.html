@@ -1,94 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Us - Divya's Coaching</title>
-  
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover; 
-    }
+  <link rel="stylesheet" href="auth.css">
+  <!-- <link rel="stylesheet" href="joinus.css">   -->
 
-    .contact-container {
-        position: relative;
-      max-width: 600px;
-      margin: 80px auto;
-      background: rgba(255,255,255,0.95);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #2c3e50;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #2c7be5;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      background: #1a5fc3;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-      color: #2c7be5;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: red;
-}
-
-  </style>
 </head>
-<body>
 
-  <div class="contact-container">
-      <span class="close-btn" onclick="window.location.href='index.html'">&times;</span>
+<body>
+  <div id="navbar-container"></div>
+  <div class="div-border">
+    <a href="contact.html">Our Contact</a>
+  </div>
+  <div class="container">
+
     <h2>Join Us</h2>
     <input type="text" id="contactName" placeholder="Your Name">
     <input type="email" id="contactEmail" placeholder="Your Email">
@@ -98,53 +27,17 @@
     <a href="index.html" class="back-link">← Back to Home</a>
   </div>
 
-  <!-- ✅ Firebase SDK -->
+
+  <!-- Firebase + Auth JS -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="auth.js"></script>
   <script>
-    // ✅ Firebase Config
-    const firebaseConfig = {
-            apiKey: "AIzaSyATepFOalx-20QzYAMVBAtmYHq0IcFzlc4",
-            authDomain: "divyascoaching-ccabb.firebaseapp.com",
-            projectId: "divyascoaching-ccabb",
-            appId: "1:299666286642:web:aa4fe270b604311965b42b"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-
-
-    // ✅ Send Contact Data
-    function sendContact() {
-      const name = document.getElementById("contactName").value.trim();
-      const email = document.getElementById("contactEmail").value.trim();
-      const phone = document.getElementById("contactPhone").value.trim();
-      const message = document.getElementById("contactMessage").value.trim();
-
-      console.log("Submitting:", { name, email, phone, message }); // ✅ Debug log
-
-      if (!name || !email || !phone || !message) {
-        alert("⚠️ Please fill all fields before submitting.");
-        return;
-      }
-
-      db.collection("join_us").add({
-        name: name,
-        email: email,
-        phone: phone,
-        message: message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      })
-      .then(() => {
-        alert("✅ Thank you " + name + "! Your details have been saved.");
-        document.querySelectorAll("input, textarea").forEach(input => input.value = "");
-      })
-      .catch(error => {
-        console.error("Firestore Error:", error); // ✅ Debug log
-        alert("❌ Error saving data: " + error.message);
-      });
-    }
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar-container').innerHTML = html)
+      .catch(err => console.error("Error loading navbar:", err));
   </script>
-
 </body>
+
 </html>

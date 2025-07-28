@@ -1,0 +1,106 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background 0.4s ease, padding 0.3s ease;
+    animation: slideDown 0.7s ease;
+}
+
+/* 🔥 Navbar entry animation */
+@keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.navbar .brand img {
+    height: 55px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.navbar .brand img:hover {
+    transform: scale(1.1) rotate(-3deg);
+    filter: drop-shadow(0 0 8px #ffd369);
+}
+
+/* ✅ Menu styling */
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 🌈 Fancy underline hover */
+.navbar .menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar .menu a:hover::after {
+    width: 80%;
+}
+
+.navbar .menu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd369;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+/* ✅ Auth buttons */
+.navbar .auth {
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .auth a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #2c7be5, #6a11cb);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .auth a:hover {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+}

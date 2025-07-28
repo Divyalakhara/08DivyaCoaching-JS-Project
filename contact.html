@@ -1,12 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Divya Coaching</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    /* Page Load Fade In */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #2c003e, #1f0030, #3b0066, #200033);
+      background-size: 400% 400%;
+      animation: bgMove 12s ease infinite;
+      color: #eee;
+      padding-top: 70px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Floating Card Effect */
+    .contact-option {
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transform: translateY(0);
+    }
+
+    .contact-option:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(107, 70, 193, 0.4);
+    }
+
+    /* Smooth Accordion with Opacity */
+    .hidden-features {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .expanded {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* Input Focus */
+    .contact-form input,
+    .contact-form textarea {
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #6b46c1;
+      box-shadow: 0 0 8px rgba(107, 70, 193, 0.6);
+    }
+
+    /* Social Icon Animation */
+    .social-icon {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2) rotate(5deg);
+      color: #6b46c1;
+    }
+
+    /* Pulse Animation for Heading */
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+
 </head>
+
 <body>
-    <div></div>
-    
+  <div id="navbar-container"></div>
+  <div class="container mx-auto px-4 py-12">
+    <header class="text-center mb-12">
+      <div class="logo mb-6">
+        <!-- <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/465af74d-25b4-4e23-905d-cf17efb300ee.png" alt="Divya Coaching logo with lotus symbol in purple and gold colors" class="mx-auto" /> -->
+      </div>
+      <h1 class="text-4xl font-bold text-purple-800 mb-4">Contact Our Team</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Connect with us through multiple channels. Click on any option
+        to reveal more about.</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Phone Contact -->
+      <div class="contact-option bg-white rounded-xl p-6 cursor-pointer" onclick="toggleFeatures('phone-features')">
+        <div class="flex items-center mb-4">
+          <div class="bg-purple-100 p-3 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Call Us</h3>
+        </div>
+        <p class="text-gray-600 mb-2">Tap to see available phone options</p>
+        <div id="phone-features" class="hidden-features">
+          <div class="mt-4 space-y-3">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+1234567890" class="text-purple-600 hover:text-purple-800">Main: +91 7976675411</a>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+1987654321" class="text-purple-600 hover:text-purple-800">Support: +919717569399</a>
+            </div>
+            <div class="bg-purple-50 p-3 rounded-lg mt-4">
+              <h4 class="font-medium text-purple-800 mb-1">Call Timings</h4>
+              <p class="text-sm text-gray-600">Monday-Friday: 9AM-6PM</p>
+              <p class="text-sm text-gray-600">Saturday: 10AM-2PM</p>
+              <p class="text-sm text-gray-600">Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Contact -->
+      <div class="contact-option bg-white rounded-xl p-6 cursor-pointer" onclick="toggleFeatures('email-features')">
+        <div class="flex items-center mb-4">
+          <div class="bg-purple-100 p-3 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Email Us</h3>
+        </div>
+        <p class="text-gray-600 mb-2">Tap to see email options and form</p>
+        <div id="email-features" class="hidden-features">
+          <div class="mt-4 space-y-3">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+              </svg>
+              <a href="mailto:info@divyacoaching.com"
+                class="text-purple-600 hover:text-purple-800">divyalakhara08@gmail.com</a>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+              </svg>
+              <a href="mailto:support@divyacoaching.com"
+                class="text-purple-600 hover:text-purple-800">laxkar.vinod010@gmail.com</a>
+            </div>
+            <div class="contact-form mt-4">
+              <h4 class="font-medium text-purple-800 mb-3">Quick Message</h4>
+              <form>
+                <div class="mb-3">
+                  <input type="text" placeholder="Your Name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-200" />
+                </div>
+                <div class="mb-3">
+                  <input type="email" placeholder="Your Email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-200" />
+                </div>
+                <div class="mb-3">
+                  <textarea rows="3" placeholder="Your Message"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-200"></textarea>
+                </div>
+                <button type="submit"
+                  class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-200">Send
+                  Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visit Us -->
+      <div class="contact-option bg-white rounded-xl p-6 cursor-pointer" onclick="toggleFeatures('visit-features')">
+        <div class="flex items-center mb-4">
+          <div class="bg-purple-100 p-3 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800">Visit Us</h3>
+        </div>
+        <p class="text-gray-600 mb-2">Tap to see location and directions</p>
+        <div id="visit-features" class="hidden-features">
+          <div class="mt-4 space-y-3">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500 mr-2 mt-1" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <div>
+                <p class="text-purple-600 font-medium">Divya Coaching Center</p>
+                <p class="text-gray-600">226, Shastri Nagar</p>
+                <p class="text-gray-600">Rajiv Gandhi Street, Erode, Tamil Nadu</p>
+              </div>
+            </div>
+            <div class="mt-2">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.123456789012!2d77.12345678901234!3d11.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba0a1234567890%3A0x1234567890abcdef!2s226%2C%20Shastri%20Nagar%2C%20Rajiv%20Gandhi%20Street%2C%20Erode%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890123"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=226,+Shastri+Nagar,+Rajiv+Gandhi+Street,+Erode,+Tamil+Nadu"
+                target="_blank" class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                Get Directions
+              </a>
+              <button class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                View Map
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-white rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center animate-pulse">Direct Contact Channels</h2>
+      <div class="flex flex-wrap justify-center gap-6 mb-8 animate-bounce">
+        <div class="bg-purple-50 p-4 rounded-lg text-center">
+          <p class="font-medium text-purple-700">Phone Number</p>
+          <a href="tel:+917976675411"
+            class="text-lg text-purple-600 hover:text-purple-800 transition-all duration-300 transform hover:scale-105">+91
+            7976675411</a>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-lg text-center">
+          <p class="font-medium text-purple-700">Email Address</p>
+          <a href="mailto:divyalakhara08@gmail.com"
+            class="text-lg text-purple-600 hover:text-purple-800 transition-all duration-300 transform hover:scale-105">divyalakhara08@gmail.com</a>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-purple-800 mb-6">Connect With Us</h2>
+
+      <div class="social-links flex justify-center space-x-6 mb-8">
+        <a href="https://facebook.com/" target="_blank" class="social-icon text-gray-600 hover:text-purple-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+          </svg>
+        </a>
+        <a href="https://twitter.com/YourProfile" target="_blank" class="social-icon text-gray-600 hover:text-blue-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+          </svg>
+        </a>
+        <a href="https://instagram.com" class="social-icon text-gray-600 hover:text-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/YourProfile" target="_blank"
+          class="social-icon text-gray-600 hover:text-blue-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+        </a>
+        <a href="https://t.me/YourUsername" target="_blank" class="social-icon text-gray-600 hover:text-green-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-purple-800 mb-4">Subscribe to Newsletter</h3>
+          <div class="flex">
+            <input type="email" placeholder="Your Email"
+              class="flex-grow px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-200" />
+            <button
+              class="bg-purple-600 text-white px-4 py-2 rounded-r-lg hover:bg-purple-700 transition duration-200">Subscribe</button>
+          </div>
+          <p class="text-sm text-gray-500 mt-2">Get updates on our latest programs and events</p>
+        </div>
+
+        <div class="flex-1">
+          <h3 class="text-lg font-semibold text-purple-800 mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-purple-600 hover:text-purple-800">FAQs</a></li>
+            <li><a href="#" class="text-purple-600 hover:text-purple-800">Testimonials</a></li>
+            <li><a href="#" class="text-purple-600 hover:text-purple-800">Our Team</a></li>
+            <li><a href="#" class="text-purple-600 hover:text-purple-800">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer class="bg-purple-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">© 2023 Divya Coaching. All rights reserved.</p>
+      <p class="text-purple-200">Empowering minds, transforming lives.</p>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script> <!-- ✅ Add this -->
+  <script src="auth.js"></script>
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar-container').innerHTML = html)
+      .catch(err => console.error("Error loading navbar:", err));
+  </script>
+
+  <script>
+
+    function toggleFeatures(id) {
+      const element = document.getElementById(id);
+      element.classList.toggle('expanded');
+
+      // Close other expanded features
+      document.querySelectorAll('.hidden-features').forEach(feature => {
+        if (feature.id !== id && feature.classList.contains('expanded')) {
+          feature.classList.remove('expanded');
+        }
+      });
+    }
+
+    // Form submission handler
+    document.querySelector('.contact-form form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+
+    // Copy phone number on click
+    document.querySelector('a[href^="tel:"]').addEventListener('click', function (e) {
+      navigator.clipboard.writeText('+917976675411');
+      alert('Phone number copied to clipboard!');
+    });
+
+    // Copy email on click
+    document.querySelector('a[href^="mailto:"]').addEventListener('click', function (e) {
+      navigator.clipboard.writeText('divyalakhara08@gmail.com');
+      alert('Email address copied to clipboard!');
+    });
+
+    // Newsletter submission handler
+    document.querySelectorAll('button[type="submit"]').forEach(btn => {
+      if (btn.textContent === 'Subscribe') {
+        btn.addEventListener('click', function () {
+          const emailInput = this.parentElement.querySelector('input[type="email"]');
+          if (emailInput.value) {
+            alert('Thank you for subscribing to our newsletter!');
+            emailInput.value = '';
+          } else {
+            alert('Please enter your email address.');
+          }
+        });
+      }
+    });
+  </script>
 </body>
+
 </html>

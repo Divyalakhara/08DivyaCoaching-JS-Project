@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Divya's Coaching</title>
+    <link rel="stylesheet" href="auth.css">
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container" id="registerBox">
+        <h2>Register</h2>
+        <input type="text" id="regName" placeholder="Name">
+        <input type="email" id="regEmail" placeholder="Email">
+        <div class="password-container">
+            <input type="password" id="regPassword" placeholder="Password">
+            <span class="toggle-password" onclick="togglePassword('regPassword', this)">👁️</span>
+        </div>
+        <button onclick="register()">Register</button>
+        <button class="link-btn" onclick="window.location.href='login.html'">Back to Login</button>
+    </div>
+
+
+
+    <!-- Firebase + Auth JS -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script> <!-- ✅ Add this -->
+    <script src="auth.js"></script>
+    <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-container').innerHTML = html)
+            .catch(err => console.error("Error loading navbar:", err));
+
+
+    </script>
+    </script>
+</body>
+
+</html>
