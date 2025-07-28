@@ -81,9 +81,9 @@
 .navbar .auth {
     display: flex;
     list-style: none;
-    gap: 12px;
+    gap: 1px;
     margin: 0;
-    padding: 0;
+    padding-right: 40px;
 }
 
 .navbar .auth a {
