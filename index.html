@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divya's Coaching</title>
-    <link rel="stylesheet" href="navbar.css">
+     <!-- ✅ Preload navbar.css -->
+    <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="navbar.css"></noscript>
+
+    <!-- ✅ Inline minimal navbar CSS to avoid vertical flash -->
+    <style>
+        .navbar { display:flex; justify-content:space-between; align-items:center; }
+        .navbar ul { display:flex; list-style:none; margin:0; padding:0; }
+        .navbar li { margin:0 10px; }
+    </style>
 
     <style>
         body {

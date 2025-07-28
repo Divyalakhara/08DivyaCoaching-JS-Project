@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Divya's Coaching</title>
+    <!-- ✅ Preload navbar.css -->
+    <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="navbar.css">
+    </noscript>
+
+    <!-- ✅ Inline fallback to avoid vertical navbar -->
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+    </style>
     <link rel="stylesheet" href="auth.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
