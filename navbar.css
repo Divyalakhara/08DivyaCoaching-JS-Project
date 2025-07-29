@@ -24,7 +24,7 @@
 }
 
 .navbar .brand img {
-    height: 55px;
+    height: 70px; /* Slightly smaller to align with text height */
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Divya Classes - Excellence in Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+        }
+
+        .mission-card {
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .teacher-card:hover .teacher-overlay {
+            opacity: 1;
+        }
+
+        .testimonial-carousel {
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/88c32534-51d3-4859-a330-33b7eb82a826.png"
+                        alt="Divya Classes logo - An open book with a shining light symbolizing education"
+                        class="h-12" />
+                    <span class="text-xl font-bold text-indigo-800">Divya Classes</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-indigo-600">Home</a>
+                    <a href="about.html" class="text-indigo-600 font-medium">About Us</a>
+                    <a href="courses.html" class="text-gray-800 hover:text-indigo-600">Courses</a>
+                    <a href="gallery.html" class="text-gray-800 hover:text-indigo-600">Gallery</a>
+                    <a href="resources.html" class="text-gray-800 hover:text-indigo-600">Resources</a>
+                    <a href="contact.html" class="text-gray-800 hover:text-indigo-600">Contact Us</a>
+
+                </div>
+                <button class="md:hidden text-gray-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-6 py-20 md:py-28">
+            <div class="flex flex-Col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Empowering Minds <br> Since 2017 </h1>
+                    <p class="text-xl mb-8 opacity-90">Divya Classes has been transforming education through
+                        personalized learning experiences and academic excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="contact.html"
+                            class="bg-white text-indigo-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Get
+                            in Touch</a>
+                        <a href="course.html"
+                            class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition">Our
+                            Courses</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/744bc41d-4ac1-4ffd-ad75-5abf67e29340.png"
+                        alt="Students learning in a modern classroom setting with engaged teachers at Divya Classes"
+                        class="rounded-lg shadow-2xl max-w-full h-auto" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+    <!-- Shaping Futures Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-4">Shaping Futures</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="text-gray-600 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Our Mission and Vision for Student Success</h3>
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg transform transition duration-700 hover:scale-105 animate-fadeInUp">
+                    <h3 class="text-2xl font-semibold mb-4 text-purple-700">Mission</h3>
+                    <p class="mb-4">Our mission is to provide students with an exceptional education that allows them to
+                        pursue their dreams and reach their full potential. It will be accomplished through a supportive
+                        and focused approach designed to promote academic excellence, personal growth, and lifelong
+                        learning.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Empowering Education:</strong> Providing top-tier coaching to students to ensure
+                            academic success.</li>
+                        <li><strong>Personalized Learning:</strong> Requires customized teaching techniques and
+                            attention to each student's specific learning needs.</li>
+                        <li><strong>Holistic Development:</strong> Assisting students in developing important life
+                            skills, confidence, and critical thinking abilities.</li>
+                        <li><strong>Expert Guidance:</strong> Involving experienced educators to provide deeper insights
+                            and more effective learning strategies.</li>
+                        <li><strong>Success-Oriented Support:</strong> Providing resources, regular assessments, and
+                            guidance with the goal of achieving success.</li>
+                    </ul>
+                </div>
+
+                <!-- Vision Column -->
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg transform transition duration-700 hover:scale-105 animate-fadeInUp delay-200 mt-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Vision</h3>
+                    <p class="mb-4">Our vision is to be a beacon of educational excellence, shaping students' futures
+                        while also contributing to the betterment of society. We want to leave a legacy of success by
+                        developing talent, encouraging innovation, and inspiring leadership.</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Excellence in Education:</strong> Setting the standard for quality coaching and
+                            developing academically successful individuals.</li>
+                        <li><strong>Inspiring Leadership:</strong> Motivating students to become ethical, innovative,
+                            and impactful leaders in their respective fields.</li>
+                        <li><strong>Global Competence:</strong> Getting students ready for success in a competitive,
+                            ever-changing global environment.</li>
+                        <li><strong>Lifelong Learning:</strong> Building an interest in personal growth and development
+                            beyond academics.</li>
+                        <li><strong>Transformative Impact:</strong> Empowering individuals to positively contribute to
+                            society and effect meaningful change.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-4">Why Choose Us</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+            </div>
+            <div class="text-gray-600 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Building Strong Academic Foundations for Success</h3>
+                <p class="mb-4">Divya Classes provides personal coaching in Erode with an expert faculty, a proven track
+                    record, and consistent results. Our focused approach enables students to excel on exams and achieve
+                    academic success.</p>
+                <ul class="list-disc list-inside mb-6">
+                    <li><strong>Experienced Faculty:</strong> Our teachers have years of experience preparing students
+                        for the CA exam and can guide them and develop mentorship skills.</li>
+                    <li><strong>Customized Coaching:</strong> We work with each student individually to help them focus
+                        their attention and grasp even the most difficult topics in the subject through deep
+                        understanding.</li>
+                    <li><strong>Proven Track Record:</strong> We are proud of our results-oriented approach and serious
+                        commitment to student success, as demonstrated by our track record of high CA exam scores.</li>
+                    <li><strong>Comprehensive Study Materials:</strong> Our course materials are carefully designed to
+                        cover all aspects of the curriculum, giving students all of the tools and techniques they need
+                        to succeed.</li>
+                    <li><strong>Regular Assessments:</strong> We conduct mock tests, quizzes, and assessments on a
+                        regular basis to monitor students' progress and help them improve their exam-taking strategies.
+                    </li>
+                    <li><strong>Flexible Batch Timings:</strong> We provide flexible class times that do not interfere
+                        with our students' busy schedules.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Faculty Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-4">Meet Our Faculty</h2>
+                <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Our team of experienced educators are the cornerstone of
+                    our success, combining subject expertise with a genuine passion for teaching.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Teacher 1 -->
+                <div class="teacher-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <img src="WhatsApp Image 2025-07-29 at 12.40.03.jpeg"
+                        alt="Portrait of Mrs. Divya Sharma, founder and Principal of Divya Classes, a middle-aged woman with professional appearance and warm smile"
+                        class="w-full h-72 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Mrs. Divya Lakhara</h3>
+                        <p class="text-indigo-600 mb-2">Founder & Principal</p>
+                        <p class="text-gray-600 text-sm">BTech Computer Science, 2+ years experience</p>
+                    </div>
+                    <div
+                        class="teacher-overlay absolute inset-0 bg-indigo-800 bg-opacity-90 flex items-center justify-center p-6 opacity-0 transition-opacity duration-300">
+                        <p class="text-white">"Education is not filling a bucket but lighting a fire. I founded Divya
+                            Classes to ignite that spark in every student."</p>
+                    </div>
+                </div>
+
+                <!-- Teacher 2 -->
+                <div class="teacher-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <img src="WhatsApp Image 2025-07-29 at 12.48.04 (1).jpeg"
+                        alt="Portrait of Mr. Rajesh Kumar, Physics faculty at Divya Classes, serious-looking middle-aged man with glasses"
+                        class="w-full h-72 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Mr. Vinod Kumar</h3>
+                        <p class="text-indigo-600 mb-2">IRSEE, Govt of India</p>
+                        <p class="text-gray-600 text-sm">IIT Delhi alumnus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--panel-->
+    <section>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="mission-card bg-indigo-50 p-8 rounded-lg shadow-md text-center">
+                <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-indigo-800">Our Mission</h3>
+                <p class="text-gray-600">To unlock each student's potential through innovative teaching methods that
+                    make learning effective, engaging, and enjoyable.</p>
+            </div>
+
+            <div class="mission-card bg-indigo-50 p-8 rounded-lg shadow-md text-center">
+                <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-indigo-800">Our Vision</h3>
+                <p class="text-gray-600">To be recognized as the most trusted institution for quality education that
+                    transforms lives and shapes tomorrow's leaders.</p>
+            </div>
+
+            <div class="mission-card bg-indigo-50 p-8 rounded-lg shadow-md text-center">
+                <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                        </path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-indigo-800">Our Values</h3>
+                <p class="text-gray-600">Integrity, Excellence, Innovation, Empathy, and Respect form the foundation of
+                    everything we do at Divya Classes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-indigo-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/88c32534-51d3-4859-a330-33b7eb82a826.png"
+                            alt="Divya Classes logo" class="h-10 mr-2" />
+                        <span class="text-xl font-bold">Divya Classes</span>
+                    </div>
+                    <p class="mt-2 text-sm opacity-80">Empowering minds, shaping futures since 2025</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://facebook.com/" class="hover:text-indigo-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" class="hover:text-indigo-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" />
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/YourProfile" class="hover:text-indigo-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/" class="hover:text-indigo-200">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-indigo-700">
+                <div class="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-4">
+                    <a href="" class="hover:text-gray-300 text-sm">Privacy Policy</a>
+                    <span class="hidden md:inline">|</span>
+                    <a href="" class="hover:text-gray-300 text-sm">Terms of Service</a>
+                    <span class="hidden md:inline">|</span>
+                    <a href="" class="hover:text-gray-300 text-sm">Careers</a>
+                    <span class="hidden md:inline">|</span>
+                    <a href="" class="hover:text-gray-300 text-sm">FAQs</a>
+                </div>
+                <p class="mt-4 text-xs opacity-70">&copy; 2023 Divya Classes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple carousel functionality for testimonials
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const indicators = document.querySelectorAll('.testimonial-indicator');
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.display = (i === index) ? 'block' : 'none';
+                });
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('bg-opacity-100', i === index);
+                    indicator.classList.toggle('bg-opacity-30', i !== index);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    showSlide(currentIndex);
+                    resetAutoSlide();
+                });
+            });
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+
+            // Initialize
+            showSlide(currentIndex);
+            startAutoSlide();
+        });
+    </script>
+</body>
+
+</html>
