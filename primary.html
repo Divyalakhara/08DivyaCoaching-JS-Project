@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementary Excellence Tutoring | Grades 1-5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap');
+
+        :root {
+            --primary: #4F46E5;
+            --secondary: #6366F1;
+            --accent: #A5B4FC;
+            --light: #EEF2FF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(99, 102, 241, 0.9));
+        }
+
+        .grade-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+
+        .package-card {
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- <img src="https://placehold.co/120x60"
+                    alt="Elementary Excellence Tutoring logo with graduation cap and stars" class="h-12"> -->
+                <span class="heading-font text-2xl ml-3 text-indigo-700 hidden md:block">Sunshine Primary</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+                <a href="#" class="text-indigo-600 font-medium">Programs</a>
+                <a href="contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+            </div>
+            <!-- <button
+                class="hidden md:block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-full font-medium transition">
+                Free Assessment
+            </button> -->
+            <button class="md:hidden text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-24 md:py-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="heading-font text-4xl md:text-5xl font-bold mb-6">Elementary Tutoring Grades 1-5</h1>
+                <p class="text-xl mb-8">Personalized learning programs to build confidence and academic success for
+                    every elementary student.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <!-- <button
+                        class="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition">
+                        Enroll Now
+                    </button> -->
+                    <a href="courses.html"
+                        class="inline-flex items-center gap-2 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white px-6 py-2 rounded-full font-semibold transition duration-300 ease-in-out shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Back to Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grade Level Programs -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Grade-Specific Programs</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Tailored programs designed to meet the unique needs of each
+                    grade level.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center mb-8">
+                <button
+                    class="grade-tab-btn px-6 py-3 font-medium border-b-2 border-transparent hover:bg-indigo-50 rounded-t-lg bg-white active-tab"
+                    data-tab="grade1">Grade 1</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 font-medium border-b-2 border-transparent hover:bg-indigo-50 rounded-t-lg bg-white"
+                    data-tab="grade2">Grade 2</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 font-medium border-b-2 border-transparent hover:bg-indigo-50 rounded-t-lg bg-white"
+                    data-tab="grade3">Grade 3</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 font-medium border-b-2 border-transparent hover:bg-indigo-50 rounded-t-lg bg-white"
+                    data-tab="grade4">Grade 4</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 font-medium border-b-2 border-transparent hover:bg-indigo-50 rounded-t-lg bg-white"
+                    data-tab="grade5">Grade 5</button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div id="grade1" class="tab-content p-8 active">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Grade 1 Foundations Program</h3>
+                            <p class="text-gray-600 mb-6">
+                                Our Grade 1 program focuses on building strong literacy, numeracy, and life skills
+                                to ensure a solid academic foundation for future success.
+                            </p>
+
+                            <!-- English Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">English (Reading & Writing)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">
+                                    ✅ Phonemic awareness and phonics instruction
+                                </li>
+                                <li class="flex items-start">
+                                    ✅ Sight word recognition and vocabulary building
+                                </li>
+                                <li class="flex items-start">
+                                    ✅ Reading comprehension with short stories
+                                </li>
+                                <li class="flex items-start">
+                                    ✅ Basic grammar: nouns, verbs, opposites, prepositions
+                                </li>
+                                <li class="flex items-start">
+                                    ✅ Writing simple sentences and short paragraphs
+                                </li>
+                            </ul>
+
+                            <!-- Math Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Mathematics</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Number sense & counting 1–120</li>
+                                <li class="flex items-start">✅ Addition & subtraction within 20</li>
+                                <li class="flex items-start">✅ Place value: tens & ones</li>
+                                <li class="flex items-start">✅ Introduction to shapes & patterns</li>
+                                <li class="flex items-start">✅ Time (hours/half-hours), money & measurements</li>
+                            </ul>
+
+                            <!-- EVS Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Environmental Studies (EVS)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Myself & My Family</li>
+                                <li class="flex items-start">✅ Food, Water & Shelter</li>
+                                <li class="flex items-start">✅ Animals, Birds & Plants</li>
+                                <li class="flex items-start">✅ Seasons, Weather & Safety Rules</li>
+                                <li class="flex items-start">✅ Community helpers & cleanliness</li>
+                            </ul>
+
+                            <!-- Hindi / Second Language -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Hindi / Regional Language</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Varnmala (alphabets) & matras</li>
+                                <li class="flex items-start">✅ Two & three-letter words</li>
+                                <li class="flex items-start">✅ Rhymes & short stories</li>
+                            </ul>
+
+                            <!-- Art & Life Skills -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Art, Craft & Life Skills</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">✅ Drawing, coloring & basic craft</li>
+                                <li class="flex items-start">✅ Good manners, sharing & teamwork</li>
+                                <li class="flex items-start">✅ Physical activities & motor skill development</li>
+                            </ul>
+                        </div>
+
+                        <!-- <div>
+                            <img src="https://placehold.co/600x400"
+                                alt="Young child working with tutor using colorful counting blocks during math lesson"
+                                class="rounded-lg shadow">
+                        </div> -->
+                    </div>
+                </div>
+
+                <div id="grade2" class="tab-content p-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Grade 2 Building Blocks Program</h3>
+                            <p class="text-gray-600 mb-6">
+                                Designed to help students master more complex concepts in reading, writing, mathematics,
+                                and life skills.
+                            </p>
+
+                            <!-- English Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">English (Reading & Writing)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Reading fluency and expression development</li>
+                                <li class="flex items-start">✅ Comprehension for fiction and nonfiction</li>
+                                <li class="flex items-start">✅ Paragraph writing and simple narratives</li>
+                                <li class="flex items-start">✅ Basic grammar: nouns, pronouns, adjectives, tenses</li>
+                                <li class="flex items-start">✅ Informal letter writing & short essays</li>
+                            </ul>
+
+                            <!-- Math Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Mathematics</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Understanding place value up to 500</li>
+                                <li class="flex items-start">✅ Addition & subtraction (2-3 digit, regrouping)</li>
+                                <li class="flex items-start">✅ Multiplication tables 2–10</li>
+                                <li class="flex items-start">✅ Division (sharing & grouping)</li>
+                                <li class="flex items-start">✅ Time (hours, half-hours, quarter-hours) & money</li>
+                                <li class="flex items-start">✅ Measurement (length, weight, capacity)</li>
+                                <li class="flex items-start">✅ 2D & 3D shapes, patterns & simple data handling</li>
+                            </ul>
+
+                            <!-- EVS Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Environmental Studies (EVS)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Family, neighborhood & community helpers</li>
+                                <li class="flex items-start">✅ Food habits, hygiene & healthy living</li>
+                                <li class="flex items-start">✅ Plants, animals & natural resources</li>
+                                <li class="flex items-start">✅ Seasons, festivals & weather</li>
+                                <li class="flex items-start">✅ Transport, communication & safety rules</li>
+                            </ul>
+
+                            <!-- Hindi / Second Language -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Hindi / Regional Language</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Varnmala revision & advanced matras</li>
+                                <li class="flex items-start">✅ 4–5 letter words & sentence formation</li>
+                                <li class="flex items-start">✅ Short stories, poems & basic grammar</li>
+                            </ul>
+
+                            <!-- Art & Life Skills -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Art, Craft & Life Skills</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">✅ Drawing with details, patterns & coloring</li>
+                                <li class="flex items-start">✅ Paper craft & creative projects</li>
+                                <li class="flex items-start">✅ Good manners, empathy & teamwork</li>
+                                <li class="flex items-start">✅ Physical activities & coordination games</li>
+                            </ul>
+                        </div>
+
+                        <!-- <div>
+                            <img src="https://placehold.co/600x400" alt="Grade 2 student reading with a tutor"
+                                class="rounded-lg shadow">
+                        </div> -->
+                    </div>
+                </div>
+
+                <div id="grade3" class="tab-content p-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Grade 3 Mastery Program</h3>
+                            <p class="text-gray-600 mb-6">
+                                A comprehensive program aimed at solidifying reading, writing, math, and life skills for
+                                third graders.
+                            </p>
+
+                            <!-- English Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">English (Reading & Writing)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Analyzing character development and plot structure</li>
+                                <li class="flex items-start">✅ Developing comprehension skills for various genres</li>
+                                <li class="flex items-start">✅ Writing multi-paragraph essays with clear structure</li>
+                                <li class="flex items-start">✅ Grammar: nouns, pronouns, verbs, adjectives, adverbs,
+                                    tenses</li>
+                                <li class="flex items-start">✅ Informal and simple formal letter writing, story writing
+                                </li>
+                            </ul>
+
+                            <!-- Math Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Mathematics</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Numbers up to 1000, place value & expanded form</li>
+                                <li class="flex items-start">✅ Addition & subtraction (3–4 digit numbers with
+                                    regrouping)</li>
+                                <li class="flex items-start">✅ Mastering multiplication & division facts (tables up to
+                                    12)</li>
+                                <li class="flex items-start">✅ Understanding fractions (half, quarter, comparisons)</li>
+                                <li class="flex items-start">✅ Measurement: length, weight, capacity (standard units)
+                                </li>
+                                <li class="flex items-start">✅ Time (12-hour & 24-hour clock) & money transactions</li>
+                                <li class="flex items-start">✅ Data interpretation & introduction to bar graphs</li>
+                                <li class="flex items-start">✅ Basic geometry: angles, lines, perimeter & area</li>
+                            </ul>
+
+                            <!-- EVS Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Environmental Studies (EVS)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Food chain, healthy diet & natural resources</li>
+                                <li class="flex items-start">✅ Plants, animals & their habitats</li>
+                                <li class="flex items-start">✅ Water cycle, air, soil & conservation</li>
+                                <li class="flex items-start">✅ Family, community roles & safety rules</li>
+                                <li class="flex items-start">✅ Seasons, weather patterns & basic map reading</li>
+                            </ul>
+
+                            <!-- Hindi / Second Language -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Hindi / Regional Language</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Grammar: gender, number, synonyms, antonyms</li>
+                                <li class="flex items-start">✅ Short essays, poems & picture description</li>
+                                <li class="flex items-start">✅ Sentence formation & story writing</li>
+                            </ul>
+
+                            <!-- Science (If Separate) -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Science</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Living & non-living things</li>
+                                <li class="flex items-start">✅ Human body basics & sense organs</li>
+                                <li class="flex items-start">✅ States of matter: solid, liquid, gas</li>
+                                <li class="flex items-start">✅ Light, sound & simple force concepts</li>
+                            </ul>
+
+                            <!-- Art & Life Skills -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Art, Craft & Life Skills</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">✅ Perspective drawing, shading & patterns</li>
+                                <li class="flex items-start">✅ Creative projects & craftwork</li>
+                                <li class="flex items-start">✅ Problem solving, teamwork & leadership</li>
+                            </ul>
+                        </div>
+
+                        <!-- <div>
+                            <img src="https://placehold.co/600x400"
+                                alt="Grade 3 student working on math problems with a tutor" class="rounded-lg shadow">
+                        </div> -->
+                    </div>
+                </div>
+
+                <div id="grade4" class="tab-content p-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Grade 4 Advanced Program</h3>
+                            <p class="text-gray-600 mb-6">
+                                A program designed to challenge fourth graders and enhance their critical thinking,
+                                problem solving, and academic skills.
+                            </p>
+
+                            <!-- English Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">English (Reading & Writing)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Evaluating themes and main ideas in texts</li>
+                                <li class="flex items-start">✅ Writing persuasive essays and opinion pieces</li>
+                                <li class="flex items-start">✅ Analyzing informational texts and media</li>
+                                <li class="flex items-start">✅ Grammar: nouns, pronouns, verbs, adjectives, adverbs,
+                                    tenses</li>
+                                <li class="flex items-start">✅ Letter writing (formal & informal), diary entries, story
+                                    writing</li>
+                                <li class="flex items-start">✅ Vocabulary building: synonyms, antonyms, homonyms</li>
+                            </ul>
+
+                            <!-- Math Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Mathematics</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Solving multi-step word problems</li>
+                                <li class="flex items-start">✅ Numbers up to 10,000 & Roman numerals</li>
+                                <li class="flex items-start">✅ Multi-digit multiplication & division</li>
+                                <li class="flex items-start">✅ Understanding decimals and their operations</li>
+                                <li class="flex items-start">✅ Fractions: equivalent fractions, addition & subtraction
+                                </li>
+                                <li class="flex items-start">✅ Measurement: length, weight, capacity (unit conversion)
+                                </li>
+                                <li class="flex items-start">✅ Time (elapsed time) & money transactions</li>
+                                <li class="flex items-start">✅ Introduction to angles, perimeter, area & symmetry</li>
+                                <li class="flex items-start">✅ Data handling: bar graphs, pictographs, tally marks</li>
+                            </ul>
+
+                            <!-- EVS Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Environmental Studies (EVS)</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Plant life, photosynthesis & animal adaptations</li>
+                                <li class="flex items-start">✅ Human body systems (digestive & respiratory)</li>
+                                <li class="flex items-start">✅ Natural resources, conservation & pollution awareness
+                                </li>
+                                <li class="flex items-start">✅ Weather, climate & map skills (directions & scale)</li>
+                                <li class="flex items-start">✅ Transport & communication history</li>
+                            </ul>
+
+                            <!-- Science Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Science</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ States of matter: solid, liquid, gas</li>
+                                <li class="flex items-start">✅ Force, motion & energy (basic concepts)</li>
+                                <li class="flex items-start">✅ Light, shadows & reflections</li>
+                                <li class="flex items-start">✅ Introduction to Earth & the Solar System</li>
+                            </ul>
+
+                            <!-- Hindi / Second Language -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Hindi / Regional Language</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Advanced grammar: Sandhi, Samas (intro)</li>
+                                <li class="flex items-start">✅ Story & essay writing, poems</li>
+                                <li class="flex items-start">✅ Picture composition & sentence structure</li>
+                            </ul>
+
+                            <!-- Art & Life Skills -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Art, Craft & Life Skills</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">✅ Poster making, perspective drawing, shading</li>
+                                <li class="flex items-start">✅ Origami & 3D craft projects</li>
+                                <li class="flex items-start">✅ Leadership, decision making & teamwork activities</li>
+                            </ul>
+                        </div>
+
+                        <!-- <div>
+                            <img src="https://placehold.co/600x400"
+                                alt="Grade 4 student engaged in a math lesson with a tutor" class="rounded-lg shadow">
+                        </div> -->
+                    </div>
+                </div>
+
+
+                <div id="grade5" class="tab-content p-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Grade 5 Leadership Program</h3>
+                            <p class="text-gray-600 mb-6">
+                                A program designed to prepare fifth graders for middle school with advanced skills in
+                                reading, writing, math, and life skills.
+                            </p>
+
+                            <!-- English Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Reading & Writing Focus</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Analyzing complex texts and themes</li>
+                                <li class="flex items-start">✅ Writing research papers and reports</li>
+                                <li class="flex items-start">✅ Developing persuasive and narrative writing skills</li>
+                                <li class="flex items-start">✅ Grammar: all parts of speech, tenses, direct & indirect
+                                    speech</li>
+                                <li class="flex items-start">✅ Active & Passive Voice (introduction)</li>
+                                <li class="flex items-start">✅ Letter writing, diary entries, article & report writing
+                                </li>
+                                <li class="flex items-start">✅ Vocabulary: idioms, synonyms, antonyms, phrases</li>
+                            </ul>
+
+                            <!-- Math Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Math Focus</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Mastering fractions, decimals, and percentages</li>
+                                <li class="flex items-start">✅ Large number operations & place value up to 1,00,000</li>
+                                <li class="flex items-start">✅ Introduction to algebraic concepts</li>
+                                <li class="flex items-start">✅ Geometry: triangles, quadrilaterals, perimeter & area
+                                </li>
+                                <li class="flex items-start">✅ Measurement conversions & real-world applications</li>
+                                <li class="flex items-start">✅ Time, money, profit & loss, simple interest (intro)</li>
+                                <li class="flex items-start">✅ Data handling: bar graphs, line graphs, pictographs</li>
+                                <li class="flex items-start">✅ Number patterns & basic algebraic expressions</li>
+                            </ul>
+
+                            <!-- Science Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Science</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Plant & animal adaptations</li>
+                                <li class="flex items-start">✅ Human body systems: circulatory, nervous, digestive</li>
+                                <li class="flex items-start">✅ Matter: physical & chemical changes</li>
+                                <li class="flex items-start">✅ Force & motion, simple machines</li>
+                                <li class="flex items-start">✅ Energy: renewable & non-renewable sources</li>
+                                <li class="flex items-start">✅ Earth, layers, Solar System & phases of the Moon</li>
+                                <li class="flex items-start">✅ Weather, climate & global warming</li>
+                            </ul>
+
+                            <!-- Social Studies / EVS Section -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Social Studies / EVS</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Ancient civilizations & Indian history basics</li>
+                                <li class="flex items-start">✅ Geography: maps, latitude, longitude & continents</li>
+                                <li class="flex items-start">✅ Civics: rights, duties, democracy & government</li>
+                                <li class="flex items-start">✅ Culture & heritage studies</li>
+                            </ul>
+
+                            <!-- Hindi / Second Language -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Hindi / Regional Language</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-start">✅ Advanced grammar: Sandhi, Samas, Alankar basics</li>
+                                <li class="flex items-start">✅ Essays, letters & story writing</li>
+                                <li class="flex items-start">✅ Poems & comprehension</li>
+                                <li class="flex items-start">✅ Vocabulary building & sentence structure</li>
+                            </ul>
+
+                            <!-- Art & Life Skills -->
+                            <h4 class="font-bold text-lg mb-2 text-gray-800">Art, Craft & Life Skills</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">✅ Perspective drawing & landscape art</li>
+                                <li class="flex items-start">✅ 3D craft, models & poster design</li>
+                                <li class="flex items-start">✅ Teamwork, leadership & problem-solving activities</li>
+                            </ul>
+                        </div>
+
+                        <!-- <div>
+                            <img src="https://placehold.co/600x400"
+                                alt="Grade 5 student working on a project with a tutor" class="rounded-lg shadow">
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-600">© 2024 Elementary Excellence Tutoring. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.grade-tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active-tab'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                tab.classList.add('active-tab');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

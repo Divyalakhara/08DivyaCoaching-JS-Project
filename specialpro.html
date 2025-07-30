@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Subjects | Divya Classes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap');
+
+    body { font-family: 'Poppins', sans-serif; background-color: #f9fafb; }
+
+    .heading-font { font-family: 'Fredoka One', cursive; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+    }
+
+    .subject-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    .icon-circle {
+      background: #DCFCE7;
+      padding: 0.8rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .fade-section { animation: fadeIn 0.6s ease; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white">
+    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
+      <h1 class="heading-font text-4xl md:text-5xl font-bold mb-4">Special Subjects</h1>
+      <p class="text-lg md:text-xl mb-6">Supplementary courses to develop creativity, logic, and holistic skills.</p>
+      <a href="courses.html" class="bg-white text-green-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">← Back to Courses</a>
+    </div>
+  </section>
+
+  <!-- Program Highlights -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="heading-font text-3xl md:text-4xl text-gray-800 mb-4">Explore Our Special Subjects</h2>
+        <p class="max-w-2xl mx-auto text-gray-600">From technology to arts, these programs help students gain extra knowledge and life skills beyond academics.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-section">
+
+        <!-- Computers -->
+        <div class="subject-card">
+          <div class="icon-circle mb-4">
+            <img src="computer.png" alt="Computer icon" class="h-10 w-10">
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-2">Computer Basics</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>💻 Introduction to Computers</li>
+            <li>⌨️ Typing & MS Office</li>
+            <li>🌐 Safe Internet Usage</li>
+          </ul>
+        </div>
+
+        <!-- Art -->
+        <div class="subject-card">
+          <div class="icon-circle mb-4">
+            <img src="art.png" alt="Art icon" class="h-10 w-10">
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-2">Art & Creativity</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>🎨 Drawing & Painting</li>
+            <li>✂️ Craft & DIY Projects</li>
+            <li>🖌️ Color Theory Basics</li>
+          </ul>
+        </div>
+
+        <!-- Music -->
+        <div class="subject-card">
+          <div class="icon-circle mb-4">
+            <img src="music.png" alt="Music icon" class="h-10 w-10">
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-2">Music & Rhythm</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>🎵 Singing Exercises</li>
+            <li>🥁 Basic Instruments</li>
+            <li>🎼 Understanding Beats</li>
+          </ul>
+        </div>
+
+        <!-- Maths Fundamentals -->
+        <div class="subject-card">
+          <div class="icon-circle mb-4">
+            <img src="math.png" alt="Math icon" class="h-10 w-10">
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-2">Maths Fundamentals</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>➕ Addition & Subtraction</li>
+            <li>✖️ Multiplication Basics</li>
+            <li>📏 Shapes & Measurements</li>
+          </ul>
+        </div>
+
+        <!-- Science Fundamentals -->
+        <div class="subject-card">
+          <div class="icon-circle mb-4">
+            <img src="science.png" alt="Science icon" class="h-10 w-10">
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-2">Science Fundamentals</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>🔬 Simple Experiments</li>
+            <li>🌱 Nature & Environment</li>
+            <li>💡 Everyday Science</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

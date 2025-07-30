@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middle School Programs | Grades 6-8</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap');
+
+        :root {
+            --primary: #7C3AED;
+            --secondary: #9333EA;
+            --accent: #C4B5FD;
+            --light: #F5F3FF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(130, 45, 237, 0.9), rgba(1, 51, 234, 0.9));
+        }
+        .grade-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .active-tab {
+            border-bottom: 3px solid #7C3AED;
+            color: #7C3AED;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="heading-font text-2xl ml-3 text-purple-700 hidden md:block">Middle School Excellence</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="#" class="text-purple-600 font-medium">Programs</a>
+                <a href="contact.html" class="text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-24 md:py-32">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="heading-font text-4xl md:text-5xl font-bold mb-6">Middle School Grades 6-8</h1>
+                <p class="text-xl mb-8">Advanced programs to strengthen concepts, critical thinking, and exam
+                    preparation.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="courses.html"
+                        class="inline-flex items-center gap-2 border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-2 rounded-full font-semibold transition duration-300 ease-in-out shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Back to Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ Grade Tabs Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Grade-Specific Programs</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Choose a grade to see details of the curriculum.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex justify-center mb-8">
+                <button class="grade-tab-btn px-6 py-3 font-medium bg-white hover:bg-purple-50 rounded-t-lg active-tab"
+                    data-tab="grade6">Grade 6</button>
+                <button class="grade-tab-btn px-6 py-3 font-medium bg-white hover:bg-purple-50 rounded-t-lg"
+                    data-tab="grade7">Grade 7</button>
+                <button class="grade-tab-btn px-6 py-3 font-medium bg-white hover:bg-purple-50 rounded-t-lg"
+                    data-tab="grade8">Grade 8</button>
+            </div>
+
+            <!-- ✅ Tab Content -->
+            <div class="tab-content active" id="grade6">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-purple-700 mb-6">Grade 6 Program</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3 animate-fade-in">
+                            <span class="text-blue-600 text-xl">📐</span>
+                            <span class="hover:text-blue-700 transition">Mathematics: Introduction to Algebra, Geometry,
+                                Fractions & Decimals</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-100">
+                            <span class="text-green-600 text-xl">🔬</span>
+                            <span class="hover:text-green-700 transition">Science: Basics of Physics, Chemistry, Life
+                                Sciences</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-200">
+                            <span class="text-pink-600 text-xl">📚</span>
+                            <span class="hover:text-pink-700 transition">English: Grammar, Vocabulary Building, Creative
+                                Writing</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-300">
+                            <span class="text-yellow-600 text-xl">🌍</span>
+                            <span class="hover:text-yellow-700 transition">Social Studies: Ancient History, Civics &
+                                Geography</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-400">
+                            <span class="text-indigo-600 text-xl">💻</span>
+                            <span class="hover:text-indigo-700 transition">Computer Science: Basics of Programming, MS
+                                Office</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-500">
+                            <span class="text-red-600 text-xl">📝</span>
+                            <span class="hover:text-red-700 transition">Languages: Hindi/Regional Language Grammar &
+                                Literature</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" id="grade7">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-purple-700 mb-6">Grade 7 Program</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3 animate-fade-in">
+                            <span class="text-blue-600 text-xl">📐</span>
+                            <span class="hover:text-blue-700 transition">Mathematics: Algebra, Geometry, Data Handling,
+                                Mensuration</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-100">
+                            <span class="text-green-600 text-xl">🔬</span>
+                            <span class="hover:text-green-700 transition">Science: Physics Applications, Chemistry
+                                Reactions, Human Biology</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-200">
+                            <span class="text-pink-600 text-xl">📚</span>
+                            <span class="hover:text-pink-700 transition">English: Essay Writing, Reading Comprehension,
+                                Spoken English</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-300">
+                            <span class="text-yellow-600 text-xl">🌍</span>
+                            <span class="hover:text-yellow-700 transition">Social Studies: Medieval History, Civics,
+                                Earth & Environment</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-400">
+                            <span class="text-indigo-600 text-xl">💻</span>
+                            <span class="hover:text-indigo-700 transition">Computer Science: Scratch Programming,
+                                Internet Basics</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-500">
+                            <span class="text-red-600 text-xl">📝</span>
+                            <span class="hover:text-red-700 transition">Languages: Hindi/Regional Language Advanced
+                                Grammar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" id="grade8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-purple-700 mb-6">Grade 8 Program</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center gap-3 animate-fade-in">
+                            <span class="text-blue-600 text-xl">📐</span>
+                            <span class="hover:text-blue-700 transition">Mathematics: Pre-Algebra, Linear Equations,
+                                Probability & Statistics</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-100">
+                            <span class="text-green-600 text-xl">🔬</span>
+                            <span class="hover:text-green-700 transition">Science: Chemistry Foundations, Physics
+                                Concepts, Genetics</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-200">
+                            <span class="text-pink-600 text-xl">📚</span>
+                            <span class="hover:text-pink-700 transition">English: Public Speaking, Critical Analysis,
+                                Report Writing</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-300">
+                            <span class="text-yellow-600 text-xl">🌍</span>
+                            <span class="hover:text-yellow-700 transition">Social Studies: Modern History, Political
+                                Science, Global Geography</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-400">
+                            <span class="text-indigo-600 text-xl">💻</span>
+                            <span class="hover:text-indigo-700 transition">Computer Science: HTML/CSS Basics, Problem
+                                Solving Skills</span>
+                        </li>
+                        <li class="flex items-center gap-3 animate-fade-in delay-500">
+                            <span class="text-red-600 text-xl">📝</span>
+                            <span class="hover:text-red-700 transition">Languages: Literature Study, Essay Writing,
+                                Poetry</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ✅ JS for Tabs -->
+    <script>
+        const tabs = document.querySelectorAll(".grade-tab-btn");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(btn => {
+            btn.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active-tab"));
+                btn.classList.add("active-tab");
+
+                contents.forEach(c => c.classList.remove("active"));
+                document.getElementById(btn.dataset.tab).classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

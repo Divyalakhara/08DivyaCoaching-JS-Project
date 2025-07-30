@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Tuition | Ages 4-7</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka+One&display=swap');
+
+    body { font-family: 'Baloo 2', cursive; background-color: #fef9f6; }
+
+    .heading-font { font-family: 'Fredoka One', cursive; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #FBBF24, #F59E0B);
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .age-badge {
+      display: inline-block;
+      background: #FDE68A;
+      color: #92400E;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+
+    .active-tab {
+      background: #FBBF24;
+      color: #78350F;
+      font-weight: 700;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white">
+    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
+      <h1 class="heading-font text-4xl md:text-5xl font-bold mb-4">Kids Tuition (Ages 4-7)</h1>
+      <p class="text-lg md:text-xl mb-6">Fun-based learning programs for early childhood education and foundational skills.</p>
+      <a href="courses.html" class="bg-white text-yellow-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">← Back to Courses</a>
+    </div>
+  </section>
+
+  <!-- Age Tabs -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="heading-font text-3xl md:text-4xl text-gray-800 mb-4">Age-Specific Programs</h2>
+        <p class="max-w-xl mx-auto text-gray-600">Designed with play, activities, and interactive methods to make learning enjoyable.</p>
+      </div>
+
+      <div class="flex justify-center gap-4 mb-8">
+        <button class="age-tab-btn px-5 py-2 bg-yellow-100 hover:bg-yellow-200 rounded-full active-tab" data-tab="age4">Age 4</button>
+        <button class="age-tab-btn px-5 py-2 bg-yellow-100 hover:bg-yellow-200 rounded-full" data-tab="age5">Age 5</button>
+        <button class="age-tab-btn px-5 py-2 bg-yellow-100 hover:bg-yellow-200 rounded-full" data-tab="age6">Age 6</button>
+        <button class="age-tab-btn px-5 py-2 bg-yellow-100 hover:bg-yellow-200 rounded-full" data-tab="age7">Age 7</button>
+      </div>
+
+      <!-- Age 4 -->
+      <div class="tab-content active" id="age4">
+        <div class="program-card">
+          <span class="age-badge">Age 4 Program</span>
+          <h3 class="text-2xl font-bold text-yellow-700 mt-3 mb-3">Play & Learn Basics</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>🎨 Colors & Shapes Identification</li>
+            <li>🔤 Alphabet Songs & Rhymes</li>
+            <li>🔢 Counting 1-20 with Games</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Age 5 -->
+      <div class="tab-content" id="age5">
+        <div class="program-card">
+          <span class="age-badge">Age 5 Program</span>
+          <h3 class="text-2xl font-bold text-yellow-700 mt-3 mb-3">Building Foundations</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>📚 Letter Tracing & Simple Words</li>
+            <li>🔢 Introduction to Addition & Subtraction</li>
+            <li>🎵 Storytelling & Creative Play</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Age 6 -->
+      <div class="tab-content" id="age6">
+        <div class="program-card">
+          <span class="age-badge">Age 6 Program</span>
+          <h3 class="text-2xl font-bold text-yellow-700 mt-3 mb-3">Early Learning</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>📝 Writing Small Sentences</li>
+            <li>🔬 Simple Science Experiments</li>
+            <li>🧩 Problem-Solving Games</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Age 7 -->
+      <div class="tab-content" id="age7">
+        <div class="program-card">
+          <span class="age-badge">Age 7 Program</span>
+          <h3 class="text-2xl font-bold text-yellow-700 mt-3 mb-3">Skill Development</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>📖 Reading Short Stories</li>
+            <li>🧮 Advanced Counting & Patterns</li>
+            <li>🎤 Public Speaking for Confidence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Script -->
+  <script>
+    const tabs = document.querySelectorAll(".age-tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active-tab"));
+        contents.forEach(c => c.classList.remove("active"));
+        tab.classList.add("active-tab");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

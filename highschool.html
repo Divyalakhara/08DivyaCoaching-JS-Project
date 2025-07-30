@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Programs | Grades 9-12</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap');
+
+    :root {
+        --primary: #DC2626;
+        --secondary: #EF4444;
+        --accent: #FCA5A5;
+        --light: #FEE2E2;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9fafb;
+    }
+
+    .heading-font {
+        font-family: 'Fredoka One', cursive;
+    }
+
+    /* 🔥 Hero gradient */
+    .hero-gradient {
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9));
+    }
+
+    /* 📌 Card Styling */
+    .grade-card {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .grade-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 📌 Tabs & Content */
+    .tab-content {
+        display: none;
+    }
+
+    /* ✅ Show active grade (default Grade 9) */
+    .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ✅ Active Tab Styling */
+    .active-tab {
+        border-bottom: 3px solid var(--primary);
+        color: var(--primary);
+        font-weight: 600;
+    }
+</style>
+
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-20 md:py-28 lg:py-32 text-center">
+            <h1 class="heading-font text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 drop-shadow-lg">
+                High School Tutoring <span class="text-yellow-300">Grades 9-12</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-90 leading-relaxed">
+                Advanced learning, exam preparation, and career-focused programs designed to help students excel in
+                boards and competitive exams.
+            </p>
+            <a href="courses.html"
+                class="inline-block bg-white text-red-600 hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 ease-in-out px-8 py-3 rounded-full font-semibold shadow-lg">
+                ← Back to Courses
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Grade Tabs -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold text-gray-800 mb-4">Grade-Specific Programs</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Specialized courses for Grades 9, 10, 11, and 12 with a focus
+                    on board exams and competitive preparation.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center mb-8">
+                <button
+                    class="grade-tab-btn px-6 py-3 border-b-2 border-transparent hover:bg-red-50 rounded-t-lg bg-white active-tab"
+                    data-tab="grade9">Grade 9</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 border-b-2 border-transparent hover:bg-red-50 rounded-t-lg bg-white"
+                    data-tab="grade10">Grade 10</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 border-b-2 border-transparent hover:bg-red-50 rounded-t-lg bg-white"
+                    data-tab="grade11">Grade 11</button>
+                <button
+                    class="grade-tab-btn px-6 py-3 border-b-2 border-transparent hover:bg-red-50 rounded-t-lg bg-white"
+                    data-tab="grade12">Grade 12</button>
+            </div>
+
+            <!-- Grade 9 -->
+            <div class="tab-content active" id="grade9">
+                <div class="grade-card bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-3xl font-bold text-blue-700 mb-4">Grade 9 Program</h3>
+                    <p class="text-gray-600 mb-6">
+                        Strengthening concepts with NCERT + Board syllabus and early competitive exam foundation.
+                    </p>
+
+                    <h4 class="text-xl font-semibold text-purple-700 mb-2">Mathematics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>📐 Polynomials & Linear Equations in Two Variables</li>
+                        <li>📐 Coordinate Geometry & Geometry Basics</li>
+                        <li>📐 Probability & Statistics</li>
+                        <li>📐 Mensuration & Surface Areas/Volumes</li>
+                        <li>📐 Trigonometry & Applications</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-green-700 mb-2">Physics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🔬 Motion, Force & Laws of Motion</li>
+                        <li>🔬 Work, Energy & Power</li>
+                        <li>🔬 Sound & Waves</li>
+                        <li>🔬 Gravitation & Fluid Pressure</li>
+                        <li>🔬 Heat & Temperature</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-orange-700 mb-2">Chemistry</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🧪 Matter in Our Surroundings</li>
+                        <li>🧪 Atoms & Molecules</li>
+                        <li>🧪 Structure of Atom</li>
+                        <li>🧪 Chemical Reactions & Equations</li>
+                        <li>🧪 Solutions & Mixtures</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-pink-700 mb-2">Exam Focus</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>🏆 CBSE/RBSE/ICSE Board Level Questions</li>
+                        <li>🏆 Olympiad & NTSE Foundation Practice</li>
+                        <li>🏆 Concept Clarity for JEE Basics</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Grade 10 -->
+            <div class="tab-content" id="grade10">
+                <div class="grade-card bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-3xl font-bold text-blue-700 mb-4">Grade 10 Program</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive preparation for Boards + Competitive Exam Foundation (JEE).
+                    </p>
+
+                    <h4 class="text-xl font-semibold text-purple-700 mb-2">Mathematics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>📐 Real Numbers & Polynomials</li>
+                        <li>📐 Pair of Linear Equations & Quadratic Equations</li>
+                        <li>📐 Arithmetic Progressions</li>
+                        <li>📐 Coordinate Geometry & Trigonometry</li>
+                        <li>📐 Probability & Statistics (Board Level)</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-green-700 mb-2">Physics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🔬 Light – Reflection & Refraction</li>
+                        <li>🔬 Human Eye & Colourful World</li>
+                        <li>🔬 Electricity & Ohm’s Law</li>
+                        <li>🔬 Magnetic Effects of Current</li>
+                        <li>🔬 Sources of Energy</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-orange-700 mb-2">Chemistry</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🧪 Chemical Reactions & Equations</li>
+                        <li>🧪 Acid, Base & Salts</li>
+                        <li>🧪 Metals & Non-Metals</li>
+                        <li>🧪 Carbon & Its Compounds</li>
+                        <li>🧪 Periodic Classification of Elements</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-pink-700 mb-2">Exam Focus</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>🏆 Board Exam Intensive Revision (CBSE/RBSE/ICSE)</li>
+                        <li>🏆 NTSE Stage 1 & 2 Preparation</li>
+                        <li>🏆 JEE Foundation Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Grade 11 -->
+            <div class="tab-content" id="grade11">
+                <div class="grade-card bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-3xl font-bold text-red-700 mb-4">Grade 11 PCM Program</h3>
+                    <p class="text-gray-600 mb-6">
+                        Tailored for <b>CBSE, RBSE, ICSE</b> Boards with strong foundation for JEE Mains/Advanced &
+                        Board Exams.
+                    </p>
+
+                    <h4 class="text-xl font-semibold text-purple-700 mb-2">Mathematics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>📐 Sets, Relations & Functions</li>
+                        <li>📐 Trigonometric Functions & Identities</li>
+                        <li>📐 Limits & Derivatives (Intro to Calculus)</li>
+                        <li>📐 Complex Numbers & Quadratic Equations</li>
+                        <li>📐 Coordinate Geometry & Conic Sections</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-green-700 mb-2">Physics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🔬 Kinematics & Laws of Motion</li>
+                        <li>🔬 Work, Energy, Power</li>
+                        <li>🔬 Rotational Motion & Gravitation</li>
+                        <li>🔬 Oscillations & Waves</li>
+                        <li>🔬 Properties of Matter & Thermodynamics</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-blue-700 mb-2">Chemistry</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🧪 Atomic Structure & Periodicity</li>
+                        <li>🧪 Chemical Bonding & Molecular Structure</li>
+                        <li>🧪 Thermodynamics & Chemical Equilibrium</li>
+                        <li>🧪 Redox Reactions & Hydrocarbons</li>
+                        <li>🧪 Organic Chemistry Fundamentals</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-pink-700 mb-2">Competitive Exam Focus</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>🏆 JEE Mains/Advanced Level Question Practice</li>
+                        <li>🏆 RBSE/CBSE/ICSE Sample Papers</li>
+                        <li>🏆 Conceptual Problem Solving & Time Management</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Grade 12 -->
+            <div class="tab-content" id="grade12">
+                <div class="grade-card bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-3xl font-bold text-red-700 mb-4">Grade 12 PCM Program</h3>
+                    <p class="text-gray-600 mb-6">
+                        Advanced PCM curriculum for Board Exams and Competitive Entrance Tests (JEE Mains/Advanced).
+                    </p>
+
+                    <h4 class="text-xl font-semibold text-indigo-700 mb-2">Mathematics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>📐 Calculus (Differentiation & Integration)</li>
+                        <li>📐 Applications of Derivatives</li>
+                        <li>📐 Vectors & 3D Geometry</li>
+                        <li>📐 Matrices & Determinants</li>
+                        <li>📐 Probability & Linear Programming</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-teal-700 mb-2">Physics</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🔬 Electrostatics & Current Electricity</li>
+                        <li>🔬 Magnetic Effects of Current</li>
+                        <li>🔬 Electromagnetic Induction & AC</li>
+                        <li>🔬 Optics & Wave Optics</li>
+                        <li>🔬 Modern Physics (Atoms, Nuclei, Semiconductors)</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-orange-700 mb-2">Chemistry</h4>
+                    <ul class="space-y-2 mb-4 text-gray-700">
+                        <li>🧪 Solid State & Solutions</li>
+                        <li>🧪 Electrochemistry & Chemical Kinetics</li>
+                        <li>🧪 Coordination Compounds & d-block Elements</li>
+                        <li>🧪 Aldehydes, Ketones, Carboxylic Acids</li>
+                        <li>🧪 Surface Chemistry & Biomolecules</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-pink-700 mb-2">Competitive Exam Focus</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>🏆 JEE Advanced Problem Solving</li>
+                        <li>🏆 CBSE/RBSE Board Exam Strategy & Practice</li>
+                        <li>🏆 Time-Bound Mock Tests & Previous Year Papers</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Tab Switching Script -->
+    <script>
+        const tabs = document.querySelectorAll(".grade-tab-btn");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active-tab"));
+                contents.forEach(c => c.classList.remove("active"));
+
+                tab.classList.add("active-tab");
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

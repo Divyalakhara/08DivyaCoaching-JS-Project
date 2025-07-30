@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Classes - Quality Education for Classes 1-12</title>
+    <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="navbar.css">
+    </noscript>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+        body {
+            background-color: gray;
+        }
+
+        /* 🔥 Base course card styling */
+        .course-card {
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(40px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .course-card a {
+            position: relative;
+            z-index: 10;
+            /* Ensures it's on top of any overlay */
+            display: block;
+        }
+
+        /* ✨ Entrance animation */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ Smooth hover animation */
+        .course-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 🔥 Glow border animation */
+        .course-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(90deg, #38bdf8, #8b5cf6, #34d399);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .course-card:hover::after {
+            opacity: 1;
+        }
+
+        /* ✅ Unique professional gradients per card */
+        .course-card:nth-child(1) {
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+        }
+
+        .course-card:nth-child(2) {
+            background: linear-gradient(135deg, #312e81, #1e1b4b);
+        }
+
+        .course-card:nth-child(3) {
+            background: linear-gradient(135deg, #065f46, #022c22);
+        }
+
+        .course-card:nth-child(4) {
+            background: linear-gradient(135deg, #0f766e, #083344);
+        }
+
+        .course-card:nth-child(5) {
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+        }
+
+        .course-card:nth-child(6) {
+            background: linear-gradient(135deg, #1f2937, #111827);
+        }
+
+        /* 🔥 Icon glow + pulse */
+        .course-card img {
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+            animation: pulse 2s infinite ease-in-out;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .course-card:hover img {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+            }
+        }
+
+        /* ✅ Light text for readability */
+        .course-card h3 {
+            color: #f9fafb;
+            font-weight: 700;
+        }
+
+        .course-card p,
+        .course-card li span {
+            color: #e5e7eb;
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="navbar-container"></div>
+    <!-- Courses Offered -->
+    <section id="courses" class="py-16 ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Comprehensive Courses</h2>
+                <p class="text-lg text-white-600 max-w-3xl mx-auto">Tailored programs for students from Class 1 to 12
+                    covering all major subjects</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Primary School -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <img src="campus.png" alt="Primary school icon with colorful ABC blocks and smiling sun"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Primary School (1-5)</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Foundational learning with fun activities to build strong basics in
+                        Math, English, EVS and more.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Customized learning space</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Activity-based learning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Regular parent updates</span>
+                        </li>
+                    </ul>
+                    <a href="primary.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+
+                <!-- Middle School -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <img src="school.png" alt="Middle school icon with science flask and open book"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Middle School (6-8)</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Building conceptual understanding with structured lessons in Math,
+                        Science, Social Studies and Languages.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Concept clarity focus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Study skill development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Regular assessments</span>
+                        </li>
+                    </ul>
+                  <a href="middle.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+
+                <!-- High School -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <img src="highschool.png" alt="High school icon with graduation cap and diploma scroll"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">High School (9-12)</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Board examination focused coaching with advanced problem-solving
+                        techniques and competitive exam preparation.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Board exam strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Competitive exam prep</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Career guidance</span>
+                        </li>
+                    </ul>
+                    <a href="highschool.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+
+                <!-- Kids Tuition -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <img src="child.png" alt="Kids learning icon with crayons and picture book"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Kids Tuition (Age 4-7)</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Early learning program focusing on cognitive development, basic
+                        literacy and numeracy through playful methods.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Montessori methods</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Phonics & storytelling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Fine motor skills</span>
+                        </li>
+                    </ul>
+                    <a href="kidstution.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+
+                <!-- Special Subjects -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <img src="sale.png" alt="Special subjects icon with art palette and music notes"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Special Subjects</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Supplementary courses in Computers, Art, Music and more to develop
+                        well-rounded skills.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Computer basics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Maths fundamentals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Science fundamentals</span>
+                        </li>
+                    </ul>
+                   <a href="specialpro.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+
+                <!-- Summer Programs -->
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-pink-100 p-3 rounded-full mr-4">
+                            <img src="encryption.png" alt="Summer program icon with sunshine and beach ball"
+                                class="h-10 w-10">
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Summer Programs</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Fun yet educational summer courses to prevent learning loss and
+                        explore new interests.</p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Learn Coding </span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Project-based learning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2 animated-checkmark">✓</span>
+                            <span class="text-gray-700">Field trips</span>
+                        </li>
+                    </ul>
+                   <a href="summerprog.html"
+                        class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
+                        Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Success Stories -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">What parents and students say about their experience
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <!-- <img src="https://placehold.co/60x60"
+                            alt="Parent Rajesh Kumar smiling portrait with professional attire"
+                            class="w-12 h-12 rounded-full mr-4"> -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-600">Parent of Class 5 Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"My daughter's grades improved significantly after joining Divya
+                        Classes. The teachers' patience and creative teaching methods have made learning enjoyable for
+                        her."</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <!-- <img src="https://placehold.co/60x60"
+                            alt="Student Priya Patel in school uniform with cheerful expression"
+                            class="w-12 h-12 rounded-full mr-4"> -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Priya Patel</h4>
+                            <p class="text-sm text-gray-600">Class 10 Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The board exam coaching helped me score 95% in Science. The mock
+                        tests and doubt-solving sessions were especially valuable."</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <!-- <img src="https://placehold.co/60x60"
+                            alt="Parent Sunita Sharma in traditional attire smiling portrait"
+                            class="w-12 h-12 rounded-full mr-4"> -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Sunita Sharma</h4>
+                            <p class="text-sm text-gray-600">Parent of Class 2 Student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The kids' tuition program has made my son excited about learning.
+                        The activity-based approach has improved his concentration and curiosity."</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment CTA -->
+    <section class="py-16 bg-indigo-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Child's Learning?</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto"> Seats available for 2025-26 session. Book a free demo
+                class today!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button
+                    class="bg-white text-indigo-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">Schedule
+                    Demo Class</button>
+                <button
+                    class="border-2 border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition">Call:
+                    +91 7976675411</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Common questions about our tuition programs</p>
+            </div>
+
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <!-- FAQ 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-lg font-medium text-gray-900">What subjects do you cover for different
+                            classes?</span>
+                        <!-- <img src="https://placehold.co/24x24" alt="Plus icon indicating expandable FAQ section"
+                            class="w-6 h-6"> -->
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">Our curriculum covers all major school subjects:
+                            <br><br>Primary (1-5): Math, English, EVS, Hindi, Computer Basics
+                            <br>Middle (6-8): Math, Science (Physics/Chemistry/Biology), Social Studies, English,
+                            Hindi/Sanskrit
+                            <br>High (9-12): Science subjects with specialization for board exams
+                            <br><br>We also offer special classes for competitive exams like Olympiads, NTSE, etc.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-lg font-medium text-gray-900">What's the teacher to student ratio?</span>
+                        <!-- <img src="https://placehold.co/24x24" alt="Plus icon indicating expandable FAQ section"
+                            class="w-6 h-6"> -->
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">We maintain an optimal teacher-student ratio for maximum engagement:
+                            <br><br>Primary classes: 1 teacher per 4 students
+                            <br>Middle classes: 1 teacher per 5 students
+                            <br>High school: 1 teacher per 6 students
+                            <br><br>This ensures individual attention while allowing peer learning opportunities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-lg font-medium text-gray-900">How do you track student progress?</span>
+                        <!-- <img src="https://placehold.co/24x24" alt="Plus icon indicating expandable FAQ section"
+                            class="w-6 h-6"> -->
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">We have a comprehensive progress tracking system:
+                            <br><br>- Weekly quizzes and assignments
+                            <br>- Monthly comprehensive tests
+                            <br>- Term-wise mock exams (for higher classes)
+                            <br>- Individual performance dashboards
+                            <br>- Regular parent-teacher meetings
+                            <br><br>The results help customize future learning plans.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="text-lg font-medium text-gray-900">Do you offer online classes?</span>
+                        <!-- <img src="https://placehold.co/24x24" alt="Plus icon indicating expandable FAQ section"
+                            class="w-6 h-6"> -->
+                    </button>
+                    <div class="px-6 py-4">
+                        <p class="text-gray-600">Yes, we offer both offline and online options:
+                            <br><br>- Fully equipped physical classrooms
+                            <br>- Live online classes with interactive whiteboard
+                            <br>- Hybrid options (combining both)
+                            <br><br>Our digital platform includes recorded lessons, practice tests, and doubt-solving
+                            forums accessible 24/7.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <p class="text-gray-400 mb-6">Providing quality education 2024 with personalized attention and
+                        innovative teaching methods.</p>
+                    <!-- <div class="flex gap-4">
+                        <img src="https://placehold.co/32x32" alt="Facebook logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Instagram logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Youtube logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Whatsapp logo icon" class="h-8 w-8">
+                    </div> -->
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition">Courses</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="primary.html" class="hover:text-white transition">Primary School (1-5)</a>
+                        </li>
+                        <li><a href="middle.html" class="hover:text-white transition">Middle School (6-8)</a></li>
+                        <li><a href="highschool.html" class="hover:text-white transition">High School (9-12)</a></li>
+                        <li><a href="kidstution.html" class="hover:text-white transition">Kids Tuition (Age 4-7)</a></li>
+                        <li><a href="summerprog.html" class="hover:text-white transition">Summer Programs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <span>New Housing Board, Pali, Rajasthan, 306401</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>+91 7976675411</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>divyalakhara08@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>Mon-Sat: 9am - 6pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Divya Classes. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script> <!-- ✅ Add this -->
+    <script src="auth.js"></script>
+    <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-container').innerHTML = html)
+            .catch(err => console.error("Error loading navbar:", err));
+    </script>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ accordion functionality
+        const faqButtons = document.querySelectorAll('.faq button');
+
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const icon = button.querySelector('img');
+
+                if (accordionContent.style.display === 'block') {
+                    accordionContent.style.display = 'none';
+                    icon.src = "https://placehold.co/24x24";
+                } else {
+                    accordionContent.style.display = 'block';
+                    icon.src = "https://placehold.co/24x24";
+                }
+            });
+        });
+
+        // Form submission (mock functionality)
+        const contactForm = document.querySelector('#contact form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+
+</html>
