@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divya Classes - Photo Gallery</title>
-     <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="navbar.css">
-  </noscript>
+    <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="navbar.css">
+    </noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .gallery-item {
             transition: all 0.3s ease;
             overflow: hidden;
         }
+
         .gallery-item:hover {
             transform: scale(1.03);
         }
+
         .gallery-item img {
             transition: all 0.3s ease;
         }
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
+
         .filter-btn.active {
             background-color: #4f46e5;
             color: white;
         }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -34,15 +40,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
+
         .lightbox img {
             max-width: 90%;
             max-height: 90%;
         }
+
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -52,10 +60,11 @@
             cursor: pointer;
         }
     </style>
-     <!-- <link rel="stylesheet" href="auth.css"> -->
+    <!-- <link rel="stylesheet" href="auth.css"> -->
 </head>
+
 <body class="bg-gray-50">
-      <div id="navbar-container"></div> 
+    <div id="navbar-container"></div>
 
     <header class="bg-indigo-600 text-white py-6 shadow-lg pt-20">
         <div class="container mx-auto px-4">
@@ -64,19 +73,32 @@
         </div>
     </header>
 
+    <div id="whatsapp-container"></div>
     <main class="container mx-auto px-4 py-8">
         <div class="flex flex-wrap gap-4 mb-8 justify-center">
-            <button class="filter-btn active px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition" data-filter="all">All Photos</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition" data-filter="classroom">Classroom</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition" data-filter="activities">Activities</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition" data-filter="events">Events</button>
-            <button class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition" data-filter="students">Students</button>
+            <button
+                class="filter-btn active px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition"
+                data-filter="all">All Photos</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition"
+                data-filter="classroom">Classroom</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition"
+                data-filter="activities">Activities</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition"
+                data-filter="events">Events</button>
+            <button
+                class="filter-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 hover:text-white transition"
+                data-filter="students">Students</button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gallery">
             <!-- Classroom Images -->
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="classroom">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50bb4c94-722d-42bb-9919-2834693c8b78.png" alt="Modern classroom at Divya Classes with students attending lecture, whiteboard in background" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/50bb4c94-722d-42bb-9919-2834693c8b78.png"
+                    alt="Modern classroom at Divya Classes with students attending lecture, whiteboard in background"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Classroom Session</h3>
                     <p class="text-gray-600">Students engaged in active learning</p>
@@ -84,7 +106,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="classroom">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dab64d0b-8d1c-4f45-8188-a8b424330608.png" alt="Teacher explaining concept on smartboard at Divya Classes with attentive students" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dab64d0b-8d1c-4f45-8188-a8b424330608.png"
+                    alt="Teacher explaining concept on smartboard at Divya Classes with attentive students"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Interactive Learning</h3>
                     <p class="text-gray-600">Using modern teaching tools</p>
@@ -93,7 +117,9 @@
 
             <!-- Activities Images -->
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="activities">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45bec9cb-722b-4e91-83a8-94a5052d2349.png" alt="Group study session at Divya Classes with students collaborating on projects" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/45bec9cb-722b-4e91-83a8-94a5052d2349.png"
+                    alt="Group study session at Divya Classes with students collaborating on projects"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Group Study</h3>
                     <p class="text-gray-600">Collaborative learning environment</p>
@@ -101,7 +127,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="activities">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd891f64-50f9-4673-9371-cb1d591ff043.png" alt="Science experiment demonstration at Divya Classes with students observing carefully" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd891f64-50f9-4673-9371-cb1d591ff043.png"
+                    alt="Science experiment demonstration at Divya Classes with students observing carefully"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Practical Thinking</h3>
                     <p class="text-gray-600">Practical application of theories</p>
@@ -110,7 +138,9 @@
 
             <!-- Events Images -->
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="events">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5a3ffd1-8833-42ea-9dfc-251ce2d58f1b.png" alt="Annual day celebration at Divya Classes with students performing on stage" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a5a3ffd1-8833-42ea-9dfc-251ce2d58f1b.png"
+                    alt="Annual day celebration at Divya Classes with students performing on stage"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Celebrating Day</h3>
                     <p class="text-gray-600">Celebrating student achievements</p>
@@ -118,7 +148,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="events">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e7ef5fe3-8715-4f24-a684-8444e534d6a1.png" alt="Prize distribution ceremony at Divya Classes with topper students receiving awards" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e7ef5fe3-8715-4f24-a684-8444e534d6a1.png"
+                    alt="Prize distribution ceremony at Divya Classes with topper students receiving awards"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Recognizing excellence</h3>
                     <p class="text-gray-600"> excellence</p>
@@ -127,7 +159,9 @@
 
             <!-- Students Images -->
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="students">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37621b95-4fab-4780-a217-ef2e63333f2c.png" alt="Top performing students of Divya Classes posing with their certificates" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37621b95-4fab-4780-a217-ef2e63333f2c.png"
+                    alt="Top performing students of Divya Classes posing with their certificates"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Successful Students</h3>
                     <p class="text-gray-600">Our proud achievers</p>
@@ -135,7 +169,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="students">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/041a40c1-439d-41f2-8245-160433faf3a0.png" alt="Senior students mentoring juniors at Divya Classes in library setting" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/041a40c1-439d-41f2-8245-160433faf3a0.png"
+                    alt="Senior students mentoring juniors at Divya Classes in library setting"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Peer Learning</h3>
                     <p class="text-gray-600">Knowledge sharing sessions</p>
@@ -144,7 +180,9 @@
 
             <!-- Additional Images -->
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="classroom">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/533e41f4-3f90-4bb0-a59d-e36d6f9ffe65.png" alt="Digital classroom at Divya Classes with students using tablets for interactive learning" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/533e41f4-3f90-4bb0-a59d-e36d6f9ffe65.png"
+                    alt="Digital classroom at Divya Classes with students using tablets for interactive learning"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Teaching in Action</h3>
                     <p class="text-gray-600">Technology-enhanced learning</p>
@@ -152,7 +190,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="activities">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1e8f3a94-0241-4956-872a-26ef9fe8fd52.png" alt="Debate competition at Divya Classes with students presenting arguments" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1e8f3a94-0241-4956-872a-26ef9fe8fd52.png"
+                    alt="Debate competition at Divya Classes with students presenting arguments"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Debate Competition</h3>
                     <p class="text-gray-600">Developing communication skills</p>
@@ -160,7 +200,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="events">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f096a9b8-a794-41bb-afd8-daf7622d1839.png" alt="Parents-teacher meeting at Divya Classes with discussions about student progress" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f096a9b8-a794-41bb-afd8-daf7622d1839.png"
+                    alt="Parents-teacher meeting at Divya Classes with discussions about student progress"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Achievements</h3>
                     <p class="text-gray-600">Collaborating with parents</p>
@@ -168,7 +210,9 @@
             </div>
 
             <div class="gallery-item rounded-lg shadow-md overflow-hidden bg-white" data-category="students">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f33eeab-ac99-42aa-9819-bfc81411f989.png" alt="Graduating students of Divya Classes throwing caps in celebration" class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f33eeab-ac99-42aa-9819-bfc81411f989.png"
+                    alt="Graduating students of Divya Classes throwing caps in celebration"
+                    class="w-full h-64 object-cover cursor-pointer" onclick="openLightbox(this)">
                 <div class="p-4">
                     <h3 class="font-semibold text-lg">Happy Student Moments</h3>
                     <p class="text-gray-600">Celebrating milestones</p>
@@ -190,7 +234,7 @@
     </footer>
 
 
-     <!-- Firebase + Auth JS -->
+    <!-- Firebase + Auth JS -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -201,19 +245,23 @@
             .then(html => document.getElementById('navbar-container').innerHTML = html)
             .catch(err => console.error("Error loading navbar:", err));
 
-
+        fetch("whatsapp.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("whatsapp-container").innerHTML = data;
+            });
     </script>
     <script>
-       
+
         // Filter functionality
         document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                
+
                 const filter = this.getAttribute('data-filter');
                 const galleryItems = document.querySelectorAll('.gallery-item');
-                
+
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
@@ -228,7 +276,7 @@
         function openLightbox(imgElement) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
-            
+
             lightboxImg.src = imgElement.src;
             lightboxImg.alt = imgElement.alt;
             lightbox.style.display = 'flex';
@@ -241,12 +289,12 @@
         }
 
         // Close lightbox when clicking outside the image
-        document.getElementById('lightbox').addEventListener('click', function(e) {
+        document.getElementById('lightbox').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeLightbox();
             }
         });
     </script>
 </body>
-</html>
 
+</html>

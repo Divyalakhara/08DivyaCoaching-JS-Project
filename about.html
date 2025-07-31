@@ -51,7 +51,7 @@
 
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <!-- <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-4">
@@ -78,21 +78,23 @@
                 </button>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <section class="hero-gradient text-white">
         <div class="container mx-auto px-6 py-20 md:py-28">
             <div class="flex flex-Col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Empowering Minds <br> Since 2017 </h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Empowering Minds <br> Since 2024 </h1>
                     <p class="text-xl mb-8 opacity-90">Divya Classes has been transforming education through
                         personalized learning experiences and academic excellence.</p>
                     <div class="flex space-x-4">
                         <a href="contact.html"
                             class="bg-white text-indigo-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Get
                             in Touch</a>
-                        <a href="course.html"
+                        <a href="courses.html"
                             class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition">Our
                             Courses</a>
                     </div>
@@ -339,8 +341,16 @@
             </div>
         </div>
     </footer>
-
+    <!-- Firebase + Auth JS -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="auth.js"></script>
     <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-container').innerHTML = html)
+            .catch(err => console.error("Error loading navbar:", err));
         // Simple carousel functionality for testimonials
         document.addEventListener('DOMContentLoaded', function () {
             const slides = document.querySelectorAll('.testimonial-slide');

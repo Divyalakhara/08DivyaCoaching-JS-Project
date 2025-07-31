@@ -5,57 +5,536 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divya's Coaching</title>
-     <!-- ✅ Preload navbar.css -->
-    <link rel="preload" href="navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="navbar.css"></noscript>
+    <link rel="stylesheet" href="navbar.css">
 
-    <!-- ✅ Inline minimal navbar CSS to avoid vertical flash -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .navbar { display:flex; justify-content:space-between; align-items:center; }
-        .navbar ul { display:flex; list-style:none; margin:0; padding:0; }
-        .navbar li { margin:0 10px; }
-    </style>
+        /* Custom CSS */
+        :root {
+            --primary: #4f46e5;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
 
-    <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-shapes div {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+
+        .floating-shapes div:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .floating-shapes div:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .floating-shapes div:nth-child(3) {
+            left: 70%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 4s;
+        }
+
+        .floating-shapes div:nth-child(4) {
+            left: 40%;
+            width: 40px;
+            height: 40px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .floating-shapes div:nth-child(5) {
+            left: 65%;
+            width: 100px;
+            height: 100px;
+            animation-delay: 7s;
+        }
+
+        .floating-shapes div:nth-child(6) {
+            left: 80%;
+            width: 30px;
+            height: 30px;
+            animation-delay: 10s;
+            animation-duration: 15s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .course-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .counter-box {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .counter-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .testimonial-card {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        .floating-btn {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Typing animation */
+        .typing {
+            position: relative;
+        }
+
+        .typing::after {
+            content: "|";
+            position: absolute;
+            right: -5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
 <body>
     <div id="navbar-container"></div>
+      <div id="whatsapp-container"></div>
 
-    <!-- ✅ Container for Login/Register/Forgot Pages -->
-    <!-- <div id="auth-container"></div> -->
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-white relative">
+        <div class="floating-shapes">
+        </div>
+        <div class="hero-content container mx-auto px-4 py-20 text-center relative z-10">
+            <h2
+                class="welcome-text text-3xl md:text-4xl font-extrabold text-indigo-100 mb-4 tracking-wide animate__animated animate__fadeInDown">
+                Welcome to <span class="text-yellow-400 drop-shadow-lg">Divya Classes</span>
+            </h2>
 
-    <!-- ✅ Firebase & JS -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate__animated animate__fadeInDown">
+                Transform Your <span class="typing text-yellow-300">Future</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 animate__animated animate__fadeIn animate__delay-1s">
+                Join Divya Classes - Where excellence in education meets personalized learning
+            </p>
+            <div
+                class="flex flex-col md:flex-row justify-center gap-4 animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="courses.html"
+                    class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Explore Courses
+                </a>
+                <a href="contact.html"
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Why Choose Divya Classes?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-indigo-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Comprehensive Curriculum</h3>
+                    <p class="text-gray-600 text-center">Well-structured syllabus covering all key concepts with depth
+                        and clarity</p>
+                </div>
+                <div class="bg-indigo-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Expert Faculty</h3>
+                    <p class="text-gray-600 text-center">Highly qualified teachers with years of teaching experience</p>
+                </div>
+                <div class="bg-indigo-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3 text-gray-800">Proven Results</h3>
+                    <p class="text-gray-600 text-center">Consistent track record of top scorers and university
+                        admissions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Our Teaching Methodology</h2>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://cdn.prod.website-files.com/5b69a01ba2e409501de055d1/67bde619a12da84f60614cc7_Discussion-based%20teaching%20strategies.webp"
+                        alt="Modern classroom setup with interactive whiteboard, students engaged in group discussions, and colorful educational posters on walls"
+                        class="rounded-lg shadow-lg w-full"
+                        onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c665a255-7854-46fe-847c-822f5d9b969c.png'">
+                </div>
+                <div class="lg:w-1/2 space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-indigo-100 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-800" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Interactive Learning</h3>
+                            <p class="text-gray-600">Engaging classes with practical examples and interactive sessions
+                                to make learning fun and effective.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-indigo-100 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-800" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Personalized Attention</h3>
+                            <p class="text-gray-600">Small batch sizes ensuring individual attention with customized
+                                learning plans for each student.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-indigo-100 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-800" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Regular Assessments</h3>
+                            <p class="text-gray-600">Periodic tests and feedback sessions to track progress and address
+                                weaknesses.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="bg-indigo-100 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-800" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Flexible Scheduling</h3>
+                            <p class="text-gray-600">Multiple batch timings available including weekend classes to suit
+                                different schedules.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Popular Courses</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Explore our comprehensive range of courses designed to help you excel in academics and beyond
+                </p>
+            </div>
+            <!-- Button Below Courses Section -->
+            <div class="text-center mt-12">
+                <a href="courses.html">
+                    <button
+                        class="bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        View All Courses
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">What Our Students Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Hear from our successful students who have achieved their dreams with Divya Classes
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-xl p-6 shadow-lg animate__animated animate__fadeInUp">
+                    <p class="text-gray-600 mb-4">
+                        "Divya Classes provided me with the best resources and support. I couldn't have done it without
+                        them!"
+                    </p>
+                    <h4 class="font-bold text-gray-800">Aarav Sharma</h4>
+                    <!-- <p class="text-gray-500">NEET Topper 2023</p> -->
+                </div>
+                <div
+                    class="testimonial-card bg-white rounded-xl p-6 shadow-lg animate__animated animate__fadeInUp animate__delay-1s">
+                    <p class="text-gray-600 mb-4">
+                        "The faculty at Divya Classes is incredibly knowledgeable and supportive. I highly recommend
+                        it!"
+                    </p>
+                    <h4 class="font-bold text-gray-800">Saanvi Mehta</h4>
+                    <!-- <p class="text-gray-500">JEE Advanced Topper 2023</p> -->
+                </div>
+                <div
+                    class="testimonial-card bg-white rounded-xl p-6 shadow-lg animate__animated animate__fadeInUp animate__delay-2s">
+                    <p class="text-gray-600 mb-4">
+                        "Thanks to Divya Classes, I gained confidence in my abilities and achieved my goals!"
+                    </p>
+                    <h4 class="font-bold text-gray-800">Rohan Verma</h4>
+                    <!-- <p class="text-gray-500">Board Exam Achiever</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <p class="text-gray-400 mb-6">Providing quality education 2024 with personalized attention and
+                        innovative teaching methods.</p>
+                    <!-- <div class="flex gap-4">
+                        <img src="https://placehold.co/32x32" alt="Facebook logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Instagram logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Youtube logo icon" class="h-8 w-8">
+                        <img src="https://placehold.co/32x32" alt="Whatsapp logo icon" class="h-8 w-8">
+                    </div> -->
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition">Courses</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="primary.html" class="hover:text-white transition">Primary School (1-5)</a>
+                        </li>
+                        <li><a href="middle.html" class="hover:text-white transition">Middle School (6-8)</a></li>
+                        <li><a href="highschool.html" class="hover:text-white transition">High School (9-12)</a></li>
+                        <li><a href="kidstution.html" class="hover:text-white transition">Kids Tuition (Age 4-7)</a>
+                        </li>
+                        <li><a href="summerprog.html" class="hover:text-white transition">Summer Programs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <span>New Housing Board, Pali, Rajasthan, 306401</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>+91 7976675411</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>divyalakhara08@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span>Mon-Sat: 9am - 6pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Divya Classes. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+        <div id="whatsapp-container"></div>
+    </footer>
+
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="auth.js"></script>
 
     <script>
-        // function loadPage(page) {
-        //     fetch(page)
-        //         .then(res => res.text())
-        //         .then(html => {
-        //             document.getElementById('auth-container').innerHTML = html;
-        //         })
-        //         .catch(err => console.error("Error loading page:", err));
-        // }
+
 
         fetch('navbar.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('navbar-container').innerHTML = html;
-
-
             })
             .catch(err => console.error("Error loading navbar:", err));
+
+        fetch("whatsapp.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("whatsapp-container").innerHTML = data;
+            });
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            counter.innerText = '0';
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-count');
+                const c = +counter.innerText;
+                const increment = target / 200;
+                if (c < target) {
+                    counter.innerText = Math.ceil(c + increment);
+                    setTimeout(updateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
     </script>
 </body>
 

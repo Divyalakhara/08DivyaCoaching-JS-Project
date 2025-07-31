@@ -13,7 +13,7 @@
 
   <!-- ✅ Inline fallback to avoid vertical navbar -->
   <style>
-    .navbar {
+    /* .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -28,7 +28,7 @@
 
     .navbar li {
       margin: 0 10px;
-    }
+    } */
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -143,6 +143,7 @@
 
 <body>
   <div id="navbar-container"></div>
+  <div id="whatsapp-container"></div>
   <div class="container mx-auto px-4 py-12">
     <header class="text-center mb-12">
       <div class="logo mb-6">
@@ -408,6 +409,12 @@
       .then(res => res.text())
       .then(html => document.getElementById('navbar-container').innerHTML = html)
       .catch(err => console.error("Error loading navbar:", err));
+
+    fetch("whatsapp.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("whatsapp-container").innerHTML = data;
+      });
   </script>
 
   <script>

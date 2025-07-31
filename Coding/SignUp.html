@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Code Academy</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        body::before {
+            content: "function signup(user){ if(valid){console.log('Welcome Coder!');} }\n</> let code = 'Academy';";
+            position: absolute;
+            top: 0; left: 0;
+            white-space: pre;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(0, 255, 100, 0.1);
+            width: 100%; height: 100%;
+            padding: 50px;
+            animation: moveCode 15s linear infinite;
+        }
+        @keyframes moveCode {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        .container {
+            position: relative;
+            max-width: 450px;
+            width: 90%;
+            padding: 25px 30px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: bold;
+            color: #fff;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%; padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00ff88;
+            color: #0d0d0d;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        button:hover { background-color: #00cc6a; transform: scale(1.05); }
+        p { text-align: center; margin-top: 15px; color: #fff; }
+        p a { color: #00ff88; font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Signup for Code Academy</h1>
+    <form id="signupForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="LoginCode.html">Login here</a>.</p>
+</div>
+
+<script type="module">
+    import { signupUser } from "./AuthCode.js";
+
+    const form = document.getElementById("signupForm");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        console.log("📌 Signup button clicked");
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+        if (password !== confirmPassword) {
+            alert("❌ Passwords do not match!");
+            return;
+        }
+
+        try {
+            console.log("📌 Calling signupUser...");
+            await signupUser(name, email, password, "code_academy");
+            console.log("✅ Signup completed successfully");
+            alert("✅ Signup Successful!");
+            window.location.href = "LoginCode.html";
+        } catch (err) {
+            console.error("🔥 Signup Error:", err);
+            alert("❌ Error: " + err.message);
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Classes - WhatsApp & Call</title>
+    <style>
+        /* ✅ Container Fixed Top Right */
+        .contact-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+        }
+
+        /* ✅ Common Button Styles */
+        .contact-button {
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.15);
+        }
+
+        /* ✅ WhatsApp Button */
+        .whatsapp-button {
+            background: #25D366;
+        }
+
+        .whatsapp-button svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        /* ✅ Phone Button */
+        .phone-button {
+            background: #007aff;
+            /* FaceTime Blue */
+        }
+
+        .phone-button svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        /* ✅ Tooltip */
+        .tooltip {
+            position: absolute;
+            right: 80px;
+            background: #fff;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* ✅ Show tooltip on hover */
+        .contact-item:hover .tooltip {
+            opacity: 1;
+            transform: translateX(-5px);
+        }
+
+        /* ✅ Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-button {
+                width: 55px;
+                height: 55px;
+            }
+
+            .contact-button svg {
+                width: 26px;
+                height: 26px;
+            }
+
+            .tooltip {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ✅ Fixed Top Right -->
+    <div class="contact-container">
+
+        <!-- WhatsApp -->
+        <div class="contact-item" style="position: relative;">
+            <div class="tooltip">💬 Chat on WhatsApp</div>
+            <a href="https://wa.me/917976675411?text=How%20can%20I%20help%20you%3F" target="_blank"
+                class="contact-button whatsapp-button" aria-label="Chat on WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <path
+                        d="M16.003 3C9.373 3 4 8.373 4 15.003c0 2.56.768 4.936 2.09 6.91L4 29l7.282-2.054A11.944 11.944 0 0016.003 27c6.63 0 12.003-5.373 12.003-11.997C28.006 8.373 22.633 3 16.003 3zm-.01 21.992a9.9 9.9 0 01-5.045-1.39l-.36-.214-4.317 1.219 1.236-4.21-.233-.37A9.88 9.88 0 016.1 15.01c0-5.448 4.44-9.885 9.886-9.885 5.45 0 9.89 4.437 9.89 9.885-.001 5.447-4.44 9.882-9.883 9.882zm5.593-7.42c-.307-.153-1.815-.895-2.096-.997-.28-.102-.484-.152-.688.153-.205.306-.79.996-.967 1.2-.178.203-.356.229-.663.077-.307-.154-1.296-.477-2.47-1.52-.912-.812-1.527-1.814-1.705-2.12-.178-.305-.019-.469.134-.622.137-.137.306-.356.458-.535.152-.178.203-.305.306-.51.102-.204.05-.382-.025-.535-.076-.153-.688-1.65-.94-2.258-.247-.594-.497-.514-.688-.524l-.587-.01c-.203 0-.535.076-.815.382-.28.305-1.07 1.045-1.07 2.548 0 1.504 1.096 2.96 1.25 3.164.153.203 2.157 3.29 5.227 4.613.73.315 1.298.503 1.742.643.732.233 1.4.2 1.926.121.587-.087 1.815-.742 2.071-1.46.256-.716.256-1.33.178-1.46-.076-.13-.28-.204-.587-.356z" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Phone / FaceTime -->
+        <div class="contact-item" style="position: relative;">
+            <div class="tooltip">📞 Call / FaceTime</div>
+            <a href="facetime:+917976675411" class="contact-button phone-button" aria-label="Call Us">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.68.59 1 1 0 011 1v3.5a1 1 0 01-1 1C10.4 21.33 2.67 13.6 2.67 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.26.2 2.49.59 3.68a1 1 0 01-.24 1.01l-2.2 2.2z" />
+                </svg>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

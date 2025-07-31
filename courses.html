@@ -213,7 +213,7 @@
                             <span class="text-gray-700">Regular assessments</span>
                         </li>
                     </ul>
-                  <a href="middle.html"
+                    <a href="middle.html"
                         class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
                         Details
                     </a>
@@ -306,14 +306,21 @@
                             <span class="text-gray-700">Science fundamentals</span>
                         </li>
                     </ul>
-                   <a href="specialpro.html"
+                    <a href="specialpro.html"
                         class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
                         Details
                     </a>
                 </div>
 
                 <!-- Summer Programs -->
-                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300">
+                <div class="bg-white p-8 rounded-xl shadow-md course-card transition duration-300 relative">
+
+                    <!-- ✅ NEW Badge (with border & clear visibility) -->
+                    <div class="absolute top-1 left-0 bg-green-500 text-white text-xs font-bold px-5 py-2 rounded-full 
+                shadow-xl border-2 border-white z-20 animate-bounce">
+                        NEW
+                    </div>
+
                     <div class="flex items-center mb-6">
                         <div class="bg-pink-100 p-3 rounded-full mr-4">
                             <img src="encryption.png" alt="Summer program icon with sunshine and beach ball"
@@ -321,8 +328,11 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900">Summer Programs</h3>
                     </div>
-                    <p class="text-gray-600 mb-6">Fun yet educational summer courses to prevent learning loss and
-                        explore new interests.</p>
+
+                    <p class="text-gray-600 mb-6">
+                        Fun yet educational summer courses to prevent learning loss and explore new interests.
+                    </p>
+
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-start">
                             <span class="text-green-500 mr-2 animated-checkmark">✓</span>
@@ -337,11 +347,13 @@
                             <span class="text-gray-700">Field trips</span>
                         </li>
                     </ul>
-                   <a href="summerprog.html"
+
+                    <a href="summerprog.html"
                         class="w-full block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-md transition">
                         Details
                     </a>
                 </div>
+
             </div>
         </div>
     </section>
@@ -557,7 +569,8 @@
                         </li>
                         <li><a href="middle.html" class="hover:text-white transition">Middle School (6-8)</a></li>
                         <li><a href="highschool.html" class="hover:text-white transition">High School (9-12)</a></li>
-                        <li><a href="kidstution.html" class="hover:text-white transition">Kids Tuition (Age 4-7)</a></li>
+                        <li><a href="kidstution.html" class="hover:text-white transition">Kids Tuition (Age 4-7)</a>
+                        </li>
                         <li><a href="summerprog.html" class="hover:text-white transition">Summer Programs</a></li>
                     </ul>
                 </div>
@@ -590,6 +603,7 @@
                 </div>
             </div>
         </div>
+        <div id="whatsapp-container"></div>
     </footer>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -600,6 +614,11 @@
             .then(res => res.text())
             .then(html => document.getElementById('navbar-container').innerHTML = html)
             .catch(err => console.error("Error loading navbar:", err));
+        fetch("whatsapp.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("whatsapp-container").innerHTML = data;
+            });
     </script>
 
     <script>
