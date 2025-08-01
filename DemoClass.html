@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Class Video</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #4f46e5, #9333ea);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .video-wrapper iframe, 
+    .video-wrapper video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    .progress-fill {
+      height: 6px;
+      background: #10b981;
+      width: 0%;
+      transition: width 0.3s linear;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <div class="glass-card rounded-2xl p-6 max-w-3xl w-full text-center text-white shadow-lg">
+    <h1 class="text-3xl font-bold mb-4">🎥 Welcome to the Demo Class!</h1>
+    <p class="text-lg mb-6 opacity-90">Watch this free demo video to experience our teaching style.</p>
+
+    <!-- Video Container -->
+    <div id="videoContainer" class="video-wrapper mb-4"></div>
+
+    <!-- Progress bar for MP4 -->
+    <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+
+    <!-- Replay button -->
+    <button id="replayBtn" class="mt-4 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-lg font-semibold hidden">
+      🔄 Replay Video
+    </button>
+
+    <!-- Back button -->
+    <div class="mt-6">
+      <a href="courses.html?back=true" 
+         class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+        ⬅️ Back to Courses
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // ✅ CONFIG: Change values here
+    const videoType = "youtube"; // "youtube" or "mp4"
+    const videoURL = "https://www.youtube.com/watch?v=MrTxRn9MNWM"; // Or "demo.mp4"
+
+    const container = document.getElementById('videoContainer');
+    const progressFill = document.getElementById('progressFill');
+    const replayBtn = document.getElementById('replayBtn');
+
+    if (videoType === "youtube") {
+      const urlParams = new URL(videoURL);
+      const videoId = urlParams.searchParams.get("v");
+      container.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0" 
+          title="Demo Video"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>`;
+    } 
+    else if (videoType === "mp4") {
+      container.innerHTML = `
+        <video id="demoVideo" class="w-full rounded-lg" controls autoplay>
+          <source src="${videoURL}" type="video/mp4">
+        </video>`;
+
+      const demoVideo = document.getElementById('demoVideo');
+
+      // ✅ Progress bar update for MP4
+      demoVideo.addEventListener('timeupdate', () => {
+        const progress = (demoVideo.currentTime / demoVideo.duration) * 100;
+        progressFill.style.width = progress + "%";
+      });
+
+      // ✅ Show replay button at end
+      demoVideo.addEventListener('ended', () => {
+        replayBtn.classList.remove('hidden');
+      });
+
+      // ✅ Replay video on button click
+      replayBtn.addEventListener('click', () => {
+        demoVideo.currentTime = 0;
+        demoVideo.play();
+        replayBtn.classList.add('hidden');
+      });
+    }
+  </script>
+</body>
+</html>

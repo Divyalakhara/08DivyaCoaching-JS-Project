@@ -102,7 +102,16 @@ function register() {
   auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
       showAlert("✅ Registration successful! You can now log in.");
+      // Check if the user came from courses.html
+    let params = new URLSearchParams(window.location.search);
+    if (params.get('from') === 'courses') {
+      // Redirect back to courses.html to open the demo video
+      window.location.href = "courses.html?registered=success";
+    } else {
+      // Default redirect to login if not from courses
       window.location.href = "login.html";
+    }
+
     })
     .catch(err => {
       if (err.code === "auth/email-already-in-use") {
