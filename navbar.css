@@ -15,6 +15,7 @@
     z-index: 999;
     transition: background 0.4s ease, padding 0.3s ease;
     animation: slideDown 0.7s ease;
+    flex-wrap: wrap; /* ✅ Prevents breaking alignment on small screens */
 }
 
 /* 🔥 Navbar entry animation */
@@ -23,8 +24,9 @@
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* ✅ Brand Logo */
 .navbar .brand img {
-    height: 40px; /* Slightly smaller to align with text height */
+    height: 40px; /* Align with text height */
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
@@ -40,6 +42,7 @@
     gap: 22px;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* ✅ Prevents overflow on smaller devices */
 }
 
 .navbar .menu a {
@@ -81,9 +84,10 @@
 .navbar .auth {
     display: flex;
     list-style: none;
-    gap: 1px;
+    gap: 8px;
     margin: 0;
     padding-right: 40px;
+    flex-wrap: wrap; /* ✅ Ensures buttons align properly on small devices */
 }
 
 .navbar .auth a {
@@ -103,4 +107,36 @@
     color: #fff;
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 8px 16px;
+    }
+
+    .navbar .brand img {
+        height: 36px;
+        margin-bottom: 8px;
+    }
+
+    .navbar .menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .navbar .auth {
+        flex-direction: column;
+        gap: 6px;
+        padding-right: 0;
+    }
+
+    .navbar .auth a {
+        width: 100%;
+        text-align: center;
+    }
 }
