@@ -57,12 +57,49 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
   <script src="auth.js"></script>
-  <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('navbar-container').innerHTML = html)
-      .catch(err => console.error("Error loading navbar:", err));
-  </script>
+ <script>
+  // ✅ Load Navbar
+  fetch('navbar.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('navbar-container').innerHTML = html)
+    .catch(err => console.error("Error loading navbar:", err));
+
+  function sendContact() {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const phone = document.getElementById('contactPhone').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!name || !email || !phone || !message) {
+      alert("❌ Please fill in all fields.");
+      return;
+    }
+
+    // ✅ Build WhatsApp message
+    const whatsappMessage =
+      `Hello, I am ${name}.\n` +
+      `Message: ${message}`;
+
+    // ✅ Detect device and choose correct URL
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const baseURL = isMobile
+      ? "https://api.whatsapp.com/send"
+      : "https://web.whatsapp.com/send";
+
+    const url = `${baseURL}?phone=917976675411&text=${encodeURIComponent(whatsappMessage)}`;
+
+    // ✅ Open WhatsApp immediately without alert
+    window.open(url, "_blank");
+
+    // ✅ Clear the form
+    document.getElementById('contactName').value = "";
+    document.getElementById('contactEmail').value = "";
+    document.getElementById('contactPhone').value = "";
+    document.getElementById('contactMessage').value = "";
+  }
+
+</script>
+
 </body>
 
 </html>

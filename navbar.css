@@ -140,3 +140,21 @@
         text-align: center;
     }
 }
+
+.badge {
+    margin-left: 6px;
+    background-color: #22c55e; /* ✅ Same as Tailwind bg-green-500 */
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    display: inline-block;
+    animation: bounceBadge 1.5s infinite;
+}
+
+@keyframes bounceBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
