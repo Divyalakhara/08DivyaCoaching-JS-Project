@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DivyaCodeMaster - Mobile Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { 
+      getAuth, RecaptchaVerifier, signInWithPhoneNumber 
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+    // ✅ Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyATepFOalx-20QzYAMVBAtmYHq0IcFzlc4",
+      authDomain: "divyascoaching-ccabb.firebaseapp.com",
+      projectId: "divyascoaching-ccabb",
+      appId: "1:299666286642:web:aa4fe270b604311965b42b"
+    };
+
+    // ✅ Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    auth.languageCode = 'en';
+
+    // ✅ Setup reCAPTCHA
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+      'size': 'invisible',
+      'callback': (response) => {
+        console.log("✅ reCAPTCHA solved");
+      }
+    });
+
+    // ✅ Send OTP
+    window.sendOTP = async () => {
+      const phoneInput = document.getElementById("phone");
+      const fullNumber = "+91" + phoneInput.value;
+
+      try {
+        const appVerifier = window.recaptchaVerifier;
+        const confirmationResult = await signInWithPhoneNumber(auth, fullNumber, appVerifier);
+        window.confirmationResult = confirmationResult;
+        alert("✅ OTP Sent to " + fullNumber);
+        document.getElementById("otp-section").classList.remove("hidden");
+      } catch (error) {
+        console.error("❌ Error sending OTP:", error);
+        alert("Error: " + error.message);
+      }
+    };
+
+    // ✅ Verify OTP
+    window.verifyOTP = async () => {
+      const code = document.getElementById("otp").value;
+      try {
+        const result = await window.confirmationResult.confirm(code);
+        const user = result.user;
+        alert("✅ Login Successful! UID: " + user.uid);
+        window.location.href = "home.html"; // ✅ Redirect after login
+
+      } catch (error) {
+        console.error("❌ OTP Verification Error:", error);
+        alert("Invalid OTP. Try again.");
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-6">
+    <h2 class="text-2xl font-bold text-center mb-4">Sign Up with Mobile</h2>
+
+    <!-- Phone Input -->
+    <input id="phone" type="tel" maxlength="10"
+      class="w-full border rounded px-3 py-2 mb-3" placeholder="Enter 10 digit mobile" />
+
+    <div id="recaptcha-container"></div>
+
+    <button onclick="sendOTP()" class="w-full bg-indigo-600 text-white py-2 rounded">Send OTP</button>
+
+    <!-- OTP Section -->
+    <div id="otp-section" class="hidden mt-4">
+      <input id="otp" type="text" maxlength="6"
+        class="w-full border rounded px-3 py-2 mb-3" placeholder="Enter OTP" />
+      <button onclick="verifyOTP()" class="w-full bg-green-600 text-white py-2 rounded">Verify OTP</button>
+    </div>
+  </div>
+</body>
+</html>

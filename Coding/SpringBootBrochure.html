@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Boot Programming Course</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-8 text-center">
+    <h1 class="text-4xl font-bold">Spring Boot Programming</h1>
+    <p class="text-lg mt-2">Beginner to Advanced with Real-World Projects</p>
+    <div class="mt-4 flex justify-center space-x-4">
+      <a href="Home.html#courses" 
+         class="bg-white text-indigo-700 px-6 py-2 rounded-lg font-medium shadow hover:bg-gray-100 transition">
+         🔙 Back to Courses
+      </a>
+      <a href="spring-boot-syllabus.pdf" download
+         class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium shadow hover:bg-green-600 transition">
+         ⬇️ Download Syllabus
+      </a>
+    </div>
+  </header>
+
+  <!-- Preview Video -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-indigo-700 mb-4 text-center">🎥 Course Preview</h2>
+    <div class="aspect-w-16 aspect-h-9">
+      <iframe class="w-full h-64 md:h-96 rounded-lg shadow-lg"
+              src="https://www.youtube.com/embed/9SGDpanrc8U"
+              title="Spring Boot Course Preview"
+              frameborder="0"
+              allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Course Overview -->
+  <section class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold text-indigo-700 mb-4">📌 Course Overview</h2>
+    <p class="text-gray-700 mb-6">
+      This course is designed to teach you how to build scalable and production-ready applications using 
+      <strong>Spring Boot</strong>. You will learn REST API development, database integration, microservices, 
+      security, deployment, and real-world project implementation.
+    </p>
+  </section>
+
+  <!-- Modules -->
+  <section class="max-w-5xl mx-auto px-4 py-6">
+    <h2 class="text-2xl font-bold text-indigo-700 mb-6">📚 Course Modules</h2>
+
+    <!-- Module 1 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 1: Introduction to Spring Boot</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>What is Spring Boot? Difference between Spring & Spring Boot</li>
+        <li>Advantages and Features</li>
+        <li>Spring Boot Architecture & Workflow</li>
+        <li>Setting up Project in STS/IntelliJ/VS Code</li>
+        <li>Running a Spring Boot Application</li>
+      </ul>
+    </div>
+
+    <!-- Module 2 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 2: Spring Boot Basics</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Spring Boot Starter Projects</li>
+        <li>application.properties vs application.yml</li>
+        <li>Auto-Configuration and Key Annotations</li>
+        <li>Embedded Tomcat Server</li>
+        <li>Spring Boot CLI Overview</li>
+      </ul>
+    </div>
+
+    <!-- Module 3 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 3: REST API Development</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Creating REST APIs with Spring Boot</li>
+        <li>Request Mapping: @GetMapping, @PostMapping, etc.</li>
+        <li>Path Variables & Query Parameters</li>
+        <li>Request & Response Body</li>
+        <li>Exception Handling with @ControllerAdvice</li>
+      </ul>
+    </div>
+
+    <!-- Module 4 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 4: Spring Boot with Database</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Spring Data JPA & Hibernate</li>
+        <li>Connecting to MySQL/PostgreSQL</li>
+        <li>Entity, Repository, Service Layers</li>
+        <li>CRUD Operations</li>
+        <li>JPQL & Native Queries</li>
+      </ul>
+    </div>
+
+    <!-- Module 5 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 5: Spring Boot Security</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Introduction to Spring Security</li>
+        <li>Basic Authentication</li>
+        <li>JWT Authentication & Role-Based Access Control</li>
+        <li>Password Encryption with BCrypt</li>
+      </ul>
+    </div>
+
+    <!-- Module 6 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 6: Microservices with Spring Boot</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Introduction to Microservices</li>
+        <li>Service Discovery with Eureka</li>
+        <li>API Gateway using Spring Cloud</li>
+        <li>Communication between Microservices</li>
+        <li>Distributed Configurations</li>
+      </ul>
+    </div>
+
+    <!-- Module 7 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 7: Deployment & DevOps</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Building JAR/WAR files</li>
+        <li>Deploying on Tomcat Server</li>
+        <li>Deploying on AWS EC2 and Elastic Beanstalk</li>
+        <li>Dockerizing Spring Boot Application</li>
+      </ul>
+    </div>
+
+    <!-- Module 8 -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+      <h3 class="text-xl font-semibold text-purple-600">Module 8: Advanced Topics</h3>
+      <ul class="list-disc list-inside text-gray-700 mt-2">
+        <li>Caching with Redis & EhCache</li>
+        <li>Scheduling Tasks with @Scheduled</li>
+        <li>Spring Boot Actuator & Monitoring</li>
+        <li>Creating Custom Starters</li>
+      </ul>
+    </div>
+</section>
+
+  <!-- Projects Section -->
+  <section class="bg-gray-100 py-10 mt-8">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-indigo-700 mb-6">💻 Hands-On Projects</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Student Management System</li>
+        <li>E-Commerce Backend with JWT Security</li>
+        <li>Banking Application with Microservices</li>
+        <li>Spring Boot + React Full-Stack Project</li>
+        <li>Job Portal with Role-Based Access</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-indigo-700 text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Divya CodeMaster Academy. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

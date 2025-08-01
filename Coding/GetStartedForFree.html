@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +12,33 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+
         .form-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
         }
+
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
         }
+
         .loading-bar {
             width: 0;
             transition: width 1s ease-in-out;
         }
+
         .input-highlight {
             transition: all 0.3s ease;
             border-color: #93c5fd;
         }
+
         .input-highlight:focus {
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="bg-white shadow-sm">
@@ -39,12 +46,15 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <img src="https://placehold.co/40x40" alt="CodeMaster Academy logo showing a stylized blue and white coding brackets symbol" class="h-8 w-8">
+                        <img src="code.png"
+                            alt="CodeMaster Academy logo showing a stylized blue and white coding brackets symbol"
+                            class="h-8 w-8">
                         <span class="ml-2 text-xl font-bold text-gray-900">CodeMaster Academy</span>
                     </div>
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center">
-                    <a href="Home.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Back to Home</a>
+                    <a href="Home.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Back to
+                        Home</a>
                 </div>
             </div>
         </div>
@@ -58,8 +68,24 @@
         </div>
     </section>
 
-    <!-- Main Content -->
-   
+    <div class="flex justify-center mt-8">
+        <div class="bg-green-50 shadow-2xl rounded-2xl border border-green-200 p-6 w-80 flex items-center space-x-4 hover:scale-105 hover:shadow-green-400/50 transition-all duration-300 cursor-pointer"
+            onclick="window.open('https://wa.me/917976675411?text=Hi%20I%20want%20to%20know%20more%20about%20your%20courses','_blank')">
+
+            <div class="flex-shrink-0">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+                    class="w-14 h-14 rounded-full bg-green-500 p-2 shadow-md">
+            </div>
+
+            <div class="flex flex-col">
+                <span class="font-bold text-gray-900 text-lg">Contact on WhatsApp</span>
+                <span class="text-sm text-gray-600">💬 Reply within minutes</span>
+            </div>
+
+        </div>
+    </div>
+
+
 
     <!-- Testimonial Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -69,33 +95,42 @@
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-white p-6 rounded-xl shadow-sm">
                 <div class="flex items-center mb-4">
-                    <img src="https://placehold.co/50x50" alt="Portrait of Sarah K. a young female web developer smiling at camera" class="h-12 w-12 rounded-full mr-4">
+                    <img src="https://placehold.co/50x50"
+                        alt="Portrait of Sarah K. a young female web developer smiling at camera"
+                        class="h-12 w-12 rounded-full mr-4">
                     <div>
                         <h4 class="font-medium text-gray-900">Sarah K.</h4>
                         <p class="text-sm text-gray-500">Web Developer</p>
                     </div>
                 </div>
-                <p class="text-gray-700">"CodeMaster Academy's free courses gave me the foundation I needed to land my first developer job. The hands-on projects were especially valuable."</p>
+                <p class="text-gray-700">"CodeMaster Academy's free courses gave me the foundation I needed to land my
+                    first developer job. The hands-on projects were especially valuable."</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm">
                 <div class="flex items-center mb-4">
-                    <img src="https://placehold.co/50x50" alt="Portrait of Michael T. a professional Java developer with glasses" class="h-12 w-12 rounded-full mr-4">
+                    <img src="https://placehold.co/50x50"
+                        alt="Portrait of Michael T. a professional Java developer with glasses"
+                        class="h-12 w-12 rounded-full mr-4">
                     <div>
                         <h4 class="font-medium text-gray-900">Michael T.</h4>
                         <p class="text-sm text-gray-500">Java Developer</p>
                     </div>
                 </div>
-                <p class="text-gray-700">"I started with their free Java course and was impressed by the quality. Upgraded to the full program within a month."</p>
+                <p class="text-gray-700">"I started with their free Java course and was impressed by the quality.
+                    Upgraded to the full program within a month."</p>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm">
                 <div class="flex items-center mb-4">
-                    <img src="https://placehold.co/50x50" alt="Portrait of Priya M. a college student studying computer science" class="h-12 w-12 rounded-full mr-4">
+                    <img src="https://placehold.co/50x50"
+                        alt="Portrait of Priya M. a college student studying computer science"
+                        class="h-12 w-12 rounded-full mr-4">
                     <div>
                         <h4 class="font-medium text-gray-900">Priya M.</h4>
                         <p class="text-sm text-gray-500">Computer Science Student</p>
                     </div>
                 </div>
-                <p class="text-gray-700">"The interactive exercises made learning React so much easier than other platforms I tried. Perfect for visual learners!"</p>
+                <p class="text-gray-700">"The interactive exercises made learning React so much easier than other
+                    platforms I tried. Perfect for visual learners!"</p>
             </div>
         </div>
     </div>
@@ -104,8 +139,12 @@
     <section class="bg-blue-600 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl md:text-3xl font-bold mb-4">Still have questions?</h2>
-            <p class="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">Our support team is here to help you get started on your coding journey.</p>
-            <a href="#" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md text-lg font-medium transition duration-150">Contact Support</a>
+            <p class="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">Our support team is here to help you get started on
+                your coding journey.</p>
+            <a href="#" onclick="saveContact()"
+                class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md text-lg font-medium transition duration-150">
+                Contact Support
+            </a>
         </div>
     </section>
 
@@ -115,8 +154,8 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center">
-                        <img src="https://placehold.co/40x40" alt="CodeMaster Academy logo in white" class="h-8 w-8">
-                        <span class="ml-2 text-xl font-bold">CodeMaster Academy</span>
+                        <img src="code.png" alt="CodeMaster Academy logo in white" class="h-8 w-8">
+                        <span class="ml-2 text-xl font-bold">Divya CodeMaster Academy</span>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
@@ -153,41 +192,39 @@
     </footer>
 
     <script>
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const buttonText = document.getElementById('button-text');
-            const loadingSpinner = document.getElementById('loading-spinner');
-            
-            buttonText.textContent = 'Creating Account...';
-            loadingSpinner.classList.remove('hidden');
-            
-            // Simulate form submission
-            setTimeout(function() {
-                // In a real application, this would be an AJAX call to your backend
-                alert('Account created successfully! Redirecting to your dashboard...');
-                
-                // Reset form and button
-                buttonText.textContent = 'Create Free Account';
-                loadingSpinner.classList.add('hidden');
-                e.target.reset();
-                
-                // In a real app, you would redirect to the dashboard here
-                // window.location.href = '/dashboard';
-            }, 1500);
-        });
-        
+
+        function saveContact() {
+            // 1️⃣ Create a vCard dynamically
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Divya CodeMaster Support
+TEL:+917976675411
+END:VCARD`;
+
+            // 2️⃣ Create a Blob and trigger download
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DivyaSupport.vcf';
+            a.click();
+
+            // 3️⃣ After 1 second, open WhatsApp chat
+            setTimeout(() => {
+                window.open('https://wa.me/917976675411?text=Hi%20I%20need%20support', '_blank');
+            }, 1000);
+        }
         // Input validation
         document.querySelectorAll('.input-highlight').forEach(input => {
-            input.addEventListener('focus', function() {
+            input.addEventListener('focus', function () {
                 this.parentNode.querySelector('label').classList.add('text-blue-600');
             });
-            
-            input.addEventListener('blur', function() {
+
+            input.addEventListener('blur', function () {
                 this.parentNode.querySelector('label').classList.remove('text-blue-600');
             });
         });
     </script>
 </body>
+
 </html>
