@@ -1,109 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Summer Programs | Divya Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Programs | Divya Classes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fredoka+One&display=swap');
 
-    body { font-family: 'Poppins', sans-serif; background-color: #fff7f9; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff7f9;
+        }
 
-    .heading-font { font-family: 'Fredoka One', cursive; }
+        .heading-font {
+            font-family: 'Fredoka One', cursive;
+        }
 
-    .hero-gradient {
-      background: linear-gradient(135deg, #ec4899, #f472b6);
-    }
+        .hero-gradient {
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+        }
 
-    .program-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
+        .program-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
 
-    .program-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-    }
+        .program-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+        }
 
-    .icon-circle {
-      background: #fbcfe8;
-      padding: 0.8rem;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .icon-circle {
+            background: #fbcfe8;
+            padding: 0.8rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-    .fade-section { animation: fadeIn 0.7s ease; }
-  </style>
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-section {
+            animation: fadeIn 0.7s ease;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient text-white">
-    <div class="container mx-auto px-4 py-20 md:py-28 text-center">
-      <h1 class="heading-font text-4xl md:text-5xl font-bold mb-4">Summer Coding Program</h1>
-      <p class="text-lg md:text-xl mb-6">A fun way to learn coding, build projects, and explore creativity during summer!</p>
-      <a href="courses.html" class="bg-white text-pink-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">← Back to Courses</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-20 md:py-28 text-center">
+            <h1 class="heading-font text-4xl md:text-5xl font-bold mb-4">Summer Coding Program</h1>
+            <p class="text-lg md:text-xl mb-6">A fun way to learn coding, build projects, and explore creativity during
+                summer!</p>
+            <a href="courses.html"
+                class="bg-white text-pink-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">← Back
+                to Courses</a>
+        </div>
+    </section>
 
-  <!-- Program Highlights -->
-  <section class="py-16 bg-pink-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="heading-font text-3xl md:text-4xl text-gray-800 mb-4">Why Join Our Summer Program?</h2>
-        <p class="max-w-2xl mx-auto text-gray-600">Interactive coding classes, exciting projects, and hands-on learning to make summer productive and fun!</p>
-      </div>
+    <!-- Program Highlights -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-3xl md:text-4xl text-gray-800 mb-4">Why Join Our Summer Program?</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Interactive coding classes, exciting projects, and hands-on
+                    learning to make summer productive and fun!</p>
+            </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-section">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-section">
 
-        <!-- Learn Coding -->
-        <div class="program-card">
-          <div class="icon-circle mb-4">
-            <img src="coding.png" alt="Coding icon" class="h-10 w-10">
-          </div>
-          <h3 class="text-xl font-bold text-pink-700 mb-2">Learn Coding</h3>
-          <p class="text-gray-700">Beginner-friendly lessons in Scratch, Python, and Web Development.</p>
+                <!-- Learn Coding -->
+                <div
+                    class="program-card bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+                    <!-- Icon -->
+                    <div class="icon-circle bg-blue-100 p-4 rounded-full mb-4">
+                        <img src="video-content.png" alt="Coding icon" class="h-10 w-10">
+                    </div>
+
+                    <button onclick="window.location.href='Coding/Home.html#courses'"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                        Learn Coding
+                    </button>
+
+                    <!-- Description -->
+                    <p class="text-gray-600 mt-3 text-sm">
+                        Beginner-friendly lessons in Scratch, Java, and Web Development.
+                    </p>
+                </div>
+
+
+                <!-- Project-based learning -->
+                <div class="program-card">
+                    <div class="icon-circle mb-4">
+                        <img src="project-management.png" alt="Project icon" class="h-10 w-10">
+                    </div>
+                    <h3 class="text-xl font-bold text-pink-700 mb-2">Project-based Learning</h3>
+                    <p class="text-gray-700">Create real-world projects like games, websites, and animations.</p>
+                </div>
+
+                <!-- Field Trips -->
+                <div class="program-card">
+                    <div class="icon-circle mb-4">
+                        <img src="trip.png" alt="Trip icon" class="h-10 w-10">
+                    </div>
+                    <h3 class="text-xl font-bold text-pink-700 mb-2">Field Trips & Fun</h3>
+                    <p class="text-gray-700">Engaging activities and trips to make learning more exciting.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Enroll Now for Summer Fun!</h2>
+        <p class="text-gray-600 mb-6">Limited seats available. Early registration ensures your spot.</p>
+        <!-- <button class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-semibold transition">Join Now</button> -->
+        <div class="flex justify-center mt-8">
+            <div class="bg-green-50 shadow-2xl rounded-2xl border border-green-200 p-6 w-80 flex items-center space-x-4 hover:scale-105 hover:shadow-green-400/50 transition-all duration-300 cursor-pointer"
+                onclick="window.open('https://wa.me/917976675411?text=Hi%20I%20want%20to%20know%20more%20about%20summer%20program','_blank')">
+
+                <div class="flex-shrink-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+                        class="w-14 h-14 rounded-full bg-green-500 p-2 shadow-md">
+                </div>
+
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-900 text-lg">Join Now</span>
+                    <span class="text-sm text-gray-600">💬 Reply within minutes</span>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Project-based learning -->
-        <div class="program-card">
-          <div class="icon-circle mb-4">
-            <img src="project.png" alt="Project icon" class="h-10 w-10">
-          </div>
-          <h3 class="text-xl font-bold text-pink-700 mb-2">Project-based Learning</h3>
-          <p class="text-gray-700">Create real-world projects like games, websites, and animations.</p>
-        </div>
-
-        <!-- Field Trips -->
-        <div class="program-card">
-          <div class="icon-circle mb-4">
-            <img src="trip.png" alt="Trip icon" class="h-10 w-10">
-          </div>
-          <h3 class="text-xl font-bold text-pink-700 mb-2">Field Trips & Fun</h3>
-          <p class="text-gray-700">Engaging activities and trips to make learning more exciting.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="py-16 bg-white text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">Enroll Now for Summer Fun!</h2>
-    <p class="text-gray-600 mb-6">Limited seats available. Early registration ensures your spot.</p>
-    <button class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-semibold transition">Register Now</button>
-  </section>
+    </section>
 
 </body>
+
 </html>
