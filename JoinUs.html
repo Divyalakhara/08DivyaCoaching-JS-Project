@@ -75,6 +75,20 @@
       return;
     }
 
+    // ✅ Email validation (simple regex)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("❌ Please enter a valid email address.");
+      return;
+    }
+
+    // ✅ Phone validation (must be exactly 10 digits)
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+      alert("❌ Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     // ✅ Build WhatsApp message
     const whatsappMessage =
       `Hello, I am ${name}.\n` +
