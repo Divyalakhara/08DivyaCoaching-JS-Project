@@ -70,43 +70,52 @@
   <script>
     // ✅ Monthly prices directly
     const coursePrices = {
-      "Grade 1": 900,
-      "Grade 2": 1200,
-      "Grade 3": 1500,
-      "Grade 4": 1600,
-      "Grade 5": 1600,
-      "Grade 6": 1700,
-      "Grade 7": 1700,
-      "Grade 8": 1800,
-      "Grade 9": 2000,
-      "Grade 10": 2000,
-      "Grade 11 PCM": 2500,
-      "Grade 12 PCM": 2500,
-      "Kids Tuition": 1200,
-      "Special Subject": 1800,
-      "Summer Program": 2500,
-      "Java Programming": 2999,
-      "C & C++ Programming": 2799,
-      "React": 3499,
-      "Javascript": 2499,
-      "Spring Boot": 3299,
-      "Full Stack Mastery": 4999
-    };
+    "Grade 1": { total: 900, duration: 1 },
+    "Grade 2": { total: 1200, duration: 1 },
+    "Grade 3": { total: 1500, duration: 1 },
+    "Grade 4": { total: 1600, duration: 1 },
+    "Grade 5": { total: 1600, duration: 1 },
+    "Grade 6": { total: 1600, duration: 1 },
+    "Grade 7": { total: 1700, duration: 1 },
+    "Grade 8": { total: 1700, duration: 1 },
+    "Grade 9": { total: 1800, duration: 1 },
+    "Grade 10": { total: 1800, duration: 1 },
+    "Grade 11 PCM": { total: 2500, duration: 1 },
+    "Grade 12 PCM": { total: 2500, duration: 1 },
+    "Kids Tuition": { total: 1200, duration: 1 },
+    "Special Subject": { total: 1800, duration: 6 },
+    "Summer Program": { total: 2500, duration: 6 },
 
-    function setAmount() {
-      const course = document.getElementById('course').value;
-      const amountField = document.getElementById('amount');
-      const monthlyField = document.getElementById('monthlyAmount');
+    // ✅ Yearly prices for programming courses
+    "Java Programming": { total: 15000, duration: 4 },
+    "C & C++ Programming": { total: 13000, duration: 3 },
+    "React": { total: 13000, duration: 3 },
+    "Javascript": { total: 11000, duration: 3 },
+    "Spring Boot": { total: 18000, duration: 6 },
+    "Full Stack Mastery": { total: 21000, duration: 8 }
+  };
 
-      if (course && coursePrices[course]) {
-        const perMonth = coursePrices[course];
-        amountField.value = `₹${perMonth}`;
-        monthlyField.textContent = `Monthly fee: ₹${perMonth}`;
+  function setAmount() {
+    const course = document.getElementById('course').value;
+    const amountField = document.getElementById('amount');
+    const monthlyField = document.getElementById('monthlyAmount');
+
+    if (course && coursePrices[course]) {
+      const total = coursePrices[course].total;
+      const duration = coursePrices[course].duration;
+      const perMonth = Math.round(total / duration);
+
+      amountField.value = `₹${perMonth}`;
+      if (duration === 1) {
+        monthlyField.textContent = `Pay ₹${perMonth} per month `;
       } else {
-        amountField.value = "";
-        monthlyField.textContent = "";
+        monthlyField.textContent = `Pay ₹${perMonth} per month (Total ₹${total} for ${duration} months)`;
       }
+    } else {
+      amountField.value = "";
+      monthlyField.textContent = "";
     }
+  }
 
     function makePayment() {
       const name = document.getElementById('name').value.trim();
