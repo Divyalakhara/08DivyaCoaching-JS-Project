@@ -110,12 +110,31 @@
 }
 
 /* ✅ Responsive Fixes */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 8px 20px; /* Reduce padding for tablet */
+    }
+    .navbar .menu {
+        gap: 14px; /* Reduce gap so items fit */
+        flex: 1; /* ✅ Take remaining space */
+        justify-content: center;
+        min-width: 0; /* ✅ Prevent overflow */
+    }
+    .navbar .auth {
+        flex-shrink: 0; /* ✅ Don't push buttons down */
+    }
+    .navbar .auth a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         align-items: center;
         padding: 8px 16px;
-        flex-wrap: wrap; /* ✅ Allow wrapping only in mobile */
+        flex-wrap: wrap; /* ✅ Allow wrapping only on mobile */
     }
 
     .navbar .brand img {
@@ -128,14 +147,15 @@
         gap: 10px;
         text-align: center;
         margin-bottom: 8px;
-        flex-wrap: wrap; /* ✅ Safe for mobile menu */
+        flex-wrap: wrap;
     }
 
     .navbar .auth {
         flex-direction: column;
         gap: 6px;
         padding-right: 0;
-        flex-wrap: wrap; /* ✅ Allow buttons to stack in mobile */
+        flex-wrap: wrap;
+        width: 100%; /* ✅ Make buttons full-width in mobile */
     }
 
     .navbar .auth a {
