@@ -1,165 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DivyaCodeMaster - Payment</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivyaCodeMaster - Payment</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="min-h-screen flex justify-center items-center bg-gradient-to-br from-indigo-100 via-purple-50 to-blue-100">
 
-  <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full relative overflow-hidden">
-  <!-- Decorative Gradient Background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-60"></div>
-  <div class="relative z-10">
-    
-    <!-- Title -->
-    <h1 class="text-3xl font-extrabold text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
-      Payment Page
-    </h1>
+    <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full relative overflow-hidden">
+        <!-- Decorative Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-60"></div>
+        <div class="relative z-10">
 
-    <!-- Name -->
-    <label class="block text-sm font-medium mb-1">Full Name</label>
-    <input type="text" id="name" 
-      class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" 
-      placeholder="Enter your name">
+            <!-- Title -->
+            <h1
+                class="text-3xl font-extrabold text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                Payment Page
+            </h1>
 
-    <!-- Dropdown for Courses -->
-    <label class="block text-sm font-medium mb-1">Select Course</label>
-    <select id="course" 
-      class="w-full p-3 border border-gray-300 rounded-lg mb-4 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" 
-      onchange="setAmount()">
-      <option value="">-- Select a Course --</option>
-      <option value="Grade 1">Grade 1</option>
-      <option value="Grade 2">Grade 2</option>
-      <option value="Grade 3">Grade 3</option>
-      <option value="Grade 4">Grade 4</option>
-      <option value="Grade 5">Grade 5</option>
-      <option value="Grade 6">Grade 6</option>
-      <option value="Grade 7">Grade 7</option>
-      <option value="Grade 8">Grade 8</option>
-      <option value="Grade 9">Grade 9</option>
-      <option value="Grade 10">Grade 10</option>
-      <option value="Grade 11 PCM">Grade 11 PCM</option>
-      <option value="Grade 12 PCM">Grade 12 PCM</option>
-      <option value="Kids Tuition">Kids Tuition</option>
-      <option value="Special Subject">Special Subject</option>
-      <option value="Summer Program">Summer Program</option>
-      <option value="Java Programming">Java Programming</option>
-      <option value="C & C++ Programming">C & C++ Programming</option>
-      <option value="React">React</option>
-      <option value="Javascript">Javascript</option>
-      <option value="Spring Boot">Spring Boot</option>
-      <option value="Full Stack Mastery">Full Stack Mastery</option>
-    </select>
+            <!-- Name -->
+            <label class="block text-sm font-medium mb-1">Full Name</label>
+            <input type="text" id="name"
+                class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+                placeholder="Enter your name">
 
-    <!-- Amount -->
-    <label class="block text-sm font-medium mb-1">Amount (₹ per month)</label>
-    <input type="text" id="amount" 
-      class="w-full p-3 border border-gray-300 rounded-lg mb-2 bg-gray-50 font-semibold text-indigo-700 text-center shadow-inner" 
-      readonly placeholder="Monthly amount">
-    <p id="monthlyAmount" class="text-sm text-green-600 font-medium mb-4 text-center"></p>
+            <!-- Dropdown for Courses -->
+            <label class="block text-sm font-medium mb-1">Select Course</label>
+            <select id="course"
+                class="w-full p-3 border border-gray-300 rounded-lg mb-4 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+                onchange="setAmount()">
+                <option value="">-- Select a Course --</option>
+                <option value="Grade 1">Grade 1</option>
+                <option value="Grade 2">Grade 2</option>
+                <option value="Grade 3">Grade 3</option>
+                <option value="Grade 4">Grade 4</option>
+                <option value="Grade 5">Grade 5</option>
+                <option value="Grade 6">Grade 6</option>
+                <option value="Grade 7">Grade 7</option>
+                <option value="Grade 8">Grade 8</option>
+                <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+                <option value="Grade 11 PCM">Grade 11 PCM</option>
+                <option value="Grade 12 PCM">Grade 12 PCM</option>
+                <option value="Kids Tuition">Kids Tuition</option>
+                <option value="Special Subject">Special Subject</option>
+                <option value="Summer Program">Summer Program</option>
+                <option value="Java Programming">Java Programming</option>
+                <option value="C & C++ Programming">C & C++ Programming</option>
+                <option value="React">React</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Spring Boot">Spring Boot</option>
+                <option value="Full Stack Mastery">Full Stack Mastery</option>
+            </select>
 
-    <!-- Payment Method -->
-    <label class="block text-sm font-medium mb-1">Choose Payment Method</label>
-    <div class="flex items-center gap-2 mb-6">
-      <input type="radio" name="paymentApp" value="razorpay" checked class="accent-indigo-600">
-      <span class="text-gray-700">Razorpay</span>
+            <!-- Amount -->
+            <label class="block text-sm font-medium mb-1">Amount (₹ per month)</label>
+            <input type="text" id="amount"
+                class="w-full p-3 border border-gray-300 rounded-lg mb-2 bg-gray-50 font-semibold text-indigo-700 text-center shadow-inner"
+                readonly placeholder="Monthly amount">
+            <p id="monthlyAmount" class="text-sm text-green-600 font-medium mb-4 text-center"></p>
+
+            <!-- Payment Method -->
+            <label class="block text-sm font-medium mb-1">Choose Payment Method</label>
+            <div class="flex items-center gap-2 mb-6">
+                <input type="radio" name="paymentApp" value="razorpay" checked class="accent-indigo-600">
+                <span class="text-gray-700">Razorpay</span>
+            </div>
+
+            <!-- Pay Button -->
+            <button onclick="makePayment()"
+                class="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-bold shadow-lg hover:scale-105 transform transition duration-300">
+                Proceed to Pay
+            </button>
+
+            <!-- Back Button -->
+            <button onclick="window.location.href='Home.html#courses'"
+                class="w-full mt-3 py-3 border border-indigo-500 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition duration-300">
+                Back to Home
+            </button>
+        </div>
     </div>
 
-    <!-- Pay Button -->
-    <button onclick="makePayment()" 
-      class="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-bold shadow-lg hover:scale-105 transform transition duration-300">
-      Proceed to Pay
-    </button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const coursePrices = {
+            "Grade 1": { total: 900, duration: 1 },
+            "Grade 2": { total: 1200, duration: 1 },
+            "Grade 3": { total: 1500, duration: 1 },
+            "Grade 4": { total: 1600, duration: 1 },
+            "Grade 5": { total: 1600, duration: 1 },
+            "Grade 6": { total: 1600, duration: 1 },
+            "Grade 7": { total: 1700, duration: 1 },
+            "Grade 8": { total: 1700, duration: 1 },
+            "Grade 9": { total: 1800, duration: 1 },
+            "Grade 10": { total: 1800, duration: 1 },
+            "Grade 11 PCM": { total: 2500, duration: 1 },
+            "Grade 12 PCM": { total: 2500, duration: 1 },
+            "Kids Tuition": { total: 1200, duration: 1 },
+            "Special Subject": { total: 1800, duration: 6 },
+            "Summer Program": { total: 2500, duration: 6 },
+            "Java Programming": { total: 15000, duration: 4 },
+            "C & C++ Programming": { total: 13000, duration: 3 },
+            "React": { total: 13000, duration: 3 },
+            "Javascript": { total: 11000, duration: 3 },
+            "Spring Boot": { total: 18000, duration: 6 },
+            "Full Stack Mastery": { total: 21000, duration: 8 }
+        };
 
-    <!-- Back Button -->
-    <button onclick="window.location.href='Home.html#courses'" 
-      class="w-full mt-3 py-3 border border-indigo-500 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition duration-300">
-      Back to Home
-    </button>
-  </div>
-</div>
+        function setAmount() {
+            const course = document.getElementById('course').value;
+            const amountField = document.getElementById('amount');
+            const monthlyField = document.getElementById('monthlyAmount');
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    const coursePrices = {
-      "Grade 1": { total: 900, duration: 1 },
-      "Grade 2": { total: 1200, duration: 1 },
-      "Grade 3": { total: 1500, duration: 1 },
-      "Grade 4": { total: 1600, duration: 1 },
-      "Grade 5": { total: 1600, duration: 1 },
-      "Grade 6": { total: 1600, duration: 1 },
-      "Grade 7": { total: 1700, duration: 1 },
-      "Grade 8": { total: 1700, duration: 1 },
-      "Grade 9": { total: 1800, duration: 1 },
-      "Grade 10": { total: 1800, duration: 1 },
-      "Grade 11 PCM": { total: 2500, duration: 1 },
-      "Grade 12 PCM": { total: 2500, duration: 1 },
-      "Kids Tuition": { total: 1200, duration: 1 },
-      "Special Subject": { total: 1800, duration: 6 },
-      "Summer Program": { total: 2500, duration: 6 },
-      "Java Programming": { total: 15000, duration: 4 },
-      "C & C++ Programming": { total: 13000, duration: 3 },
-      "React": { total: 13000, duration: 3 },
-      "Javascript": { total: 11000, duration: 3 },
-      "Spring Boot": { total: 18000, duration: 6 },
-      "Full Stack Mastery": { total: 21000, duration: 8 }
-    };
+            if (course && coursePrices[course]) {
+                const total = coursePrices[course].total;
+                const duration = coursePrices[course].duration;
+                const perMonth = Math.round(total / duration);
 
-    function setAmount() {
-      const course = document.getElementById('course').value;
-      const amountField = document.getElementById('amount');
-      const monthlyField = document.getElementById('monthlyAmount');
-
-      if (course && coursePrices[course]) {
-        const total = coursePrices[course].total;
-        const duration = coursePrices[course].duration;
-        const perMonth = Math.round(total / duration);
-
-        amountField.value = `₹${perMonth}`;
-        if (duration === 1) {
-          monthlyField.textContent = `Pay ₹${perMonth} per month`;
-        } else {
-          monthlyField.textContent = `Pay ₹${perMonth} per month (Total ₹${total} for ${duration} months)`;
+                amountField.value = `₹${perMonth}`;
+                if (duration === 1) {
+                    monthlyField.textContent = `Pay ₹${perMonth} per month`;
+                } else {
+                    monthlyField.textContent = `Pay ₹${perMonth} per month (Total ₹${total} for ${duration} months)`;
+                }
+            } else {
+                amountField.value = "";
+                monthlyField.textContent = "";
+            }
         }
-      } else {
-        amountField.value = "";
-        monthlyField.textContent = "";
-      }
-    }
 
-    function makePayment() {
-      const name = document.getElementById('name').value.trim();
-      const course = document.getElementById('course').value;
-      const amount = document.getElementById('amount').value.replace('₹', '');
+        function makePayment() {
+            const name = document.getElementById('name').value.trim();
+            const course = document.getElementById('course').value;
+            const amount = document.getElementById('amount').value.replace('₹', '');
 
-      if (!name || !course || !amount) {
-        alert("❌ Please fill all fields and select a course.");
-        return;
-      }
+            if (!name || !course || !amount) {
+                alert("❌ Please fill all fields and select a course.");
+                return;
+            }
 
-      const options = {
-        key: "rzp_test_wSkljFvQCAobu1",
-        amount: amount * 100,
-        currency: "INR",
-        name: "DivyaCodeMaster",
-        description: course + " Payment",
-        handler: function (response) {
-          alert("✅ Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
-        },
-        prefill: {
-          name: name
-        },
-        theme: {
-          color: "#4F46E5"
+            const options = {
+                key: "rzp_live_16xVCGgcTidpMi", // ✅ Live Key ID
+                amount: amount * 100,
+                currency: "INR",
+                name: "DivyaCodeMaster",
+                description: course + " Payment",
+                handler: function (response) {
+                    alert("✅ Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+                },
+                prefill: {
+                    name: name
+                },
+                theme: {
+                    color: "#4F46E5"
+                }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
         }
-      };
-      const rzp = new Razorpay(options);
-      rzp.open();
-    }
-  </script>
+    </script>
 
 </body>
+
 </html>
