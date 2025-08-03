@@ -15,7 +15,7 @@
     z-index: 999;
     transition: background 0.4s ease, padding 0.3s ease;
     animation: slideDown 0.7s ease;
-    flex-wrap: wrap; /* ✅ Prevents breaking alignment on small screens */
+    flex-wrap: nowrap; /* 🚀 Prevents breaking on desktop */
 }
 
 /* 🔥 Navbar entry animation */
@@ -26,7 +26,7 @@
 
 /* ✅ Brand Logo */
 .navbar .brand img {
-    height: 40px; /* Align with text height */
+    height: 40px; 
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
@@ -42,7 +42,7 @@
     gap: 22px;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap; /* ✅ Prevents overflow on smaller devices */
+    flex-wrap: nowrap; /* 🚀 Prevents overflow on desktop */
 }
 
 .navbar .menu a {
@@ -87,7 +87,7 @@
     gap: 8px;
     margin: 0;
     padding-right: 40px;
-    flex-wrap: wrap; /* ✅ Ensures buttons align properly on small devices */
+    flex-wrap: nowrap; /* 🚀 Keeps login buttons on one line */
 }
 
 .navbar .auth a {
@@ -115,6 +115,7 @@
         flex-direction: column;
         align-items: center;
         padding: 8px 16px;
+        flex-wrap: wrap; /* ✅ Allow wrapping only in mobile */
     }
 
     .navbar .brand img {
@@ -127,12 +128,14 @@
         gap: 10px;
         text-align: center;
         margin-bottom: 8px;
+        flex-wrap: wrap; /* ✅ Safe for mobile menu */
     }
 
     .navbar .auth {
         flex-direction: column;
         gap: 6px;
         padding-right: 0;
+        flex-wrap: wrap; /* ✅ Allow buttons to stack in mobile */
     }
 
     .navbar .auth a {
@@ -140,6 +143,7 @@
         text-align: center;
     }
 }
+
 
 .badge {
     margin-left: 6px;
