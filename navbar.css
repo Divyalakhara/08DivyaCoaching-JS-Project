@@ -129,44 +129,40 @@
     }
 }
 
+/* ✅ Mobile: Only show Home, About, Gallery */
 @media (max-width: 768px) {
+    /* Keep navbar horizontal */
     .navbar {
-        flex-direction: row; /* ✅ Keep horizontal */
-        align-items: center;
-        padding: 8px 10px;
-        flex-wrap: nowrap; /* ✅ Prevent wrapping */
-        overflow-x: auto; /* ✅ Allow horizontal scroll */
-        -webkit-overflow-scrolling: touch; /* ✅ Smooth on mobile */
-    }
-
-    .navbar .menu {
-        flex-direction: row; /* ✅ Horizontal menu */
-        gap: 12px;
-        flex-wrap: nowrap;
-        margin-bottom: 0;
-        overflow-x: auto; /* ✅ Menu can scroll if needed */
-    }
-
-    .navbar .auth {
         flex-direction: row;
-        gap: 6px;
-        padding-right: 0;
+        align-items: center;
+        padding: 8px 12px;
         flex-wrap: nowrap;
-        width: auto;
+        justify-content: space-between;
     }
 
-    .navbar .auth a {
-        width: auto;
-        text-align: center;
-    }
-
-    /* ✅ Hide scrollbar for cleaner look */
-    .navbar::-webkit-scrollbar,
-    .navbar .menu::-webkit-scrollbar {
+    /* ✅ Hide auth buttons on mobile */
+    .navbar .auth {
         display: none;
     }
-}
 
+    /* ✅ Hide extra menu items except Home, About, Gallery */
+    .navbar .menu li:nth-child(n+4) {
+        display: none;
+    }
+
+    /* Keep menu horizontal */
+    .navbar .menu {
+        flex-direction: row;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        flex-wrap: nowrap;
+    }
+
+    .navbar .brand img {
+        height: 32px;
+    }
+}
 
 
 
