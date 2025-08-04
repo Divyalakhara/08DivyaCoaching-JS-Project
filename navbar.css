@@ -15,7 +15,7 @@
     z-index: 999;
     transition: background 0.4s ease, padding 0.3s ease;
     animation: slideDown 0.7s ease;
-    flex-wrap: nowrap; /* ✅ Prevent breaking on desktop */
+    flex-wrap: nowrap; /* 🚀 Prevents breaking on desktop */
 }
 
 /* 🔥 Navbar entry animation */
@@ -42,7 +42,7 @@
     gap: 22px;
     margin: 0;
     padding: 0;
-    flex-wrap: nowrap; /* ✅ Prevent overflow on desktop */
+    flex-wrap: nowrap; /* 🚀 Prevents overflow on desktop */
 }
 
 .navbar .menu a {
@@ -87,7 +87,7 @@
     gap: 8px;
     margin: 0;
     padding-right: 40px;
-    flex-wrap: nowrap; /* ✅ Keeps login buttons on one line */
+    flex-wrap: nowrap; /* 🚀 Keeps login buttons on one line */
 }
 
 .navbar .auth a {
@@ -115,13 +115,13 @@
         padding: 8px 20px; /* Reduce padding for tablet */
     }
     .navbar .menu {
-        gap: 14px;
-        flex: 1;
+        gap: 14px; /* Reduce gap so items fit */
+        flex: 1; /* ✅ Take remaining space */
         justify-content: center;
-        min-width: 0;
+        min-width: 0; /* ✅ Prevent overflow */
     }
     .navbar .auth {
-        flex-shrink: 0;
+        flex-shrink: 0; /* ✅ Don't push buttons down */
     }
     .navbar .auth a {
         padding: 6px 14px;
@@ -129,69 +129,47 @@
     }
 }
 
-/* ✅ Mobile – Only trigger on real small screens */
+/* ✅ Mobile – Keep navbar horizontal */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: row; /* ✅ Stay horizontal */
         align-items: center;
         padding: 8px 16px;
-        flex-wrap: wrap; /* ✅ Allow wrapping only on true mobile */
+        flex-wrap: nowrap; /* ✅ Prevent wrapping */
     }
 
     .navbar .brand img {
         height: 36px;
-        margin-bottom: 8px;
+        margin-bottom: 0; /* ✅ Remove bottom gap */
     }
 
     .navbar .menu {
-        flex-direction: column;
+        flex-direction: row; /* ✅ Horizontal menu */
         gap: 10px;
         text-align: center;
-        margin-bottom: 8px;
-        flex-wrap: wrap;
+        margin-bottom: 0;
+        flex-wrap: nowrap;
     }
 
     .navbar .auth {
-        flex-direction: column;
+        flex-direction: row; /* ✅ Horizontal auth buttons */
         gap: 6px;
         padding-right: 0;
-        flex-wrap: wrap;
-        width: 100%;
+        flex-wrap: nowrap;
+        width: auto; /* ✅ Keep natural width */
     }
 
     .navbar .auth a {
-        width: 100%;
+        width: auto; /* ✅ No full-width buttons */
         text-align: center;
     }
 }
 
-/* ✅ Force desktop layout when width >= 769px (fix for Desktop Site mode) */
-@media (min-width: 769px) {
-    .navbar {
-        flex-direction: row !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important;
-        padding: 12px 40px !important;
-    }
 
-    .navbar .menu {
-        flex-direction: row !important;
-        gap: 22px !important;
-        flex-wrap: nowrap !important;
-    }
 
-    .navbar .auth {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        width: auto !important;
-        padding-right: 40px !important;
-    }
-}
-
-/* ✅ Badge */
 .badge {
     margin-left: 6px;
-    background-color: #22c55e;
+    background-color: #22c55e; /* ✅ Same as Tailwind bg-green-500 */
     color: #fff;
     font-size: 10px;
     font-weight: bold;
@@ -206,3 +184,4 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
 }
+
