@@ -47,6 +47,21 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollY = window.scrollY;
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > lastScrollY && window.scrollY > 50) {
+            // Scrolling down → hide navbar
+            navbar.style.transform = "translateY(-100%)";
+        } else {
+            // Scrolling up → show navbar
+            navbar.style.transform = "translateY(0)";
+        }
+        lastScrollY = window.scrollY;
+    });
+});
 
     </script>
 </body>
