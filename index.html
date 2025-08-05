@@ -254,8 +254,17 @@
     <div class="hero-scroll-container" id="heroContainer">
         <!-- ✅ Main Hero Section -->
         <section
-            class="hero-section flex flex-col items-center justify-center text-white relative bg-indigo-700 p-12 text-center">
-            <div class="max-w-3xl">
+            class="hero-section relative flex flex-col items-center justify-center text-white p-12 text-center overflow-hidden">
+
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center z-0 blur-sm brightness-75"
+                style="background-image: url('CoachingPhoto 2025-08-05 at 22.56.17 (1).jpeg');"></div>
+
+            <!-- Overlay Color (optional) -->
+            <div class="absolute inset-0 bg-indigo-900/50 z-0"></div>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 max-w-3xl">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-300 mb-4">
                     Welcome to Divya Classes
                 </h2>
@@ -265,8 +274,8 @@
                 <p class="text-lg md:text-2xl mb-8">
                     Where excellence in education meets personalized learning. Start your journey today!
                 </p>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
 
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                     <!-- Explore Courses Button -->
                     <a href="courses.html"
                         class="inline-flex items-center gap-2 bg-white text-indigo-700 px-6 py-3 rounded-full font-bold shadow-md hover:bg-indigo-50 transition duration-300">
@@ -282,21 +291,16 @@
                     <!-- Start Career Button with Badge -->
                     <a href="Career.html"
                         class="inline-flex items-center gap-2 bg-green-400 text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-green-300 transition duration-300 relative">
-
                         🚀 <span>Start Career</span>
-
-                        <!-- Badge -->
                         <span
                             class="ml-2 bg-white text-green-600 text-xs font-semibold px-2 py-1 rounded-full shadow-sm">
                             Hiring
                         </span>
-
                     </a>
-
                 </div>
-
             </div>
         </section>
+
 
         <section
             class="hero-section flex flex-col md:flex-row items-center justify-center text-white relative bg-purple-700 p-10">
@@ -350,7 +354,7 @@
             class="hero-section flex flex-col md:flex-row items-center justify-center text-white relative bg-purple-700 p-10">
             <!-- Image Block -->
             <div class="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-                <img src="master.jpg" alt="Success"
+                <img src="CoachingPhoto 2025-08-05 at 22.56.15.jpeg" alt="Success"
                     class="rounded-2xl shadow-xl max-h-[28rem] object-cover border-4 border-white/20">
             </div>
 
@@ -481,6 +485,66 @@
             </div>
         </div>
     </section>
+
+    <!-- Carousel Wrapper -->
+    <div class="relative max-w-4xl mx-auto mt-10 rounded-xl overflow-hidden shadow-lg group bg-white">
+        <!-- Image Track -->
+        <div id="carouselTrack" class="flex transition-transform duration-700 ease-in-out">
+            <img src="CoachingPhoto 2025-08-05 at 22.56.09.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 1" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.13 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 2" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 3" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.12.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 4" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.13 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 5" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 6" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.10.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 7" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 8" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.10.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 9" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 10" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.10.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 11" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 12" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.10.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 13" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 14" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.10.jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 15" />
+            <img src="CoachingPhoto 2025-08-05 at 22.56.15 (1).jpeg" class="w-full h-96 object-cover flex-shrink-0"
+                alt="Image 16" />
+            <!-- Add more images here -->
+        </div>
+
+        <!-- Prev Button -->
+        <button onclick="prevSlide()"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition z-10">
+            ◀
+        </button>
+
+        <!-- Next Button -->
+        <button onclick="nextSlide()"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition z-10">
+            ▶
+        </button>
+        <!-- Dots -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+            <span onclick="goToSlide(0)" class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"></span>
+            <span onclick="goToSlide(1)" class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"></span>
+            <span onclick="goToSlide(2)" class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"></span>
+            <!-- Add dots for each image -->
+        </div>
+    </div>
+
 
     <section id="careerIntro"
         class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-16 px-6 md:px-12 rounded-2xl shadow-xl my-10">
@@ -823,6 +887,37 @@
 
         // ✅ Auto-refresh every 60 seconds
         setInterval(fetchNews, 60000);
+    </script>
+
+    <!-- Carousel Script -->
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('bg-gray-800'));
+            dots[currentIndex].classList.add('bg-gray-800');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % dots.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Optional: auto-slide every 5 seconds
+        // setInterval(nextSlide, 5000);
     </script>
 
 </body>
