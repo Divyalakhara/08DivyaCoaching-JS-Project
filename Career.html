@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Opportunities | Divya Classes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(67, 56, 202, 0.9) 100%), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9b91d468-0c98-4815-a82d-76dbd545a0b5.png') center/cover no-repeat;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        .job-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .application-form {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.9) 100%);
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .brand img {
+            height: 40px;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .brand img:hover {
+            transform: scale(1.1) rotate(-3deg);
+            filter: drop-shadow(0 0 8px #ffd369);
+        }
+
+        .brand img {
+            height: 32px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <!-- ✅ Brand Logo -->
+                        <div class="brand">
+                            <img src="image.png" alt="Divya Classes Logo" class="logo">
+                        </div>
+                    </div>
+                    <div class="hidden md:block ml-10">
+                        <div class="flex space-x-4">
+                            <a href="index.html" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="courses.html"
+                                class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                            <a href="about.html"
+                                class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="Career.html"
+                                class="bg-indigo-100 text-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Careers</a>
+                            <a href="contact.html"
+                                class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <button onclick="showApplicationForm()"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                        Join Our Team
+                    </button>
+                </div>
+
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 hero-content mb-10 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Build Your Career at Divya Classes</h1>
+                    <p class="text-xl mb-8">Join our team of passionate educators and make a difference in students'
+                        lives every day.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToCurrentPosition()"
+                            class="bg-white text-indigo-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition duration-300">
+                            View Open Positions
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d2b6614-2fa3-4803-9a20-9c9dbefa3fb9.png"
+                        alt="Professional educators from Divya Classes in a classroom environment"
+                        class="rounded-lg shadow-xl animate-float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Join Divya Classes?</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">We're building the future of education with passionate
+                    educators who share our vision.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white rounded-xl shadow-md p-8 benefit-card transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-chalkboard-teacher text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Professional Growth</h3>
+                    <p class="text-gray-600">Continuous training programs, workshops, and opportunities to attend
+                        education conferences.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-white rounded-xl shadow-md p-8 benefit-card transition duration-300">
+                    <div class="text-green-500 mb-4">
+                        <i class="fas fa-hand-holding-heart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Competitive Benefits</h3>
+                    <p class="text-gray-600">Health insurance, retirement plans, paid time off, and performance bonuses.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-white rounded-xl shadow-md p-8 benefit-card transition duration-300">
+                    <div class="text-orange-400 mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Supportive Community</h3>
+                    <p class="text-gray-600">Collaborative environment with mentorship programs and team-building
+                        activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Openings -->
+    <section class="py-16" id="CurrentPosition">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Current Open Positions</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Explore opportunities to join our educational team.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Job 1 -->
+                <div class="job-card border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-gray-900">Mathematics Faculty class For 11-12</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span
+                                    class="text-xs px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Full-time</span>
+                                <span class="text-xs px-3 py-1 bg-green-100 text-green-800 rounded-full">Online</span>
+                                <span
+                                    class="text-xs px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">Experienced</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-gray-600">
+                        <p> We’re seeking a dedicated <strong>Mathematics Faculty</strong> to teach students of Class 11
+                            and 12. The role involves building a strong conceptual foundation in Algebra, Calculus,
+                            Trigonometry, and other advanced topics while preparing students for board exams and
+                            entrance tests like JEE.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>Teach higher secondary Maths with clarity and exam-oriented techniques</li>
+                            <li>Prepare assignments, test papers, and revision materials</li>
+                            <li>Track individual performance and offer personalized mentoring</li>
+                            <li>Guide students for competitive exams (JEE Main, Advanced)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-gray-900">Science Physics Teacher class For 11-12</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span
+                                    class="text-xs px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Full-time</span>
+                                <span class="text-xs px-3 py-1 bg-green-100 text-green-800 rounded-full">Online</span>
+                                <span class="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Experienced
+                                    Level</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-gray-600">
+                        <p> We're looking for an experienced <strong>Science Teacher</strong> to mentor students of
+                            Class 11 and 12 in Physics. The role includes curriculum planning,
+                            conceptual teaching, and guiding students through board and entrance exam preparations.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>Teach core science subjects with clarity and depth</li>
+                            <li>Prepare students for board exams and competitive tests (NEET/JEE)</li>
+                            <li>Engage students with practical examples and experiments</li>
+                            <li>Track student performance and provide timely feedback</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-gray-900">Kids Teacher for class 1-2</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span
+                                    class="text-xs px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Full-time</span>
+                                <span class="text-xs px-3 py-1 bg-green-100 text-green-800 rounded-full">Online</span>
+                                <span
+                                    class="text-xs px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">Experienced</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-gray-600">
+                        <p> We're seeking a passionate <strong>Kids Teacher</strong> for Class 1 and 2 to guide young
+                            learners through their early educational journey. The role involves creating engaging
+                            lessons, identifying student needs, and supporting their foundational growth academically
+                            and emotionally.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>Design and deliver age-appropriate lesson plans</li>
+                            <li>Assess learning styles and adjust teaching methods</li>
+                            <li>Foster curiosity, creativity, and confidence</li>
+                            <li>Provide academic and behavioral support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div
+                    class="job-card extra-job hidden border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-gray-900">Chemistry Faculty (Class 11 & 12)</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span
+                                    class="text-xs px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Full-time</span>
+                                <span class="text-xs px-3 py-1 bg-green-100 text-green-800 rounded-full">Online</span>
+                                <span class="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Experienced
+                                    Level</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-gray-600">
+                        <p> Divya Classes is looking for a passionate <strong>Chemistry Faculty</strong> to teach Class
+                            11 and 12 students. The ideal candidate should be capable of breaking down complex concepts
+                            in Organic, Inorganic, and Physical Chemistry and preparing students for board and entrance
+                            exams like NEET and JEE.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>Teach Chemistry concepts in-depth with real-world examples</li>
+                            <li>Create test series, notes, and practical demonstration sessions</li>
+                            <li>Track student progress and provide academic mentorship</li>
+                            <li>Prepare students for NEET/JEE with focused strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Job 5-->
+                <div
+                    class="job-card extra-job hidden border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold text-gray-900">Biology Faculty (Class 11 & 12)</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span
+                                    class="text-xs px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Full-time</span>
+                                <span class="text-xs px-3 py-1 bg-green-100 text-green-800 rounded-full">Online</span>
+                                <span class="text-xs px-3 py-1 bg-purple-100 text-purple-800 rounded-full">Experienced
+                                    Level</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-gray-600">
+                        <p>Divya Classes is seeking a dynamic <strong>Biology Faculty</strong> to educate and inspire
+                            Class 11 & 12 students.
+                            You will be responsible for delivering clear instruction in Botany and Zoology, guiding NEET
+                            aspirants, and
+                            fostering a love for life sciences.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>Teach Biology (Botany & Zoology) with clarity and enthusiasm</li>
+                            <li>Prepare students for NEET and board exams</li>
+                            <li>Create detailed notes, visuals, and question banks</li>
+                            <li>Track student progress and conduct regular assessments</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-10">
+                <button id="viewAllBtn" onclick="showAllJobs()"
+                    class="border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-md font-medium hover:bg-indigo-50 transition duration-300">
+                    View All Positions
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture & Values -->
+    <section class="py-16 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Culture & Values</h2>
+                    <p class="text-gray-700 mb-6">At Divya Classes, we believe that great teaching transforms lives. Our
+                        culture is built on collaboration, innovation, and a shared commitment to student success.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 text-indigo-600">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Student-Centered Approach</p>
+                                <p class="text-gray-600">Every decision we make prioritizes student learning and growth.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 text-indigo-600">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Continuous Learning</p>
+                                <p class="text-gray-600">We invest in our educators' professional development through
+                                    ongoing training.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 text-indigo-600">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Collaborative Spirit</p>
+                                <p class="text-gray-600">We believe in teamwork and shared best practices across all our
+                                    educators.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ba9f0a53-f1ee-41d5-b214-fa4cce96ca3d.png"
+                        alt="Divya Classes faculty members working together in a bright learning environment"
+                        class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Hear From Our Team</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">What our educators say about working at Divya Classes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/90861995-98b4-4572-b296-b18bb6bb2d2f.png"
+                            alt="Portrait of Tanvi E., Mathematics Faculty" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Tanvi E.</h4>
+                            <p class="text-gray-600 text-sm">Mathematics Faculty</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>"Divya Classes provides the perfect environment for educators who want to make a real
+                            difference. The professional development opportunities have helped me grow tremendously as a
+                            teacher."</p>
+                    </div>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2e714f9f-d408-4f2d-aee9-b9bddef8657e.png"
+                            alt="Portrait of Rahul S., Academic Counselor" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Rahul S.</h4>
+                            <p class="text-gray-600 text-sm">Academic Counselor</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>"What I love about Divya Classes is the supportive community. Everyone from leadership to
+                            fellow educators genuinely cares about each other's success and our students' achievements."
+                        </p>
+                    </div>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca20d3cd-82a3-4ef7-82bf-da5da2e18154.png"
+                            alt="Portrait of Priya M., Science Teacher" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Priya M.</h4>
+                            <p class="text-gray-600 text-sm">Science Teacher</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>"The flexibility and resources at Divya Classes allow me to create innovative lesson plans.
+                            Seeing my students' excitement for learning science makes every day rewarding."</p>
+                    </div>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form py-16" id="ApplicationForm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <!-- Left section -->
+                    <div class="md:w-1/2 bg-indigo-600 text-white p-8 md:p-12">
+                        <h2 class="text-3xl font-bold mb-6">Ready to Join Us?</h2>
+                        <p class="mb-6">Complete this form to start your career journey with Divya Classes. Our HR team
+                            will review your application and get in touch if there's a potential match.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-indigo-200 mr-3"></i>
+                                <p class="text-indigo-200">Response within 3 business days</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-indigo-200 mr-3"></i>
+                                <p class="text-indigo-200">Completely confidential process</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-indigo-200 mr-3"></i>
+                                <p class="text-indigo-200">All applications considered</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right section -->
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <form id="careerForm">
+                            <!-- Name -->
+                            <div class="mb-6">
+                                <label for="fullName" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="fullName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-6">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+
+                            <!-- Position Selection -->
+                            <div class="mb-6">
+                                <label for="position" class="block text-gray-700 font-medium mb-2">Position Interested
+                                    In</label>
+                                <select id="position" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    <option value="" disabled selected>Select a position</option>
+                                    <option value="Mathematics Faculty">Mathematics Faculty for Class 11-12</option>
+                                    <option value="Physics Teacher">Science – Physics Teacher for Class 11-12</option>
+                                    <option value="Chemistry Teacher">Science – Chemistry Teacher for Class 11-12
+                                    </option>
+                                    <option value="Biology Teacher">Science – Biology Teacher for Class 11-12</option>
+                                    <option value="Kids Teacher">Kids Teacher for Class 1-2</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Resume Upload -->
+                            <div class="mb-6">
+                                <label for="resume" class="block text-gray-700 font-medium mb-2">Upload Resume</label>
+                                <label for="resume"
+                                    class="flex flex-col w-full border-2 border-dashed border-gray-300 hover:border-gray-400 rounded-md cursor-pointer transition duration-300">
+                                    <div class="flex flex-col items-center justify-center py-6" id="resumeDropText">
+                                        <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                        <p class="text-sm text-gray-600">Click to upload or drag and drop</p>
+                                        <p class="text-xs text-gray-500">PDF, DOC, DOCX up to 5MB</p>
+                                    </div>
+                                    <input id="resume" type="file" class="hidden" accept=".pdf,.doc,.docx">
+                                </label>
+                                <p id="resumeFileName" class="text-sm text-gray-600 mt-2"></p>
+                            </div>
+
+
+                            <!-- Message -->
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Why You're
+                                    Interested</label>
+                                <textarea id="message" rows="4"
+                                    placeholder="Tell us why you're interested in joining Divya Classes"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+
+                            <!-- Agreement -->
+                            <div class="flex items-center mb-6">
+                                <input id="agree" type="checkbox" required
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="agree" class="ml-2 block text-sm text-gray-700">
+                                    I agree to the processing of my personal data according to Divya Classes' Privacy
+                                    Policy.
+                                </label>
+                            </div>
+
+                            <!-- Submit -->
+                            <button type="submit"
+                                class="w-full bg-indigo-600 text-white py-3 rounded-md font-medium hover:bg-indigo-700 transition duration-300">
+                                Send to WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="brand">
+                        <img src="image.png" alt="Divya Classes Logo" class="logo">
+                    </div>
+                    <p class="text-gray-400">Empowering students through quality education since 2024.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="courses.html" class="text-gray-400 hover:text-white">Courses</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="Career.html" class="text-gray-400 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>New Housing Board, Pali, Rajasthan, 306401</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+91 7976675411</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>divyalakhara08@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/YourProfile" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/YourProfile" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 Divya Classes. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white mr-4">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                    <i class="fas fa-check text-green-600"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">Application Submitted!</h3>
+                <p class="text-gray-600 mb-6">Thank you for your interest in Divya Classes. We'll review your
+                    application and get back to you soon.</p>
+                <button onclick="closeModal()"
+                    class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAllJobs() {
+            const extraJobs = document.querySelectorAll('.extra-job');
+            extraJobs.forEach(job => job.classList.remove('hidden'));
+
+            // Optional: hide the button after showing all jobs
+            const viewAllBtn = document.getElementById('viewAllBtn');
+            if (viewAllBtn) viewAllBtn.classList.add('hidden');
+        }
+        function scrollToCurrentPosition() {
+            const positionSection = document.getElementById('CurrentPosition');
+            if (positionSection) {
+                positionSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        function showApplicationForm() {
+            const form = document.getElementById('ApplicationForm');
+            form.classList.remove('hidden'); // Reveal the section
+            form.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to it
+        }
+    </script>
+    <script>
+        document.getElementById('careerForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            // Get input values
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const position = document.getElementById('position').value;
+            const message = document.getElementById('message').value.trim() || 'N/A';
+            const resumeInput = document.getElementById('resume');
+            const hasResume = resumeInput.files.length > 0;
+
+            // ✅ Validate 10-digit phone number
+            const phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return;
+            }
+
+            // Format WhatsApp message
+            let whatsappMessage = `Hello Divya Classes Team,%0A%0A*New Job Application Received*%0A%0A`;
+            whatsappMessage += `*Name:* ${name}%0A`;
+            whatsappMessage += `*Email:* ${email}%0A`;
+            whatsappMessage += `*Phone:* ${phone}%0A`;
+            whatsappMessage += `*Position:* ${position}%0A`;
+            whatsappMessage += `*Message:* ${message}%0A`;
+            whatsappMessage += `*Resume Uploaded:* ${hasResume ? 'Yes' : 'No'}%0A`;
+
+            // WhatsApp Number (no +)
+            const phoneNumber = "7976675411";
+
+            // Open WhatsApp chat with message
+            window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+        });
+
+
+        const resumeInput = document.getElementById('resume');
+        const fileNameDisplay = document.getElementById('resumeFileName');
+        const dropText = document.getElementById('resumeDropText');
+
+        resumeInput.addEventListener('change', () => {
+            const file = resumeInput.files[0];
+
+            if (file) {
+                const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                const maxSize = 5 * 1024 * 1024; // 5MB
+
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Only PDF, DOC, and DOCX files are allowed.');
+                    resumeInput.value = '';
+                    fileNameDisplay.textContent = '';
+                    return;
+                }
+
+                if (file.size > maxSize) {
+                    alert('File size should not exceed 5MB.');
+                    resumeInput.value = '';
+                    fileNameDisplay.textContent = '';
+                    return;
+                }   
+
+                fileNameDisplay.textContent = `Selected: ${file.name}`;
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>
