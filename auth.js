@@ -28,10 +28,34 @@ function login() {
   }
 
   auth.signInWithEmailAndPassword(email, password)
-    .then(() => window.location.href = "dashboard.html")
+    .then(() => {
+      const params = new URLSearchParams(window.location.search);
+      const fromQuery = params.get('from');
+      const fromSession = sessionStorage.getItem('fromPage');
+
+      const from = fromQuery || fromSession;
+
+      sessionStorage.removeItem('fromPage');  // cleanup
+
+      if (from === 'primary') {
+        window.location.href = "primary.html";
+      } else if (from === 'middle') {
+        window.location.href = "middle.html";
+      } else if (from === 'highschool') {
+        window.location.href = "highschool.html";
+      } else if (from === 'kids') {
+        window.location.href = "kidstution.html";
+      } else if (from === 'special') {
+        window.location.href = "specialpro.html";
+      } else if (from === 'summer') {
+        window.location.href = "summerprog.html";
+      } else {
+        window.location.href = "dashboard.html";
+      }
+    })
     .catch(err => {
       if (["auth/user-not-found", "auth/wrong-password", "auth/invalid-credential"].includes(err.code)) {
-        showAlert("❌ Sorry, we don't recognize that username or password. You can try again or reset your password.");
+        showAlert("❌ Sorry, we don't recognize that username or password.");
       } else if (err.code === "auth/invalid-email") {
         showAlert("⚠️ Please enter a valid email address.");
       } else {
@@ -47,7 +71,6 @@ function handleGoogleLogin(response) {
     .then(userCredential => {
       const user = userCredential.user;
 
-      // ✅ Save or update user info in Firestore
       db.collection("users").doc(user.uid).set({
         email: user.email,
         name: user.displayName || "",
@@ -56,16 +79,36 @@ function handleGoogleLogin(response) {
         provider: "google"
       }, { merge: true });
 
-      window.location.href = "dashboard.html";
+      const fromQuery = new URLSearchParams(window.location.search).get('from');
+      const fromSession = sessionStorage.getItem('fromPage');
+      const from = fromQuery || fromSession;
+
+      sessionStorage.removeItem('fromPage');
+
+      if (from === 'primary') {
+        window.location.href = "primary.html";
+      } else if (from === 'middle') {
+        window.location.href = "middle.html";
+      } else if (from === 'highschool') {
+        window.location.href = "highschool.html";
+      } else if (from === 'kids') {
+        window.location.href = "kidstution.html";
+      } else if (from === 'special') {
+        window.location.href = "specialpro.html";
+      } else if (from === 'summer') {
+        window.location.href = "summerprog.html";
+      } else {
+        window.location.href = "dashboard.html";
+      }
     })
     .catch(err => {
       if (err.code === "auth/account-exists-with-different-credential") {
         const email = err.customData.email;
         auth.fetchSignInMethodsForEmail(email).then(methods => {
           if (methods.includes('password')) {
-            showAlert("⚠️ This email is already registered with password. Please login with email/password first, then link Google.");
+            showAlert("⚠️ Email already registered. Login with email/password first.");
           } else {
-            showAlert("⚠️ This account exists with another provider: " + methods.join(", "));
+            showAlert("⚠️ Account exists with: " + methods.join(", "));
           }
         });
       } else {
@@ -73,11 +116,6 @@ function handleGoogleLogin(response) {
       }
     });
 }
-
-
-
-
-/* ✅ Register */
 function register() {
   const email = document.getElementById("regEmail").value.trim();
   const password = document.getElementById("regPassword").value.trim();
@@ -101,21 +139,46 @@ function register() {
 
   auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
-      showAlert("✅ Registration successful! You can now log in.");
-      // Check if the user came from courses.html
-    let params = new URLSearchParams(window.location.search);
-    if (params.get('from') === 'courses') {
-      // Redirect back to courses.html to open the demo video
-      window.location.href = "courses.html?registered=success";
-    } else {
-      // Default redirect to login if not from courses
-      window.location.href = "login.html";
-    }
+      showAlert("✅ Registration successful! Redirecting...");
 
+      const params = new URLSearchParams(window.location.search);
+      const fromQuery = params.get('from');
+      const fromSession = sessionStorage.getItem('fromPage');
+
+      const from = fromQuery || fromSession;
+
+      setTimeout(() => {
+        sessionStorage.removeItem('fromPage');
+
+        if (from === 'primary') {
+          window.location.href = "primary.html";
+        } else if (from === 'middle') {
+          window.location.href = "middle.html";
+        } else if (from === 'highschool') {
+          window.location.href = "highschool.html";
+        } else if (from === 'kids') {
+          window.location.href = "kidstution.html";
+        } else if (from === 'special') {
+          window.location.href = "specialpro.html";
+        } else if (from === 'summer') {
+          window.location.href = "summerprog.html";
+        } else {
+          window.location.href = "dashboard.html";
+        }
+      }, 500);
     })
     .catch(err => {
       if (err.code === "auth/email-already-in-use") {
-        showAlert("⚠️ This email is already registered. Please log in instead.");
+        showAlert("⚠️ This email is already registered. Redirecting to login...");
+        const from = new URLSearchParams(window.location.search).get('from');
+
+        setTimeout(() => {
+          if (from === 'primary' || from === 'middle' || from === "highschool" || from === "kids" || from ==="summer" || from ==="special") {
+            window.location.href = `login.html?from=${from}`;
+          } else {
+            window.location.href = "login.html";
+          }
+        }, 2000);
       } else if (err.code === "auth/invalid-email") {
         showAlert("⚠️ Please enter a valid email address.");
       } else if (err.code === "auth/weak-password") {
@@ -125,6 +188,7 @@ function register() {
       }
     });
 }
+
 
 
 /* ✅ Forgot Password */

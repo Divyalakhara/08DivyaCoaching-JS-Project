@@ -47,7 +47,7 @@
             <span class="toggle-password" onclick="togglePassword('regPassword', this)">👁️</span>
         </div>
         <button onclick="register()">Register</button>
-        <button class="link-btn" onclick="window.location.href='login.html'">Back to Login</button>
+        <button class="link-btn" onclick="goToLogin()">Back to Login</button>
     </div>
 
 
@@ -63,7 +63,22 @@
             .then(html => document.getElementById('navbar-container').innerHTML = html)
             .catch(err => console.error("Error loading navbar:", err));
 
+        function goToLogin() {
+          if (from === "details") {
+                window.location.href = "login.html?from=details";
+            } else {
+                window.location.href = "login.html";
+            }
+        }
 
+    </script>
+    <script>
+        // ✅ Capture ?from=details and store it
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+        if (from) {
+            sessionStorage.setItem('fromPage', from);
+        }
     </script>
 </body>
 

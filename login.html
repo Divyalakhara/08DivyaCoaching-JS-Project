@@ -29,11 +29,14 @@
         .navbar li {
             margin: 0 10px;
         }
-         #g_id_onload,
+
+        #g_id_onload,
         .g_id_signin {
             display: block;
-            width: 240px;  /* standard Google button width */
-            height: 50px;  /* standard height */
+            width: 240px;
+            /* standard Google button width */
+            height: 50px;
+            /* standard height */
             margin: 10px auto 0;
         }
     </style>
@@ -73,6 +76,14 @@
             .then(res => res.text())
             .then(html => document.getElementById('navbar-container').innerHTML = html)
             .catch(err => console.error("Error loading navbar:", err));
+    </script>
+    <script>
+        // ✅ Capture ?from=details and store it
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+        if (from) {
+            sessionStorage.setItem('fromPage', from);
+        }
     </script>
 </body>
 
