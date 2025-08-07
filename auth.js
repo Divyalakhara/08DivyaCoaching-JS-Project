@@ -50,7 +50,7 @@ function login() {
       } else if (from === 'summer') {
         window.location.href = "summerprog.html";
       } else {
-        window.location.href = "dashboard.html";
+        window.location.href = "courses.html";
       }
     })
     .catch(err => {
@@ -98,7 +98,7 @@ function handleGoogleLogin(response) {
       } else if (from === 'summer') {
         window.location.href = "summerprog.html";
       } else {
-        window.location.href = "dashboard.html";
+        window.location.href = "courses.html";
       }
     })
     .catch(err => {
@@ -163,7 +163,7 @@ function register() {
         } else if (from === 'summer') {
           window.location.href = "summerprog.html";
         } else {
-          window.location.href = "dashboard.html";
+          window.location.href = "courses.html";
         }
       }, 500);
     })
