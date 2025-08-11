@@ -50,7 +50,12 @@
     <p class="text-lg mb-6 opacity-90">Watch this free demo video to experience our teaching style.</p>
 
     <!-- Video Container -->
-    <div id="videoContainer" class="video-wrapper mb-4"></div>
+    <div id="videoContainer" class="video-wrapper mb-4">
+      <video id="demoVideo" class="w-full rounded-lg" controls autoplay>
+        <source src="WhatsApp Video 2025-08-11 at 15.33.11.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     <!-- Progress bar for MP4 -->
     <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
@@ -70,52 +75,27 @@
   </div>
 
   <script>
-    // ✅ CONFIG: Change values here
-    const videoType = "youtube"; // "youtube" or "mp4"
-    const videoURL = "https://www.youtube.com/watch?v=MrTxRn9MNWM"; // Or "demo.mp4"
-
-    const container = document.getElementById('videoContainer');
+    const demoVideo = document.getElementById('demoVideo');
     const progressFill = document.getElementById('progressFill');
     const replayBtn = document.getElementById('replayBtn');
 
-    if (videoType === "youtube") {
-      const urlParams = new URL(videoURL);
-      const videoId = urlParams.searchParams.get("v");
-      container.innerHTML = `
-        <iframe 
-          src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0" 
-          title="Demo Video"
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>`;
-    } 
-    else if (videoType === "mp4") {
-      container.innerHTML = `
-        <video id="demoVideo" class="w-full rounded-lg" controls autoplay>
-          <source src="${videoURL}" type="video/mp4">
-        </video>`;
+    // ✅ Progress bar update
+    demoVideo.addEventListener('timeupdate', () => {
+      const progress = (demoVideo.currentTime / demoVideo.duration) * 100;
+      progressFill.style.width = progress + "%";
+    });
 
-      const demoVideo = document.getElementById('demoVideo');
+    // ✅ Show replay button at end
+    demoVideo.addEventListener('ended', () => {
+      replayBtn.classList.remove('hidden');
+    });
 
-      // ✅ Progress bar update for MP4
-      demoVideo.addEventListener('timeupdate', () => {
-        const progress = (demoVideo.currentTime / demoVideo.duration) * 100;
-        progressFill.style.width = progress + "%";
-      });
-
-      // ✅ Show replay button at end
-      demoVideo.addEventListener('ended', () => {
-        replayBtn.classList.remove('hidden');
-      });
-
-      // ✅ Replay video on button click
-      replayBtn.addEventListener('click', () => {
-        demoVideo.currentTime = 0;
-        demoVideo.play();
-        replayBtn.classList.add('hidden');
-      });
-    }
+    // ✅ Replay video on button click
+    replayBtn.addEventListener('click', () => {
+      demoVideo.currentTime = 0;
+      demoVideo.play();
+      replayBtn.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
